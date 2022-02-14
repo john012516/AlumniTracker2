@@ -3,8 +3,26 @@ from django.http import HttpResponse
 from .models import *
 from .forms import *
 from .filters import EventFilter
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
+
+def registerpage(request):
+	form = CreateUserForm()
+
+	if request.method == 'POST':
+		form = CreateUserForm(request.POST)
+		if form.is_valid():
+			form.save()
+
+	
+	context={'form': form}
+	return render(request, 'CITAT/User_Register.html',context)
+
+def loginpage(request):
+
+	context={}
+	return render(request, 'CITAT/login.html',context )
 
 def homepage(request):
 	#return HttpResponse("landing");

@@ -8,7 +8,8 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    
+    path('login', views.loginpage, name='loginpage'),
+    path('register', views.registerpage, name='registerpage'),
 
     path('', views.homepage, name='home'),
     path('aboutus/', views.aboutpage, name='about'),

@@ -1,4 +1,9 @@
 from django.forms import ModelForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django import forms
+
+
 from .models import *
 
 class JobsForm(ModelForm):
@@ -10,3 +15,20 @@ class EventForm(ModelForm):
 	class Meta:
 		model = Event
 		fields = '__all__'
+
+class UserEmployedForm(ModelForm):
+		models = UserEmployed
+		fields = '__all__'
+
+class UserUnEmployedForm(ModelForm):
+		models = UserUnemployed
+		fields = '__all__'
+
+class UserSelfEmployedForm(ModelForm):
+		models = UserSelfemployed
+		fields = '__all__'
+
+class CreateUserForm(UserCreationForm):
+	class Meta:
+		model = User
+		fields = ['username', 'email', 'password1', 'password2']
