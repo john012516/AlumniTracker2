@@ -1,7 +1,6 @@
 {% extends 'CITAT/navbar.html' %}
 {% load static %}
 {% block content %}
-{%include 'CITAT/eventstatus.html' %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,66 +11,25 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Events</title>
+    <title>CRUD JOB</title>
   </head>
   <body>
-   <br>
 
 <div class="row">
 	<div class="col-md-12">
-	
-		<div class="row">
-	<div class="col">
 		<div class="card card-body">
-
-			<form method="get">
-					{{myFilter.form}}
-				<button class="btn btn primary" type="submit"> Search </button>
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{form}}
+				<br>
+				<br>
+				<input class="btn btn-primary" type="submit" name="submit">
+				
 			</form>
 		</div>
 	</div>
 </div>
 
-	<h5>Events</h5>
-
-		<hr>
-		<div class="card card-body">
-			<a class="btn btn-danger btn-sm btn-block" href="{% url 'create_event' %}">Create Event</a>
-			<table class="table table-sm">
-				<tr>
-					
-					<th>Event Name</th>
-					<th>Date</th>
-					<th>Time</th>
-					<th>place</th>
-					<th>status</th>
-					<th>update</th>
-					<th>delete</th>
-				</tr>
-
-				{% for i in event %}
-				<tr>
-				<td>{{i.Eventname}}</td>
-				<td>{{i.date}}</td>
-				<td>{{i.time}}</td>
-				<td>{{i.place}}</td>
-				<td>{{i.status}}</td>
-				<td> <a class = "btn btn-sm btn-info" href="{% url 'update_event' i.id %}">Update</a></td>
-				<td> <a class = "btn btn-sm btn-danger" href="{% url 'delete_event' i.id %}">Delete</a></td>
-				</tr>
-
-
-				{% endfor %}
-			</table>
-		</div>
-</div>
-</div>
-	
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -79,4 +37,4 @@
 </html>
 
 
-{% endblock content %}
+{%endblock%}

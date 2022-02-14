@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     #MyApps
     'CITAT.apps.CitatConfig',
 
+    'django_filters',
+
     
 ]
 
