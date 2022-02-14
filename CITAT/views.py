@@ -17,6 +17,20 @@ def aboutpage(request):
 	return render(request, 'CITAT/about.html')
 
 
+def useremployed(request):
+
+	return render(request, 'CITAT/User_Employed.html')
+
+def userunemployed(request):
+
+	return render(request, 'CITAT/User_Unemployed.html')
+
+def userselfemployed(request):
+
+	return render(request, 'CITAT/User_SelfEmployed.html')
+
+
+
 
 def contactpage(request):
 	#return HttpResponse("contact");
@@ -149,3 +163,6 @@ def deleteJob(request, pk):
 
 	context={'item':jobs}
 	return render(request, 'CITAT/deletejob.html', context)
+
+
+

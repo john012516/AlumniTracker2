@@ -1,0 +1,151 @@
+{% extends 'CITAT/navbar.html' %}
+{% load static %}
+{% block content %}
+<!doctype html>
+<html>
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>FILL UP FORM</title>
+
+</head>
+<body>
+    <form method="post" action="" autocomplete="on">
+        <div id="container">
+        <h2>
+            <span id="lbltitle" style="font-weight:bold;">Fill up form</span>
+        </h2>
+
+        <div class="mid_box">
+            <div class="mid-outer">
+                <div class="mid-inner">
+                    <div class="mid">
+                        <div id="main">
+
+                              <div id="">
+                                <td align="left">
+                                    <div class="form_tab">
+                                        Questions for Presently Employed</div>
+                                            <fieldset>
+                                                <center>
+                                                    <table cellspacing="5" cellpadding="4" width="100%">
+                                                                        
+                                                         <table cellspacing="5" cellpadding="4" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="right" width="45%">
+                                                                        Are you presently employed/self employed? :
+
+                                                                    </td>
+                                                                    <td align="left" width="55%">
+                                                                        <input name="employed" type="radio" value = "Yes" required>Yes
+                                                                        <input name="employed" type="radio" value = "No" required>No
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td align="right" width="45%">
+                                                                    What type of Organization do you belong? :
+                                                                    </td>
+                                                                    <td align="left" width="55%">
+                                                                        <select name="organization" required>
+                                                                            <option value="">--Select--</option>
+                                                                            <option  value="Government Organization (GO)">Government Organization (GO)</option>
+                                                                            <option  value="Business Organization (BO)">Business Organization (BO)</option>
+                                                                            <option  value="Private Organization">Private Organization</option>
+                                                                            <option  value="Cooperative">Cooperative</option>
+                                                                            <option  value="Non Government Organization">Non Government Organization</option>
+                                                                            <option  value="Peoples Organization">Peoples Organization</option>
+                                                                        </select><br/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="right">
+                                                                        Were you selected according to your qualifications? :
+                                                                    </td>
+                                                                    <td align="left">
+                                                                    <select name="selection" required>
+                                                                        <option value="">--Select--</option>
+                                                                        <option  value="Selection">Selection</option>
+                                                                        <option  value="Retention">Retention</option>
+                                                                        <option  value="Promotion">Promotion</option>
+                                                                        
+                                                                    </select><br/>
+                                                                    </td>
+                                                                    </tr>
+
+                                                                    <tr><br/></tr>
+
+                                                                    <tr>
+                                                                        <td align="right" width="45%">
+                                                                            What is your annual income from your present employment? Pesos :
+                                                                        </td>
+                                                                        <td align="left" width="55%">
+                                                                            <input type = "text" name = "income">
+                                                                        </td>
+                                                                        </tr>
+                                                                        <tr><br/></tr>
+                                                                        <tr>
+                                                                        <td align="right" width="45%">
+                                                                            Were you able to use the skills acquired from your degree/course to your current work? :
+                                                                        </td>
+                                                                        <td align="left" width="55%">
+                                                                        <select name="skills" required>
+                                                                            <option value="">--Select--</option>
+                                                                            <option  value="Yes">Yes</option>
+                                                                            <option  value="No">No</option>
+
+                                                                        </select><br/>
+                                                                        </td>
+                                                                        </tr>
+                                                                        
+                                                                    </tbody>
+                                                                    </table>
+                                                                     <br>
+                                        <center>
+                                            <table cellspacing="0" width="80%" border="0">
+                                                <tbody><tr>
+                                                    <td align="center">
+                                                        <input type="submit" name="submit" id="submit" class="sub_red" >
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </center>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        
+</div>
+                        
+                        <br>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-outer">
+                <div class="bottom-inner">
+                    <div class="bottom">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    
+        </form>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
+{% endblock content %}

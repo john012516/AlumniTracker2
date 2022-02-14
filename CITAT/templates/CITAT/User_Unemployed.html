@@ -1,0 +1,192 @@
+{% extends 'CITAT/navbar.html' %}
+{% load static %}
+{% block content %}
+<!doctype html>
+<html>
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>FILL UP FORM</title>
+
+</head>
+<body>
+<form method="post" action="" autocomplete="on">
+  <div class="top_banner">
+    <div class="in_banner">
+      <div class="banner_text">
+        
+              
+        </div>
+      </div>
+  </div>
+
+    </div>
+    <div id="container">
+       
+
+  
+        <h2>
+            <span id="lbltitle" style="font-weight:bold;">Fill up form</span>
+        </h2>
+        
+        <div class="mid_box">
+            <div class="mid-outer">
+                <div class="mid-inner">
+                    <div class="mid">
+                        <div id="main">
+    
+                        
+                                        <div id="">
+                                        
+                                                        <td align="left">
+                                                          <div class="form_tab">
+                                                               Questions for Never Employed</div>
+                                                            <fieldset>
+                                                                <center>
+                                                                <table cellspacing="5" cellpadding="4" width="100%">
+                                                                        
+                                                                    <table cellspacing="5" cellpadding="4" width="100%">
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td align="right" width="45%">
+                                                                              If never employed, what is the reason why you are not yet employed? :
+
+                                                                            </td>
+                                                                            <td align="left" width="55%">
+                                                                          <select name="reason" required>
+    <option value="">--Select--</option>
+    <option  value="I cannot find a good job">I cannot find a good job</option>
+    <option  value="advance or further study first">advance or further study first</option>
+    <option  value="i do not like to be tied with a job and have a boss">i do not like to be tied with a job and have a boss</option>
+    <option  value="Advise of husband/wife or relatives">Advise of husband/wife or relatives</option>
+    <option  value="No job opportunity">No job opportunity</option>
+    <option  value="Health-related reasons">Health-related reasons</option>
+    <option  value="Family concern and decided no to find a job">Family concern and decided no to find a job</option>
+    <option  value="I want to put my own business">I want to put my own business</option>
+        <option  value="I want to be of my own">I want to be of my own</option>
+    <option  value="Lack of work experience">Lack of work experience</option>
+    <option  value="Did not look for job">Did not look for job</option>
+    <option  value="Others">Others</option>
+
+</select><br/>
+                                                                            </td>
+                                                                        </tr>
+                                                                            
+                                                                            <tr>
+                                                                            <td align="right" width="45%">
+                                                                             Have you been seeking for a job? :
+                                                                             
+                                                                            </td>
+                                                                            <td align="left" width="55%">
+                                                                                <input name="seek" type="radio" value = "Yes" required>Yes
+                                                                                <input name="seek" type="radio" value = "No" required>No
+                                                                            </td>
+                                                                            
+                                                                            </tr>
+                                                                        <tr><br/></tr>
+                                                                        
+                                                                                <tr>
+                                                                            <td align="right" width="45%">
+                                                                              Since graduation, what have you been doing? :
+                                                                            </td>
+                                                                            <td align="left" width="55%">
+                                                                              <input type = "text" name = "doing">
+                                                                            </td>
+                                                                            </tr>
+                                                                                
+                                                                            
+                                                                        <tr>
+                                                                            <td align="right">
+                                                                              How did you finance your living? :
+                                                                            </td>
+                                                                            <td align="left">
+                                                                              <select name="finance" required>
+    <option value="">--Select--</option>
+    <option  value="Supported by parents">Supported by parents</option>
+    <option  value="Supported by relatives/brothers/sisters">Supported by relatives/brothers/sisters</option>
+    <option  value="Do buy and sell">Do buy and sell</option>
+    <option  value="Supported by husband/wife">Supported by husband/wife</option>
+    <option  value="Farm laborer of other farms">Farm laborer of other farms</option>
+    <option  value="Entered as domestic helper">Entered as domestic helper</option>
+    <option  value="Others">Others</option>
+
+
+</select><br/>
+                                                                             </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="right" width="45%">
+                                                                             Do you still desire to look for an employment? :
+                                                                             
+                                                                            </td>
+                                                                            <td align="left" width="55%">
+                                                                                <input name="desire" type="radio" value = "Yes" required>Yes
+                                                                                <input name="desire" type="radio" value = "No" required>No
+                                                                            </td>
+                                                                            
+                                                                            </tr>
+                                                                        <tr>
+                                                                            <td align="right" width="45%">
+                                                                             Do you consider CSU and the course you selected as a factor for not being unemployed? :
+                                                                             
+                                                                            </td>
+                                                                            <td align="left" width="55%">
+                                                                                <input name="consider" type="radio" value = "Yes" required>Yes
+                                                                                <input name="consider" type="radio" value = "No" required>No
+                                                                            </td>
+                                                                            
+                                                                            </tr>
+                                                                        
+                                                                    </tbody>
+                                                                    </table>
+                                                                 
+                                       
+                                        <br>
+                                        <center>
+                                            <table cellspacing="0" width="80%" border="0">
+                                                <tbody><tr>
+                                                    <td align="center">
+                                                        <input type="submit" name="submit" id="submit" class="sub_red" >
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </center>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        
+</div>
+                        
+                        <br>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-outer">
+                <div class="bottom-inner">
+                    <div class="bottom">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    
+        </form>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
+{% endblock content %}

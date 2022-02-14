@@ -16,6 +16,9 @@ urlpatterns = [
     path('dashboards/', views.dashboardpage, name='dashboard'),
     path('alumnidashboard/<str:pk>/', views.alumnipage, name="alumni"),
     path('eventdashboard/', views.eventpage, name='event'),
+    path('useremployed/', views.useremployed, name="useremployed"),
+    path('userunemployed/', views.userunemployed, name="userunemployed"),
+    path('userselfemployed/', views.userselfemployed, name="userselfemployed"),
 
     path('create_job/', views.createJob, name='create_job'),
     path('update_job/<str:pk>/', views.updateJob, name='update_job'),
