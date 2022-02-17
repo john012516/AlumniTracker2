@@ -1,0 +1,32 @@
+body{
+    background: url('/static/assets/img/background1.jpg') no-repeat fixed;
+    font-weight: bold;
+}
+table{
+   border-collapse: separate;
+   border-spacing: 0 15px;
+}
+
+td{
+    padding: 5px;
+}
+
+form{
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgb(38, 38, 38);
+    width: 75%;
+    height: auto; 
+}
+
+form.form2{
+    background: rgba(255, 255, 255, 0.75);
+    font-weight: bold;
+}
+
+.form_tab{
+    font-weight: bold;
+    color:#800000;
+    text-shadow: 2px 3px #ffd700;
+    text-align:left;
+}

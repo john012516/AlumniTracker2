@@ -1,0 +1,17 @@
+body{
+    background: url("/static/assets/img/background1.jpg") no-repeat fixed;
+}
+h1{
+    text-align: center;
+}
+form{
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgb(38, 38, 38);
+    width: 85%;
+    height: auto; 
+}
+
+form.form2{
+    background: rgba(255, 255, 255, 0.9);
+}

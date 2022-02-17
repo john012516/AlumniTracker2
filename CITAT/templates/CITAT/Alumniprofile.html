@@ -1,97 +1,87 @@
+<!doctype html>
 {% extends 'CITAT/navbar.html' %}
 {% load static %}
 {% block content %}
-<!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <title>Alumni Dashboard</title>
-  </head>
-  <body>
-   <br>
-
-<div class="row">
-	<div class="col-md">
-		<div class="card card-body">
-			<h5>Alumni:</h5>
-				<hr>
-				<a class="btn btn-outline-info btn-sm btn-block" href="">Update Alumni</a>
-				<a class="btn btn-outline-danger btn-sm btn-block" href="">Delete Alumni</a>
-
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+	
+		<title>Alumni Dashboard</title>
+	</head>
+	<body style="background: url('/static/assets/img/background1.jpg') no-repeat fixed;">
+		<br>
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Alumni:</h5>
+					<hr>
+					<a class="btn btn-outline-info btn-sm btn-block" href="">Update Alumni</a>
+					<a class="btn btn-outline-danger btn-sm btn-block" href="">Delete Alumni</a>
+				</div>
+			</div>
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Contact Information</h5>
+					<hr>
+					<p>Email: {{alumni.email}}</p>
+					<p>Phone: {{alumni.phone }}</p>
+				</div>
+			</div>
 		</div>
-	</div> 
 
-	<div class="col-md">
-		<div class="card card-body">
-			<h5>Contact Information</h5>
-			<hr>
-			<p>Email: {{alumni.email}}</p>
-			<p>Phone: {{alumni.phone }}</p>
+		<br>
+
+		<div class="row">
+			<div class="col">
+				<div class="card card-body">
+					<form method="get">
+						<button class="btn btn primary" type="submit"> Search </button>
+					</form>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
 
-<br>
+		<br>
 
-<div class="row">
-	<div class="col">
-		<div class="card card-body">
-
-			<form method="get">
-		
-
-				<button class="btn btn primary" type="submit"> Search </button>
-			</form>
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<table class="table table-sm">
+						<tr>
+							<th>Event Name</th>
+							<th>First Name</th>
+							<th>Date Created</th>
+							<th>Phone No.</th>
+							<th>Update</th>
+							<th>Remove</th>
+						</tr>
+				
+						{% for jevent in events %}
+					
+						<tr>
+							<td>{{jevent.eventname}}</td>
+							<td>{{jevent.firstname}}</td>
+							<td>{{jevent.date_created}}</td>
+							<td>{{jevent.phone}}</td>
+							<td> <a class="btn btn-sm btn-info">Update</a></td>
+							<td> <a class="btn btn-sm btn-danger">Delete</a></td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
-
-<br>
-
-<div class="row">
-	<div class="col-md">
-		<div class="card card-body">
-			<table class="table table-sm">
-				<tr>
-					<th>Event Name</th>
-					<th>First Name</th>
-					<th>Date Created</th>
-					<th>Phone No.</th>
-					<th>Update</th>
-					<th>Remove</th>
-				</tr>
-
-				{% for jevent in events %}
-					<tr>
-						<td>{{jevent.eventname}}</td>
-						<td>{{jevent.firstname}}</td>
-						<td>{{jevent.date_created}}</td>
-						<td>{{jevent.phone}}</td>
-						<td> <a class="btn btn-sm btn-info">Update</a></td>
-						<td> <a class="btn btn-sm btn-danger">Delete</a></td>
-					</tr>
-				{% endfor %}
-			</table>
-		</div>
-	</div>
-</div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
+	
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	</body>
+	{% endblock content %}
 </html>
-
-
-
-
-
-{% endblock content %}
