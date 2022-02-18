@@ -1,9 +1,79 @@
-<h3>Register</h3>
+<!DOCTYPE html>
+{% load static %}
 
-<form method="POST" action="">
-	{% csrf_token %}
-	
-	
+<html lang="en">
+  <head>
+    <title>Sign Up | By Code Info</title>
+    <link rel="stylesheet" href="{% static 'css/loginstyle.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
 
-<input type="submit" name="Create User">
-</form>
+    <div class="signup-box">
+      <h1>Sign Up</h1>
+      <h4>It's free and only takes a minute</h4>
+
+      <form method="POST" action="">
+      	{% csrf_token %}
+      
+      	<label>ID No.</label>
+      	{{form.username}}
+       <!--  <input type="text" placeholder="" /> -->
+
+        <label>Email</label>
+        {{form.email}}
+        <!-- <input type="email" placeholder="" /> -->
+
+        <label>Password</label>
+        {{form.password1}}
+        <!-- <input type="password" placeholder="" /> -->
+
+        <label>Confirm Password</label>
+        {{form.password2}}
+        <!-- <input type="password" placeholder="" /> -->
+
+        <label>First Name</label>
+        {{form.first_name}}
+        <!-- <input type="text" placeholder="" /> -->
+
+        <label>Last Name</label>
+        {{form.last_name}}
+        <!-- <input type="text" placeholder="" /> -->
+
+
+      	<label>Address</label>
+      	{{form.address}}
+        <!-- <input type="text" placeholder="" /> -->
+
+        <label>Birthdate</label>
+        {{form.birthdate}}
+        <!-- <input type="text" placeholder="" /> -->
+
+        <label>Province</label>
+        {{form.province}}
+        <!-- <input type="text" placeholder="" /> -->
+
+        <label>Location of Residence</label>
+        {{form.Location_of_Residence}}
+       
+        <!-- <input type="text" placeholder="" /> -->
+
+
+
+
+        <input type="Submit" value="Register Account" />
+
+      </form>
+      <p>
+        By clicking the Sign Up button,you agree to our <br />
+        <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
+      </p>
+    </div>
+    <p class="para-2">
+      Already have an account? <a href="login.html">Login here</a>
+    </p>
+  </body>
+</html>

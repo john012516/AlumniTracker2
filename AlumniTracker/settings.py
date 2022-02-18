@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'CITAT.apps.CitatConfig',
 
     'django_filters',
+    'crispy_forms',
 
     
 ]

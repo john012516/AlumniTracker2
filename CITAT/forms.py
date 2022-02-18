@@ -29,6 +29,14 @@ class UserSelfEmployedForm(ModelForm):
 		fields = '__all__'
 
 class CreateUserForm(UserCreationForm):
+	first_name = forms.CharField(max_length=30, required = False)
+	last_name = forms.CharField(max_length=30, required = False)
+	address = forms.CharField(max_length=30, required = False)
+	birthdate = forms.CharField(max_length=30, required = False )
+	province = forms.CharField(max_length=30, required = False )
+	Location_of_Residence = forms.CharField(max_length=30, required = False)
+
+
 	class Meta:
 		model = User
-		fields = ['username', 'email', 'password1', 'password2']
+		fields = ['username', 'email', 'password1', 'password2', 'first_name', 'last_name', 'address', 'birthdate', 'province', 'Location_of_Residence']
