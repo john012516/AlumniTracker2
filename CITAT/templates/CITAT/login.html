@@ -17,11 +17,16 @@
         <input type="text" placeholder="" />
         <label>Password</label>
         <input type="password" placeholder="" />
-        <input type="button" value="Submit" />
+        <input type="submit" value="Submit" />
       </form>
     </div>
+    
+      {%for message in message%}
+        <p id="messages">{{message}}</p>
+      {%endfor%}
+
     <p class="para-2">
-      Not have an account? <a href="signup.html">Sign Up Here</a>
+      Not have an account? <a href="{% url 'registerpage'%}">Sign Up Here</a>
     </p>
   </body>
 </html>

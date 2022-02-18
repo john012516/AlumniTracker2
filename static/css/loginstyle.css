@@ -5,14 +5,14 @@ body {
 
 .signup-box {
   width: 500px;
-  height:1000px;
+  height:1150px;
   margin: auto;
   background-color: white;
   border-radius: 3px;
 }
 
 .login-box {
-  width: 360px;
+  width: 500px;
   height: 280px;
   margin: auto;
   border-radius: 3px;

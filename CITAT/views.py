@@ -5,6 +5,9 @@ from .forms import *
 from .filters import EventFilter
 from django.contrib.auth.forms import UserCreationForm
 
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+
 # Create your views here.
 
 def registerpage(request):
@@ -14,6 +17,9 @@ def registerpage(request):
 		form = CreateUserForm(request.POST)
 		if form.is_valid():
 			form.save()
+			user = form.cleaned_data.get('first_name')
+			messages.success(request, 'Account was created for ' + user)
+			return redirect('loginpage')
 
 	
 	context={'form': form}
@@ -21,6 +27,7 @@ def registerpage(request):
 
 def loginpage(request):
 
+	# if request.method == 'POST':
 	context={}
 	return render(request, 'CITAT/login.html',context )
 
