@@ -9,6 +9,14 @@
     
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <style>
+    .hello-msg{
+      font-size:  18px;
+      color:  #fff;
+      margin-right: 20px;
+
+    }
+  </style>
     
   </head>
   <body>
@@ -30,8 +38,13 @@
         <li><a href="{% url 'about' %}">ABOUT US</a></li>
         <li><a href="{% url 'contact' %}">CONTACT US</a></li>
         <li><a href="#">PROFILE</a></li>
-        <li><a href="#">LOGOUT</a></li>
+
+
+        <span class="hello-msg" >Hello, {{request.user.first_name}}</span>
+        <span ><a class="hello-msg" href="{% url 'logout' %}">LOGOUT</a></span>
       </ul>
+
+
     </nav>
   
     <hr>

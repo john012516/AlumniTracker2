@@ -7,49 +7,73 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def registerpage(request):
-	form = CreateUserForm()
-
-	if request.method == 'POST':
-		form = CreateUserForm(request.POST)
-		if form.is_valid():
-			form.save()
-			user = form.cleaned_data.get('first_name')
-			messages.success(request, 'Account was created for ' + user)
-			return redirect('loginpage')
+	if request.user.is_authenticated:
+		return redirect('home')
+	else:
+		form = CreateUserForm()
+		if request.method == 'POST':
+			form = CreateUserForm(request.POST)
+			if form.is_valid():
+				form.save()
+				user = form.cleaned_data.get('first_name')
+				messages.success(request, 'Account was created for ' + user)
+				return redirect('loginpage')
 
 	
-	context={'form': form}
-	return render(request, 'CITAT/User_Register.html',context)
+		context={'form': form}
+		return render(request, 'CITAT/User_Register.html',context)
 
 def loginpage(request):
+	if request.user.is_authenticated:
+		return redirect('home')
+	else:
+		if request.method == 'POST':
+			username = request.POST.get('username')
+			password = request.POST.get('password')
 
-	# if request.method == 'POST':
-	context={}
-	return render(request, 'CITAT/login.html',context )
+			user = authenticate(request, username=username, password=password)
 
+			if user is not None:
+				login(request, user)
+				return redirect('home')
+			else:
+				messages.info(request, 'username OR password is incorrect')
+
+
+		# if request.method == 'POST':
+		context={}
+		return render(request, 'CITAT/login.html',context )
+
+def logoutUser(request):
+	logout(request)
+	return redirect('loginpage')
+
+@login_required(login_url='loginpage')
 def homepage(request):
 	#return HttpResponse("landing");
 	return render(request, 'CITAT/landingpage.html')
 
 
-
+@login_required(login_url='loginpage')
 def aboutpage(request):
 	#return HttpResponse("Aboutus");
 	return render(request, 'CITAT/about.html')
 
-
+@login_required(login_url='loginpage')
 def useremployed(request):
 
 	return render(request, 'CITAT/User_Employed.html')
 
+@login_required(login_url='loginpage')
 def userunemployed(request):
 
 	return render(request, 'CITAT/User_Unemployed.html')
 
+@login_required(login_url='loginpage')
 def userselfemployed(request):
 
 	return render(request, 'CITAT/User_SelfEmployed.html')
@@ -75,7 +99,7 @@ def contactpage(request):
 		return HttpResponse("<h1> Thank you for contacting us!</h1>")
 	return render(request, 'CITAT/contact.html')
 
-
+@login_required(login_url='loginpage')
 def dashboardpage(request):
 	jobs = Jobs.objects.all()
 	alumni = Alumni.objects.all()
@@ -88,7 +112,7 @@ def dashboardpage(request):
 
 	return render(request, 'CITAT/dashboard.html', context)
 
-
+@login_required(login_url='loginpage')
 def alumnipage(request, pk):
 	alumni = Alumni.objects.get(id=pk)
 
@@ -97,6 +121,7 @@ def alumnipage(request, pk):
 	context = {'alumni':alumni, 'events':events}
 	return render(request, 'CITAT/Alumniprofile.html', context)
 
+@login_required(login_url='loginpage')
 def eventpage(request):
 	event = Event.objects.all()
 
@@ -111,6 +136,7 @@ def eventpage(request):
 
 	return render(request, 'CITAT/Events.html', context)
 
+@login_required(login_url='loginpage')
 def createEvent(request):
 	form = EventForm()
 
@@ -124,6 +150,7 @@ def createEvent(request):
 	context = {'form': form}
 	return render(request, 'CITAT/CRUDevent.html', context)
 
+@login_required(login_url='loginpage')
 def updateEvent(request, pk):
 	event = Event.objects.get(id=pk)
 
@@ -139,6 +166,7 @@ def updateEvent(request, pk):
 
 	return render(request, 'CITAT/CRUDevent.html', context)
 
+@login_required(login_url='loginpage')
 def deleteEvent(request, pk):
 	event = Event.objects.get(id=pk)
 
@@ -149,7 +177,7 @@ def deleteEvent(request, pk):
 	context={'item':event}
 	return render(request, 'CITAT/deleteevent.html', context)
 
-
+@login_required(login_url='loginpage')
 def createJob(request):
 	form = JobsForm()
 
@@ -165,6 +193,7 @@ def createJob(request):
 	context = {'form': form}
 	return render(request, 'CITAT/CRUDjob.html', context)
 
+@login_required(login_url='loginpage')
 def updateJob(request, pk):
 
 	jobs = Jobs.objects.get(id=pk)
@@ -180,6 +209,7 @@ def updateJob(request, pk):
 
 	return render(request, 'CITAT/CRUDjob.html', context)
 
+@login_required(login_url='loginpage')
 def deleteJob(request, pk):
 	jobs = Jobs.objects.get(id=pk)
 	if request.method == "POST":
