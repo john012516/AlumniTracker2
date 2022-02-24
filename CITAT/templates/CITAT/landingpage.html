@@ -12,19 +12,34 @@
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+        
     </head>
 
     <body>
         <br>
-        <h1> WELCOME TO </h1>
+        
         <center>
             <form class="form2">
-                <h2>Cebu Institute of Technology - University</h2>
+                <h1> WELCOME TO </h1>
                 <label class="logo">
-                    <img class="bslogo" src="{% static 'assets/img/citu-ccs-logo.png' %}" alt="CCS logo" width="20%" height="15%">
-                    College of Computer Studies
+                    
+                    <h2> <img class="bslogo" src="{% static 'assets/img/citu-ccs-logo.png' %}" alt="CCS logo" width="20%" height="15%"> College of Computer Studies </h2>
                 </label>
-                <h2> <br> Alumni Tracker System </h2>
+
+                <br> <br>
+                
+                <h2>ALUMNI TRACKER SYSTEM </h2>
+
+                <br> <br> <br>
+
+                <table>
+                    <tr>
+                        <td> Already an Alumi? Please login <a href="{% url 'loginpage'%}"> here. </a> </td>
+                    </tr>
+                    <tr>
+                        <td> No account yet? Register <a href="{% url 'registerpage'%}"> here. </a> </td>
+                    </tr>
+                </table>
             </form>
         </center>
     </body>
