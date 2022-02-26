@@ -1,6 +1,5 @@
 body{
-    background: url("/static/assets/img/citu-background.jpeg") no-repeat;
-    background-size: cover;
+    background: url("/static/assets/img/citu-background.jpeg") no-repeat cover;
     text-align: center;
 }
 h1{

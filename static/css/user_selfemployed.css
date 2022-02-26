@@ -1,5 +1,6 @@
 body{
-    background: url('/static/assets/img/citu-background.jpg') no-repeat cover;
+    background: url('/static/assets/img/citu-background.jpeg') no-repeat;
+    background-size: cover;
     font-weight: bold;
 }
 table{
@@ -9,6 +10,7 @@ table{
 
 td{
     padding: 5px;
+    text-align: left;
 }
 
 form{
@@ -28,5 +30,11 @@ form.form2{
     font-weight: bold;
     color:#800000;
     text-shadow: 2px 3px #ffd700;
-    text-align:left;
+    text-align: center;
+}
+
+h1.text{
+    color:maroon;
+    text-shadow: 2px 3px gold;
+    font-weight:bold;
 }

@@ -8,85 +8,178 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<title>CIT-U Alumni Tracker | About Us</title>
 
-		<link rel="stylesheet" href="{% static 'css/aboutus.css' %}"/>
 		<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Montserrat|Quicksand&display=swap" rel="stylesheet"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="{% static 'css/aboutus.css' %}"/>
+
+		<style>
+			body{
+				font-weight: bold;
+				text-align: center;
+				border: 1px solid #f1f1f1;
+				margin:0;
+				padding: 0;
+				font-family: 'Montserrat', sans-serif;
+			}
+			form {
+				border: 3px solid #f1f1f1;
+				border-radius: 10px;
+				box-shadow: 3px 3px 10px rgb(38, 38, 38);
+				background: rgb(255, 255, 255);
+				width: 80%;
+				height: auto;
+				margin-top: 30px;
+				margin-right: auto;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			form.bg {
+				background: url('/static/assets/img/citu-background.jpeg') no-repeat;
+    			background-size: cover;
+				/*background: rgba(255, 218, 185, 0.3); */
+			}
+			.wrapper {
+				margin-top: 10%;
+			}
+			.wrapper h1 {
+				/* font-family: "Allura", cursive; */
+				font-size: 52px;
+				margin-bottom: 60px;
+				text-align: center;
+			}
+			.team {
+				display: flex;
+				justify-content: center;
+				width: auto;
+				text-align: center;
+				flex-wrap: wrap;
+			}
+			.team .team_member {
+				background: white;
+				margin: 5px;
+				margin-bottom: 50px;
+				width: 300px;
+				padding: 20px;
+				line-height: 20px;
+				color: gold;
+				position: relative;
+			}
+			.team .team_member h3 {
+				font-weight: bold;
+				color: maroon;
+				font-size: 26px;
+				margin-top: 50px;
+			}
+			.team .team_member p.role {
+				color: gold;
+				margin: 12px 0;
+				font-size: 15px;
+				text-transform: uppercase;
+			}
+			.team .team_member p.p1{
+				color: maroon;
+			}
+			.team .team_member p{
+				color: black;
+				font-size: 12px;
+			}
+			.team .team_member .team_img {
+				position: absolute;
+				top: -50px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background: #fff;
+			}
+			.team .team_member .team_img img {
+				width: 100px;
+				height: 100px;
+				padding: 5px;
+			}
+		</style>
 	</head>
 	<body>
-		<hr>
-		<div class="container2">
-			<div class="about-us">
-				<div class="who-we-are" style="font-weight: bold;">
-					<h2 style="font-weight: bold; color:#800000; text-shadow: 2px 3px white; text-align:left;">WHO WE ARE</h2>
-					<span> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</span>
+		<form class="bg">
+			<div class="abc">
+				<div class="about-us">
+					<div class="who-we-are" style="font-weight: bold;">
+						<h1 style="font-weight: bold; color:#800000; text-shadow: 2px 3px white; text-align:left;">WHO WE ARE</h1>
+						<span> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</span>
+					</div>
 				</div>
-				<div class="cards">
-					<div class="card">
-						<img id="members" src="{% static 'assets/img/Bermejo.JPG' %}">
-						<div class="card-body">
-							<h3>Troy Andre Bermejo</h3>
-							<span>Web Design</span>
-							<p>268 4559</p>
-							<span>troyandre.bermejo@cit.edu</span>
+				<br>
+				<div class="wrapper">
+					<h1>OUR TEAM</h1>
+					<div class="team">
+						<div class="team_member">
+							<div class="team_img">
+								<img style="border-radius: 50%;" src="{% static 'assets/img/Bermejo.JPG' %}" alt="Troy">
+							</div>
+							<h3>Troy Andre <br> Bermejo</h3>
+							<p class="role">Web Design</p>
+							<p class="p1">268 4559</p>
+							<p>troyandre.bermejo@cit.edu</p>
 						</div>
-					</div>
-					
-					<div class="card">
-						<img id="members" src="{% static 'assets/img/Dame.jpeg' %}">
-						<card class="card-body">
-							<h3>Cherrie Dame G. Dela Peña</h3>
-							<span>Web developer</span>
+
+						<div class="team_member">
+							<div class="team_img">
+								<img style="border-radius: 50%;" src="{% static 'assets/img/Dame.jpeg' %}" alt="Dame">
+							</div>
+							<h3>Cherrie Dame <br> Dela Peña</h3>
+							<p class="role">Web Developer</p>
 							<p>0956 876 5845</p>
-							<span>cherriedame.delapena@cit.edu</span>
-						</card>
-					</div>
-					
-					<div class="card">
-						<img id="members" src="{% static 'assets/img/Empleo.jpg' %}">
-						<card class="card-body">
-							<h3>Jeniela Beatrice B. Empleo</h3>
-							<span>Team Leader</span>
-							<p>0977 203 6019</p>
-							<span>jenielabeatrice.empleo@cit.edu</span>
-						</card>
-					</div>
-					
-					<div class="card">
-						<img id="members" src="{% static 'assets/img/Guyano.jpg' %}">
-						<card class="card-body">
-							<h3>Johnric Luis C. Guyano</h3>
-							<span>Web Developer</span>
+							<p>cherriedame.delapena@cit.edu</p>
+						</div>
+
+						<div class="team_member">
+							<div class="team_img">
+								<img style="border-radius: 50%;" src="{% static 'assets/img/Empleo.jpg' %}" alt="Jeniela">
+							</div>
+							<h3>Jeniela Beatrice <br> Empleo </h3>
+							<p class="role">Team Leader</p>
+							<p>0977 203 6019 </p>
+							<p>jenielabeatrice.empleo@cit.edu</p>
+						</div>
+
+						<div class="team_member">
+							<div class="team_img">
+								<img style="border-radius: 50%;" src="{% static 'assets/img/Guyano.jpg' %}" alt="Johnric">
+							</div>
+							<h3>Johnric Luis <br> Guyano </h3>
+							<p class="role">Web Developer</p>
 							<p>0956 876 8843</p>
-							<span>johnricluis.guyano@cit.edu</span>
-						</card>
-					</div>
-					
-					<div class="card">
-						<img id="members" src="{% static 'assets/img/Jv Cute.jpg' %}">
-						<card class="card-body">
-							<h3>Jv Tabasa</h3>
-							<span>Web Developer</span>
+							<p>johnricluis.guyano@cit.edu</p>
+						</div>
+
+						<div class="team_member">
+							<div class="team_img">
+								<img style="border-radius: 50%;" src="{% static 'assets/img/Jv Cute.jpg' %}" alt="Jv">
+							</div>
+							<h3>J'Virgil <br> Tabasa </h3>
+							<p class="role">Web Developer</p>
 							<p>0915 464 9636</p>
-							<span>jvirgil.tabasa@cit.edu</span>
-						</card>
-					</div>
-					
-					<div class="card">
-						<img id="members" src="{% static 'assets/img/Monette.JPG' %}">
-						<card class="card-body">
-							<h3>Monette Soriano</h3>
-							<span>Graphics & Web Design</span>
+							<p>jvirgil.tabasa@cit.edu</p>
+						</div>
+						
+						<div class="team_member">
+							<div class="team_img">
+								<img style="border-radius: 50%;" src="{% static 'assets/img/Monette.JPG' %}" alt="Monette">
+							</div>
+							<h3>Monette <br> Soriano</h3>
+							<p class="role">Graphics & Web Design</p>
 							<p>0968 650 8877</p>
-							<span>monette.soriano@cit.edu</span>
-						</card>
+							<p>monette.soriano@cit.edu</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</body>
 	{% endblock content %}
 </html>
-
-
-

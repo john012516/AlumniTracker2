@@ -7,8 +7,14 @@
 }
 
 body{
-  font-family: montserrat;
+  background: url('/static/assets/img/citu-background.jpeg') no-repeat;
+  background-size: cover;
   font-weight: bold;
+  text-align: center;
+  border: 1px solid #f1f1f1;
+  margin:0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 nav{
@@ -33,9 +39,9 @@ label.logo {
 
 nav ul {
   float: right;
-  margin-right: 10px;
+  margin-right: 5px;
   margin-top: 10px;
-  font-size: 10px;
+  font-size: 8px;
 }
 
 nav ul li {
@@ -118,7 +124,10 @@ section{
 }
 
 footer{
+  background: gold;
+  color: maroon;
   font-weight: bold;
   text-align: center;
   border: 1px solid #f1f1f1;
+  text-transform: uppercase;
 }

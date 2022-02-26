@@ -16,9 +16,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
     .hello-msg{
-      font-size:  18px;
+      font-size:  16px;
       color:  #fff;
       margin-right: 20px;
+    }
+    footer{
+      background: gold;
+      color: maroon;
+      font-weight: bold;
+      text-align: center;
+      border: 1px solid #f1f1f1;
+      text-transform: uppercase;
     }
   </style>
     
@@ -44,8 +52,8 @@
         <li><a href="#">PROFILE</a></li>
 
 
-        <span class="hello-msg" >Hello, {{request.user.first_name}}</span>
-        <span ><a class="hello-msg" href="{% url 'logout' %}">LOGOUT</a></span>
+        <span class="hello-msg">Hello, {{request.user.first_name}}</span>
+        <span><a class="hello-msg" href="{% url 'logout' %}">LOGOUT</a></span>
       </ul>
 
 
