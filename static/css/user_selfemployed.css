@@ -1,5 +1,5 @@
 body{
-    background: url('/static/assets/img/background1.jpg') no-repeat fixed;
+    background: url('/static/assets/img/citu-background.jpg') no-repeat cover;
     font-weight: bold;
 }
 table{
