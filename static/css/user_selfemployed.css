@@ -38,3 +38,7 @@ h1.text{
     text-shadow: 2px 3px gold;
     font-weight:bold;
 }
+
+td.btnSubmit{
+    text-align: center;
+}
