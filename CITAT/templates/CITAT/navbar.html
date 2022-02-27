@@ -44,13 +44,14 @@
       </label>
 
       <ul style="font-weight: bold; color:white; text-shadow: 2px 3px #800000; text-align:left;">
+        {% if request.user.is_staff %}
         <li><a href="{% url 'home' %}">HOME</a></li>
         <li><a href="{% url 'dashboard' %}">DASHBOARD</a></li>
         <li><a href="{% url 'event' %}">EVENTS</a></li>
         <li><a href="{% url 'about' %}">ABOUT US</a></li>
         <li><a href="{% url 'contact' %}">CONTACT US</a></li>
         <li><a href="#">PROFILE</a></li>
-
+        {% endif %}
 
         <span class="hello-msg">Hello, {{request.user.first_name}}</span>
         <span><a class="hello-msg" href="{% url 'logout' %}">LOGOUT</a></span>
