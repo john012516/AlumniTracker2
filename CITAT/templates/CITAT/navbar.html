@@ -50,8 +50,19 @@
         <li><a href="{% url 'event' %}">EVENTS</a></li>
         <li><a href="{% url 'about' %}">ABOUT US</a></li>
         <li><a href="{% url 'contact' %}">CONTACT US</a></li>
-        <li><a href="#">PROFILE</a></li>
+        {% else %}
+
+        <li><a href="{% url 'userPage' %}">HOME</a></li>
+        <li><a href="{% url 'useremployed' %}">Employed</a></li>
+        <li><a href="{% url 'userunemployed' %}">UnEmployed</a></li>
+        <li><a href="{% url 'userselfemployed' %}">SelfEmployed</a></li>
+        <li><a href="{% url 'account' %}">PROFILE</a></li>
+
         {% endif %}
+       
+
+
+
 
 
 

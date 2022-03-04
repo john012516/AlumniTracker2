@@ -25,6 +25,9 @@ def registerpage(request):
 
 			group = Group.objects.get(name='alumni')
 			user.groups.add(group)
+			Alumni.objects.create(
+				user=user,
+				)
 
 			messages.success(request, 'Account was created for ' + username)
 			return redirect('loginpage')
@@ -57,7 +60,10 @@ def logoutUser(request):
 	logout(request)
 	return redirect('loginpage')
 
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['alumni'])
 def userPage(request):
+
 	context = {}
 	return render(request, 'CITAT/user.html', context )
 
@@ -238,6 +244,21 @@ def deleteJob(request, pk):
 
 	context={'item':jobs}
 	return render(request, 'CITAT/deletejob.html', context)
+
+
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['alumni'])
+def accountSettings(request):
+	alumni = request.user.alumni
+	form = AlumniForm(instance=alumni)
+
+	if request.method == "POST":
+		form = AlumniForm(request.POST, request.FILES, instance=alumni)
+		if form.is_valid():
+			form.save()
+
+	context = {'form':form}
+	return render(request, 'CITAT/account_settings.html', context)
 
 
 
