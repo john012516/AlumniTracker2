@@ -62,18 +62,18 @@
           </ul>
       </li>
         <li><a href="{% url 'account' %}">PROFILE</a></li>
-
-
+        <li><a href="{% url 'about' %}">ABOUT US</a></li>
+        <li><a href="{% url 'contact' %}">CONTACT US</a></li>
         {% endif %}
        
-
-
-
-
-
-
         <span class="hello-msg">Hello, {{request.user.first_name}}</span>
         <span><a class="hello-msg" href="{% url 'logout' %}">LOGOUT</a></span>
+
+
+
+
+
+
 
 
       </ul>
