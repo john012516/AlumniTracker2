@@ -23,11 +23,6 @@ def registerpage(request):
 			user = form.save()
 			username = form.cleaned_data.get('first_name')
 
-			group = Group.objects.get(name='alumni')
-			user.groups.add(group)
-			Alumni.objects.create(
-				user=user,
-				)
 
 			messages.success(request, 'Account was created for ' + username)
 			return redirect('loginpage')
@@ -63,9 +58,15 @@ def logoutUser(request):
 @login_required(login_url='loginpage')
 @allowed_users(allowed_roles=['alumni'])
 def userPage(request):
+	jobs = Jobs.objects.all()
 
-	context = {}
+	total_jobs = jobs.count()
+	partnercompany = jobs.filter(status='Partner Company').count()
+	jobseekers = jobs.filter(status='Job Seekers').count()
+	
+	context = {'jobs':jobs,'total_jobs':total_jobs, 'partnercompany':partnercompany, 'jobseekers': jobseekers}
 	return render(request, 'CITAT/user.html', context )
+
 
 @login_required(login_url='loginpage')
 @admin_only
