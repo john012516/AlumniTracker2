@@ -261,5 +261,9 @@ def accountSettings(request):
 	context = {'form':form}
 	return render(request, 'CITAT/account_settings.html', context)
 
+def updateprofile(request):
 
+	context={}
+
+	return render (request,'CITAT/updateprofile.html')
 
