@@ -18,7 +18,7 @@ body{
 }
 
 nav{
-  background: #741e1e;
+  background: linear-gradient(to right, #ffd700, #800000); /*background: #741e1e;*/
   height: 80px;
   width: 100%;
 }
@@ -47,7 +47,7 @@ nav ul {
 nav ul li {
   display: inline-block;
   line-height: 80px;
-  margin: 0 5px;
+  
   width: 170px ;
 }
 

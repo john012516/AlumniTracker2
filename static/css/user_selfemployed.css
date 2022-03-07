@@ -9,8 +9,12 @@ table{
 }
 
 td{
-    padding: 5px;
+    padding-left: 10px;
     text-align: left;
+}
+
+#lbltitle{
+    text-transform: uppercase;
 }
 
 form{
@@ -41,4 +45,5 @@ h1.text{
 
 td.btnSubmit{
     text-align: center;
+    margin: 4px 2px;
 }

@@ -11,27 +11,20 @@
 		<title>CIT-U Alumni Tracker | Dashboard</title>
 	
 		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-		<style>
-			body{
-				background: url('/static/assets/img/citu-background.jpeg') no-repeat;
-				background-size: cover;
-				font-weight: bold;
-				text-align: center;
-				border: 1px solid #f1f1f1;
-				margin:0;
-				padding: 0;
-				font-family: 'Montserrat', sans-serif;
-			}
-		</style>
+		<link rel="stylesheet" href="{% static 'css/dashboard.css' %}"/>
 	</head>
 	
 	<body>
 		<br>
-		<div style= "background-image: url('/static/assets/img/citu-background.jpg') no-repeat cover;" class="row">
+		<div class="row">
 			<div class="col-md-5">
-				<h5 style="margin-left: 5%;">Alumni</h5>
+				<h5>Alumni</h5>
 				<hr>
 				<div class="card card-body">
 					<a class="btn btn-danger btn-sm btn-block" href="">Alumni Info</a>
