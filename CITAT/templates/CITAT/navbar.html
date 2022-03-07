@@ -4,35 +4,79 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
     <link rel="icon" href="{% static 'assets/img/citu-logo.png' %}" type="image/gif"/>
     <title>CIT-U Alumni Tracker System</title>
     
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-    .hello-msg{
-      font-size:  16px;
-      color:  #fff;
-      margin-right: 20px;
-    }
-    footer{
-      background: gold;
-      color: maroon;
-      font-weight: bold;
-      text-align: center;
-      border: 1px solid #f1f1f1;
-      text-transform: uppercase;
-    }
-  </style>
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="nofollow" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}"/> <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"/> -->
+    <style>
+      .hello-msg{
+        font-size:  16px;
+        color:  #fff;
+        margin-right: 20px;
+      }
+      body{
+        background: url('/static/assets/img/citu-background.jpeg') no-repeat;
+        background-size: cover;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid #f1f1f1;
+        margin:0;
+        padding: 0;
+      }
+      .dropbtn {
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background: linear-gradient(to right, #ffd700, #800000);;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: white;
+        text-shadow: 2px 2px maroon;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover { background-color: gold; }
+
+      .dropdown:hover .dropdown-content { display: block; }
+
+      .dropdown:hover .dropbtn { background-color: #1b9bff; }
+      
+      footer{
+        background: gold;
+        color: maroon;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid #f1f1f1;
+        text-transform: uppercase;
+      }
+    </style>
   </head>
   <body>
-    <nav style="background: linear-gradient(to right, #ffd700, #800000);">
+    <nav>
       <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
@@ -43,7 +87,7 @@
         ALUMNI TRACKER
       </label>
 
-      <ul style="font-weight: bold; color:white; text-shadow: 2px 3px #800000; text-align:left;">
+      <ul style="font-weight: bold; color:white; text-shadow: 1px 2px #800000; text-align:left;">
         {% if request.user.is_staff %}
         <li><a href="{% url 'home' %}">HOME</a></li>
         <li><a href="{% url 'dashboard' %}">DASHBOARD</a></li>
@@ -54,12 +98,12 @@
 
         <li class="home"><a href="{% url 'userPage' %}">HOME</a></li>
         <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">WORK STATUS <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="{% url 'useremployed' %}">Employed</a></li>
-            <li><a href="{% url 'userunemployed' %}">Unemployed</a></li>
-            <li><a href="{% url 'userselfemployed' %}">Self-Employed</a></li>
-          </ul>
+         <a class="dropbtn" href="#"> WORK STATUS <i class="fa fa-caret-down"></i> </a>
+          <div class="dropdown-content">
+            <a href="{% url 'useremployed' %}">Employed</a>
+            <a href="{% url 'userunemployed' %}">Unemployed</a>
+            <a href="{% url 'userselfemployed' %}">Self-Employed</a>
+          </div>
         </li>
         <li><a href="{% url 'account' %}">PROFILE</a></li>
         <li><a href="{% url 'about' %}">ABOUT US</a></li>
@@ -69,29 +113,26 @@
         <span class="hello-msg">Hello, {{request.user.first_name}}</span>
         <span><a class="hello-msg" href="{% url 'logout' %}">LOGOUT</a></span>
 
-
-
-
-
-
-
-
       </ul>
-
-
     </nav>
   
     <hr>
+    <br> <br> <br>
   
     {% block content %}
   
     {% endblock content %}
   
+
+    <br> <br> <br>
     <hr>
   
     <br>
     <br>
   
-    <footer>CIT-U CCS Alumni Tracker System © UNKOWN</footer>
+    <footer>CIT-U CCS Alumni Tracker System © UNKNOWN</footer>
   </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </html>

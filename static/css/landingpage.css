@@ -1,9 +1,14 @@
 body{
-    background: url("/static/assets/img/citu-background.jpeg") no-repeat cover;
+    background: url("/static/assets/img/citu-background.jpeg") no-repeat;
+    background-size: cover;
     text-align: center;
 }
 h1{
     text-align: center;
+}
+
+h2{
+    font-size: x-large;
 }
 form{
     border: 1px solid #f1f1f1;

@@ -1,0 +1,10 @@
+body{
+    background: url('/static/assets/img/citu-background.jpeg') no-repeat;
+    background-size: cover;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #f1f1f1;
+    margin:0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}

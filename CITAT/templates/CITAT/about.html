@@ -12,18 +12,14 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="{% static 'css/aboutus.css' %}"/>
 
 		<style>
 			body{
+				background: url('/static/assets/img/citu-background.jpeg') no-repeat;
+    			background-size: cover;
 				font-weight: bold;
-				text-align: center;
-				border: 1px solid #f1f1f1;
-				margin:0;
-				padding: 0;
-				font-family: 'Montserrat', sans-serif;
 			}
 			form {
 				border: 3px solid #f1f1f1;
@@ -32,15 +28,9 @@
 				background: rgb(255, 255, 255);
 				width: 80%;
 				height: auto;
-				margin-top: 30px;
-				margin-right: auto;
-				margin-left: auto;
-				margin-right: auto;
 			}
 			form.bg {
-				background: url('/static/assets/img/citu-background.jpeg') no-repeat;
-    			background-size: cover;
-				/*background: rgba(255, 218, 185, 0.3); */
+				background: rgba(255, 255, 255, 0.75);
 			}
 			.wrapper {
 				margin-top: 10%;
@@ -102,84 +92,92 @@
 				height: 100px;
 				padding: 5px;
 			}
+			.who-we-are h1{
+				font-weight: bold; color:#800000;
+				text-shadow: 2px 3px white;
+				text-align:left;
+			}
 		</style>
 	</head>
 	<body>
-		<form class="bg">
-			<div class="abc">
-				<div class="about-us">
-					<div class="who-we-are" style="font-weight: bold;">
-						<h1 style="font-weight: bold; color:#800000; text-shadow: 2px 3px white; text-align:left;">WHO WE ARE</h1>
-						<span> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</span>
-					</div>
-				</div>
-				<br>
-				<div class="wrapper">
-					<h1>OUR TEAM</h1>
-					<div class="team">
-						<div class="team_member">
-							<div class="team_img">
-								<img style="border-radius: 50%;" src="{% static 'assets/img/Bermejo.JPG' %}" alt="Troy">
-							</div>
-							<h3>Troy Andre <br> Bermejo</h3>
-							<p class="role">Web Design</p>
-							<p class="p1">268 4559</p>
-							<p>troyandre.bermejo@cit.edu</p>
-						</div>
-
-						<div class="team_member">
-							<div class="team_img">
-								<img style="border-radius: 50%;" src="{% static 'assets/img/Dame.jpeg' %}" alt="Dame">
-							</div>
-							<h3>Cherrie Dame <br> Dela Peña</h3>
-							<p class="role">Web Developer</p>
-							<p>0956 876 5845</p>
-							<p>cherriedame.delapena@cit.edu</p>
-						</div>
-
-						<div class="team_member">
-							<div class="team_img">
-								<img style="border-radius: 50%;" src="{% static 'assets/img/Empleo.jpg' %}" alt="Jeniela">
-							</div>
-							<h3>Jeniela Beatrice <br> Empleo </h3>
-							<p class="role">Team Leader</p>
-							<p>0977 203 6019 </p>
-							<p>jenielabeatrice.empleo@cit.edu</p>
-						</div>
-
-						<div class="team_member">
-							<div class="team_img">
-								<img style="border-radius: 50%;" src="{% static 'assets/img/Guyano.jpg' %}" alt="Johnric">
-							</div>
-							<h3>Johnric Luis <br> Guyano </h3>
-							<p class="role">Web Developer</p>
-							<p>0956 876 8843</p>
-							<p>johnricluis.guyano@cit.edu</p>
-						</div>
-
-						<div class="team_member">
-							<div class="team_img">
-								<img style="border-radius: 50%;" src="{% static 'assets/img/Jv Cute.jpg' %}" alt="Jv">
-							</div>
-							<h3>J'Virgil <br> Tabasa </h3>
-							<p class="role">Web Developer</p>
-							<p>0915 464 9636</p>
-							<p>jvirgil.tabasa@cit.edu</p>
-						</div>
-						
-						<div class="team_member">
-							<div class="team_img">
-								<img style="border-radius: 50%;" src="{% static 'assets/img/Monette.JPG' %}" alt="Monette">
-							</div>
-							<h3>Monette <br> Soriano</h3>
-							<p class="role">Graphics & Web Design</p>
-							<p>0968 650 8877</p>
-							<p>monette.soriano@cit.edu</p>
+		<center>
+			<form class="bg">
+				<div class="abc">
+					<div class="about-us">
+						<div class="who-we-are" style="font-weight: bold;">
+							<br>
+							<h1>WHO WE ARE</h1>
+							<span> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</span>
 						</div>
 					</div>
+					<br>
+					<div class="wrapper">
+						<h1>OUR TEAM</h1>
+						<div class="team">
+							<div class="team_member">
+								<div class="team_img">
+									<img style="border-radius: 50%;" src="{% static 'assets/img/Bermejo.JPG' %}" alt="Troy">
+								</div>
+								<h3>Troy Andre <br> Bermejo</h3>
+								<p class="role">Web Design</p>
+								<p class="p1">268 4559</p>
+								<p>troyandre.bermejo@cit.edu</p>
+							</div>
+	
+							<div class="team_member">
+								<div class="team_img">
+									<img style="border-radius: 50%;" src="{% static 'assets/img/Dame.jpeg' %}" alt="Dame">
+								</div>
+								<h3>Cherrie Dame <br> Dela Peña</h3>
+								<p class="role">Web Developer</p>
+								<p>0956 876 5845</p>
+								<p>cherriedame.delapena@cit.edu</p>
+							</div>
+	
+							<div class="team_member">
+								<div class="team_img">
+									<img style="border-radius: 50%;" src="{% static 'assets/img/Empleo.jpg' %}" alt="Jeniela">
+								</div>
+								<h3>Jeniela Beatrice <br> Empleo </h3>
+								<p class="role">Team Leader</p>
+								<p>0977 203 6019 </p>
+								<p>jenielabeatrice.empleo@cit.edu</p>
+							</div>
+	
+							<div class="team_member">
+								<div class="team_img">
+									<img style="border-radius: 50%;" src="{% static 'assets/img/Guyano.jpg' %}" alt="Johnric">
+								</div>
+								<h3>Johnric Luis <br> Guyano </h3>
+								<p class="role">Web Developer</p>
+								<p>0956 876 8843</p>
+								<p>johnricluis.guyano@cit.edu</p>
+							</div>
+	
+							<div class="team_member">
+								<div class="team_img">
+									<img style="border-radius: 50%;" src="{% static 'assets/img/Jv Cute.jpg' %}" alt="Jv">
+								</div>
+								<h3>J'Virgil <br> Tabasa </h3>
+								<p class="role">Web Developer</p>
+								<p>0915 464 9636</p>
+								<p>jvirgil.tabasa@cit.edu</p>
+							</div>
+							
+							<div class="team_member">
+								<div class="team_img">
+									<img style="border-radius: 50%;" src="{% static 'assets/img/Monette.JPG' %}" alt="Monette">
+								</div>
+								<h3>Monette <br> Soriano</h3>
+								<p class="role">Graphics & Web Design</p>
+								<p>0968 650 8877</p>
+								<p>monette.soriano@cit.edu</p>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
+		</center>
 	</body>
 	{% endblock content %}
 </html>
