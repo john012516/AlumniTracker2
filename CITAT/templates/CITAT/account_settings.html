@@ -2,6 +2,7 @@
 {% extends 'CITAT/navbar.html' %}
 {% load static %}
 {% block content %}
+{% load crispy_forms_tags %}
 <html lang="en">
 	<head>
 		<!-- Required meta tags -->
@@ -42,7 +43,10 @@
 
 				<form method="POST" action="" enctype="multipart/form-data"> 
 					{% csrf_token %}
-					{{form.as_p}}
+					 {{form | crispy}} 
+
+
+
 
 				<button class="btn btn-primary" type="submit" name="Update Information">Update</button>
 				</form>
