@@ -22,17 +22,59 @@ class EventForm(ModelForm):
 		model = Event
 		fields = '__all__'
 
-class UserEmployedForm(ModelForm):
-		models = UserEmployed
-		fields = '__all__'
+#class UserEmployedForm(ModelForm):
+		#models = UserEmployed
+		#fields = '__all__'
+class UserEmployed(forms.ModelForm):
+	EMPLOYED = (
+		        ('Yes','Yes'), 
+				('No','No'),
+			   )
+	employed = forms.ChoiceField(choices=EMPLOYED, widget=forms.RadioSelect)
 
-class UserUnEmployedForm(ModelForm):
+	SKILLS = (
+		      ('Yes','Yes'),
+			  ('No', 'No'),
+			 )
+	skills = forms.ChoiceField(choices=SKILLS, widget=forms.RadioSelect)		 
+	class Meta:
+	    models = UserEmployed
+	    fields = '__all__'		
+
+class UserUnEmployedForm(forms.ModelForm):
+	SEEK = (
+		    ('Yes','Yes'),
+			('No','No'),
+	       )
+	seek = forms.ChoiceField(choices=SEEK, widget=forms.RadioSelect)
+
+	DESIRE = (
+		      ('Yes','Yes'),
+			  ('No', 'No'),
+	         )	 
+	desire = forms.ChoiceField(choices=DESIRE, widget=forms.RadioSelect)
+
+	CONSIDER = (
+		        ('Yes','Yes'),
+				('No','No'),
+	           )
+	consider = forms.ChoiceField(choices=CONSIDER, widget=forms.RadioSelect)		   		   
+	
+	class Meta:
 		models = UserUnemployed
 		fields = '__all__'
 
-class UserSelfEmployedForm(ModelForm):
+class UserSelfEmployedForm(forms.ModelForm):
+	RELATED = (
+		       ('Yes','Yes'),
+			   ('No','No'),
+	          )
+	related = forms.ChoiceField(choices=RELATED, widget=forms.RadioSelect)		  
+
+	class Meta:
 		models = UserSelfemployed
 		fields = '__all__'
+		
 
 class CreateUserForm(UserCreationForm):
 	first_name = forms.CharField(max_length=30, required = False)
@@ -43,3 +85,6 @@ class CreateUserForm(UserCreationForm):
 	class Meta:
 		model = User
 		fields = ['username', 'email', 'password1', 'password2', 'first_name', 'last_name']
+
+		#model = UserEmployed
+		#fields = '__all__'

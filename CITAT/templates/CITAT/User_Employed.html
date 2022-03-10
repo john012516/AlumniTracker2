@@ -37,7 +37,8 @@
     </head>
     <body>
         <center>
-            <form class="form2" method="POST" action="" autocomplete="on">
+            <form class="form2" method="POST" action="/add_useremployed_form_submission/" autocomplete="on">
+                {% csrf_token %}
                 <div id="container">
                     <br>
                 <h1 class="text">
@@ -86,7 +87,7 @@
                                                         Were you selected according to your qualifications? :
                                                     </td>
                                                     <td align="left">
-                                                        <select name="selection" required>
+                                                        <select name="selections" required>
                                                             <option value="">--Select--</option>
                                                             <option value="Selection">Selection</option>
                                                             <option value="Retention">Retention</option>
@@ -99,7 +100,7 @@
                                                     <td width="45%">
                                                         What is your annual income from your present employment? Pesos :
                                                     </td>
-                                                    <td align="left" width="55%">
+                                                    <td name="income" align="left" width="55%">
                                                         <input type = "text" name = "income">
                                                     </td>
                                                 </tr>
@@ -108,7 +109,7 @@
                                                     <td width="45%">
                                                         Were you able to use the skills acquired from your degree/course to your current work? :
                                                     </td>
-                                                    <td align="left" width="55%">
+                                                    <td name="skills" align="left" width="55%">
                                                         <select name="skills" required>
                                                             <option value="">--Select--</option>
                                                             <option  value="Yes">Yes</option>

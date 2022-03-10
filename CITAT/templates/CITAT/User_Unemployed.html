@@ -14,7 +14,9 @@
     </head>
     <body>
         <center>
-            <form class="form2" method="POST" action="" autocomplete="on">
+            <form class="form2" method="POST" action="/add_userunemployed_form_submission/" autocomplete="on">
+                {% csrf_token %}
+
                 <div class="top_banner">
                     <div class="in_banner">
                         <div class="banner_text"> </div>
@@ -38,7 +40,7 @@
                                                         If never employed, what is the reason why you are not yet employed? :
                                                     </td>
                                                     <td align="left" width="55%">
-                                                        <select name="reason" required>
+                                                        <select name="reasons" required>
                                                             <option value="">--Select--</option>
                                                             <option  value="I cannot find a good job">I cannot find a good job</option>
                                                             <option  value="advance or further study first">advance or further study first</option>
@@ -70,8 +72,8 @@
                                                     <td width="45%">
                                                         Since graduation, what have you been doing? :
                                                     </td>
-                                                    <td align="left" width="55%">
-                                                        <input type = "text" name = "doing">
+                                                    <td  align="left" width="55%">
+                                                        <input type = "text" name = "aftergrad">
                                                     </td>
                                                 </tr>
                                                 

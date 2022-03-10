@@ -16,7 +16,9 @@
 
     <body>
         <center>
-            <form class="form2" method="POST" action="" autocomplete="on">
+            <form class="form2" method="POST" action="/add_userselfemployed_form_submission/" autocomplete="on">
+                {% csrf_token %}
+
                 <div id="container">
                     <h1 class="text">
                         <span id="lbltitle">Fill up form</span>
@@ -65,7 +67,7 @@
                                                             Reasons for engaging in self-employment :
                                                         </td>
                                                         <td width="55%">
-                                                            <select name="reasons" required>
+                                                            <select name="reason" required>
                                                                 <option value="">--Select--</option>
                                                                 <option  value="Higher Income">Higher Income</option>
                                                                 <option  value="More Flexible Time">More Flexible Time</option>
