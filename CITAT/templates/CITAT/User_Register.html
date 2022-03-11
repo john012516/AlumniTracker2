@@ -2,6 +2,7 @@
 {% load static %}
 <html lang="en">
   <head>
+    <link rel="icon" href="{% static 'assets/img/citu-logo.png' %}" type="image/gif"/>
     <title>Sign Up</title>
     <!-- <link rel="stylesheet" href="{% static 'css/user_register.css' %}" /> -->
     <link
@@ -14,7 +15,7 @@
         text-align: left;
       }
       td.tble2{
-        padding-left: 15px;
+        padding-left: 25px;
       }
       p.p1{
         padding-left: 105px;
@@ -63,53 +64,54 @@
                 <td class="tble2"> {{form.first_name}} </td>
               </tr>
               <tr>
-                <td class="tble1"> Last Name </td>
+                <td class="tble1">Last Name </td>
                 <td class="tble2"> {{form.last_name}} </td>
               </tr>
             </tbody>
           </table>
 
-          <p>
-            <button class="btn" type="Submit" value="Register Account">Register</button>
-          </p>
           
         
           <!-- <label>ID No.</label>
           {{form.username}}
-          <-- <input type="text" placeholder="" /> --
   
           <label>Email</label>
           {{form.email}}
-          <-- <input type="email" placeholder="" /> --
-  
+        
           <label>Password</label>
           {{form.password1}}
-          <-- <input type="password" placeholder="" /> --
   
           <label>Confirm Password</label>
           {{form.password2}}
-          <-- <input type="password" placeholder="" /> --
   
           <label>First Name</label>
           {{form.first_name}}
-          <-- <input type="text" placeholder="" /> --
   
           <label>Last Name</label>
-          {{form.last_name}}
-          <-- <input type="text" placeholder="" /> -->
-  
-  
-           
+          {{form.last_name}} -->
+
+          <!--
+            <input type="text" placeholder="" />
+            <input type="email" placeholder="" />
+            <input type="password" placeholder="" />
+            <input type="password" placeholder="" />
+            <input type="text" placeholder="" />
+            <input type="text" placeholder="" /> -->
   
         </form>
+        
+        <p></p>
       </center>
 
-      
+      <p>
+        <button class="btn" type="Submit" value="Register Account">Register</button>
+      </p>
       {{form.errors}}
       <p>
         By clicking the Sign Up button, you agree to our <br />
         <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
       </p>
+      <br>
     </div>
     <p class="p1">
       Already have an account? <a href="{% url 'loginpage'%}">Login here</a>

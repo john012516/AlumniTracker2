@@ -2,10 +2,32 @@
 {% load static %}
 <html lang="en">
   <head>
+    <link rel="icon" href="{% static 'assets/img/citu-logo.png' %}" type="image/gif"/>
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'css/loginstyle2.css' %}" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      p.para-1{
+        padding-top: 90px;
+        padding-left: 105px;
+        color:white;
+        font-size: 135%;
+        font-weight: bold;
+      }
+      p.para-2{
+        padding-left: 105px;
+        color:white;
+        font-size: 135%;
+        font-weight: bold;
+      }
+      p.para-1 a, p.para-2 a{
+        color: gold;
+        text-shadow: 2px 3px maroon;
+      }
+    </style>
+
   </head>
   <body>
     <img class="wave" src="{% static 'assets/img/wave.png' %}">
@@ -29,7 +51,7 @@
         <p id="messages">{{message}}</p>
       {%endfor%}
 
-    <p class="para-2">
+    <p class="para-1">
       Do not have an account? <a href="{% url 'registerpage'%}">Sign up here</a>
     </p>
     <p class="para-2">
