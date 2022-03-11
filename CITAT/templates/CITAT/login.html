@@ -2,20 +2,26 @@
 {% load static %}
 <html lang="en">
   <head>
-    <title>Login | By Code Info</title>
-    <link rel="stylesheet" href="{% static 'css/loginstyle.css' %}" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/loginstyle2.css' %}" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <img class="wave" src="{% static 'assets/img/wave.png' %}">
+ <!--    <img class="login-bg" src="{% static 'assets/img/cit.jpeg' %}"> -->
+    <img class="cit-bg" src="{% static 'assets/img/citu-background.jpeg' %}">
+
     <div class="login-box">
-      <h1>Login</h1>
+      <h1 class="login">Login</h1>
       <form method="POST" action="">
         {% csrf_token %}
-        <label>ID No.</label>
-        <input type="text" name="username" placeholder="" />
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Input ID Number" />
         <label>Password</label>
-        <input type="password" name="password" placeholder="" />
-        <input type="submit" value="Submit" />
+        <input type="password" name="password" placeholder="Input Password" />
+        <button class="btn" type="submit" value="Submit">Login
+        </button>
       </form>
     </div>
     
@@ -24,7 +30,7 @@
       {%endfor%}
 
     <p class="para-2">
-      Not have an account? <a href="{% url 'registerpage'%}">Sign Up Here</a>
+      Do not have an account? <a href="{% url 'registerpage'%}">Sign up here</a>
     </p>
     <p class="para-2">
      Forgot Password? <a href="{% url 'reset_password'%}">Click here</a>
