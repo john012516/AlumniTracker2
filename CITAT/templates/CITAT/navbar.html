@@ -20,7 +20,61 @@
       color:  #fff;
       margin-right: 20px;
     }
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+    }
 
+    .navbar a {
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      display: inline-block;
+      line-height: 0px;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;  
+      border: none;
+      outline: none;
+      color: white;
+      
+      margin: 0;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color: #1b9bff;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: maroon;
+      min-width: 190px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: gold;      
+      text-decoration: none;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background: linear-gradient(to right, #ffd700, yellow);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: inline-block;
+    }
     footer{
       background: gold;
       color: maroon;
@@ -54,9 +108,9 @@
         {% else %}
 
         <li><a href="{% url 'userPage' %}">HOME</a></li>          
-         <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">WORK STATUS <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
+        <li class="dropdown">
+          <a href="#" class="dropbtn">WORK STATUS <span class="fa fa-caret-down"></span></a>
+          <ul class="dropdown-content">
             <li><a href="{% url 'useremployed' %}">Employed</a></li>
             <li><a href="{% url 'userunemployed' %}">Unemployed</a></li>
             <li><a href="{% url 'userselfemployed' %}">Self-Employed</a></li>
@@ -89,6 +143,8 @@
     </nav>
   
     <hr>
+
+    <br> <br> <br>
   
     {% block content %}
   

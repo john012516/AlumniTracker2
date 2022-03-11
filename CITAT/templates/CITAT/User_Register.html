@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <title>Sign Up</title>
-    <link rel="stylesheet" href="user_register.css" />
+    <!-- <link rel="stylesheet" href="{% static 'css/user_register.css' %}" /> -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
@@ -14,13 +14,18 @@
         text-align: left;
       }
       td.tble2{
-        text-align: center;
-        /* padding-left: 15px; */
+        padding-left: 15px;
       }
-      p.para-2{
-        text-align: center;
+      p.p1{
+        padding-left: 105px;
+        color:white;
+        font-size: 135%;
+        font-weight: bold;
       }
-
+      p.p1 a{
+        color: gold;
+        text-shadow: 2px 3px maroon;
+      }
     </style>
   </head>
   <body>
@@ -31,74 +36,82 @@
       <h1>Sign Up</h1>
       <h4>It's free and only takes a minute</h4>
 
-      <form class="form" method="POST" action="">
-        {% csrf_token %}
+      <center>
+        <form class="form" method="POST" action="">
+          {% csrf_token %}
+          
+          <table>
+            <tbody>
+              <tr>
+                <td class="tble1">ID No. </td>
+                <td class="tble2"> {{form.username}} </td>
+              </tr>
+              <tr>
+                <td class="tble1">Email </td>
+                <td class="tble2"> {{form.email}} </td>
+              </tr>
+              <tr>
+                <td class="tble1">Password </td>
+                <td class="tble2"> {{form.password1}} </td>
+              </tr>
+              <tr>
+                <td class="tble1">Confirm Password </td>
+                <td class="tble2"> {{form.password2}} </td>
+              </tr>
+              <tr>
+                <td class="tble1">First Name </td>
+                <td class="tble2"> {{form.first_name}} </td>
+              </tr>
+              <tr>
+                <td class="tble1"> Last Name </td>
+                <td class="tble2"> {{form.last_name}} </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            <button class="btn" type="Submit" value="Register Account">Register</button>
+          </p>
+          
         
-        <table>
-          <tbody>
-            <tr>
-              <td class="tble1"> ID No. </td>
-              <td class="tble2">{{form.username}}</td>
-            </tr>
-            <tr>
-              <td class="tble1"> Email </td>
-              <td class="tble2">{{form.email}}</td>
-            </tr>
-            <tr>
-              <td class="tble1"> Password </td>
-              <td class="tble2"> {{form.password1}}</td>
-            </tr>
-            <tr>
-              <td class="tble1"> Confirm Password </td>
-              <td class="tble2">{{form.password2}}</td>
-            </tr>
-            <tr>
-              <td class="tble1">First Name </td>
-              <td class="tble2"> {{form.first_name}}</td>
-            </tr>
-            <tr>
-              <td class="tble1"> Last Name </td>
-              <td class="tble2"> {{form.last_name}}</td>
-            </tr>
-          </tbody>
-        </table>
+          <!-- <label>ID No.</label>
+          {{form.username}}
+          <-- <input type="text" placeholder="" /> --
+  
+          <label>Email</label>
+          {{form.email}}
+          <-- <input type="email" placeholder="" /> --
+  
+          <label>Password</label>
+          {{form.password1}}
+          <-- <input type="password" placeholder="" /> --
+  
+          <label>Confirm Password</label>
+          {{form.password2}}
+          <-- <input type="password" placeholder="" /> --
+  
+          <label>First Name</label>
+          {{form.first_name}}
+          <-- <input type="text" placeholder="" /> --
+  
+          <label>Last Name</label>
+          {{form.last_name}}
+          <-- <input type="text" placeholder="" /> -->
+  
+  
+           
+  
+        </form>
+      </center>
 
       
-        <!-- <label>ID No.</label>
-        {{form.username}}
-        <-- <input type="text" placeholder="" /> --
-
-        <label>Email</label>
-        {{form.email}}
-        <-- <input type="email" placeholder="" /> --
-
-        <label>Password</label>
-        {{form.password1}}
-        <-- <input type="password" placeholder="" /> --
-
-        <label>Confirm Password</label>
-        {{form.password2}}
-        <-- <input type="password" placeholder="" /> --
-
-        <label>First Name</label>
-        {{form.first_name}}
-        <-- <input type="text" placeholder="" /> --
-
-        <label>Last Name</label>
-        {{form.last_name}}
-        <-- <input type="text" placeholder="" /> -->
-
-
-        <button class="btn" type="Submit" value="Register Account">Register</button> 
-
-      </form>
       {{form.errors}}
       <p>
         By clicking the Sign Up button, you agree to our <br />
         <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
       </p>
     </div>
-    <p class="para-2">
+    <p class="p1">
       Already have an account? <a href="{% url 'loginpage'%}">Login here</a>
     </p>
   </body>

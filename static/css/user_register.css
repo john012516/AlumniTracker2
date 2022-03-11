@@ -5,12 +5,6 @@ body{
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
 }
-td.tble1{
-	text-align: left;
-}
-td.tble2{
-	padding-left: 15px;
-}
 .wave{
 	position: fixed;
 	bottom: 0;
@@ -33,7 +27,6 @@ td.tble2{
 
 .signup-box{
 /*	
-	
 	padding-top: 50px;
 	padding-left: 800px;
 	padding-right: 50px;
@@ -54,9 +47,6 @@ td.tble2{
 	text-shadow: 1px 1px #ffffff;
 	margin-left: auto;
 	margin-right: auto;
-
-
-
 }
 
 input[type="text"] {
@@ -83,13 +73,9 @@ input[type="text"] {
   background-color: maroon;
   color: gold;
   font-size: 25px;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 button:hover{
 	opacity: 0.8;
-}
-
-p.para-2{
-	text-align: center;
 }
