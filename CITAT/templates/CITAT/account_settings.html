@@ -2,6 +2,7 @@
 {% extends 'CITAT/navbar.html' %}
 {% load static %}
 {% block content %}
+{% load crispy_forms_tags %}
 <html lang="en">
 	<head>
 		<!-- Required meta tags -->
@@ -19,6 +20,56 @@
 				height: 200px;
 				margin: 0 auto;
 				border-radius: 50%;
+			}
+
+			body{
+				margin: 0;
+				padding: 0;
+				font-family: poppins;
+			}
+
+			.wrapper a{
+				display: inline-block;
+				text-decoration: none;
+				background-color: #fff;
+				padding: 15px;
+				border-radius: 3px;
+				text-transform: uppercase;
+				color: #585858;
+			}
+
+			.modal{
+				position:  absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				display:  flex;
+				align-items: center;
+				justify-content: center;
+				transition: all 0.4s;
+				visibility: hidden;
+				opacity: 0;
+			}
+			.modal:target {
+				visibility: visible;
+				opacity: 1;
+			}
+			.modalcontent{
+				position: relative;
+				background: #fff;
+				margin: 0 auto;
+				width: 1000px;
+				height: 1000px;
+				max-width: 200%;
+				padding: 5em 5em;
+				border-radius: 4px;
+				text-align: center;
+				
+			}
+			a {
+				fontsize: 21px;
+				font-weight: 600;
 			}
 
 		</style>
@@ -42,13 +93,41 @@
 
 				<form method="POST" action="" enctype="multipart/form-data"> 
 					{% csrf_token %}
-					{{form.as_p}}
-
-				<button class="btn btn-primary" type="submit" name="Update Information">Update</button>
+					<p>ID No.: {{request.user.alumni.user}}</p>
+					<p>Firstname.: {{request.user.alumni.firstname}}</p>
+					<p>Lirstname.: {{request.user.alumni.lastname}}</p>
+					<p>Email.: {{request.user.alumni.email}}</p>
+					<p>Contact No.: {{request.user.alumni.phone}}</p>
+					<p>Address.: {{request.user.alumni.address}}</p>
+					<p>Zipcode.: {{request.user.alumni.zipcode}}</p>
+					<p>Course.: {{request.user.alumni.Course}}</p>
+									
 				</form>
+<!-- 				<button class="btn btn-primary" href="{% url 'updateprofile'%}" name="Update Information">Edit</button> -->
+				<div class="wrapper">
+					<a href="#modalbox">Edit</a>
+				</div>
+
+
+				<div id="modalbox" class="modal">
+					<div class="modalcontent">
+						<h3> Update Profile </h3>
+						<form method="POST" action="" enctype="multipart/form-data"> 
+							{% csrf_token %}
+							{{form | crispy}}
+
+						<button type="submit" href="{% url 'account' %}" >Update</button>
+
+						</form>
+						<a href="{% url 'account' %}" class="modalclose">&times;</a>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
+
+
 
 
 
