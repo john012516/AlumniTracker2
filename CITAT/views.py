@@ -86,6 +86,8 @@ def useremployed(request):
 
 	return render(request, 'CITAT/User_Employed.html')
 
+
+
 def add_useremployed_form_submission(request):
 	print("Hello, Employed form is submitted.")
 	employed = request.POST["employed"]
@@ -99,10 +101,14 @@ def add_useremployed_form_submission(request):
 
 	return render(request, 'CITAT/User_Employed.html')
 
+
+
 @login_required(login_url='loginpage')
 def userunemployed(request):
 
 	return render(request, 'CITAT/User_Unemployed.html')
+
+
 
 def add_userunemployed_form_submission(request):
 	print("Hello, Unemployed form is submitted.")
@@ -118,10 +124,15 @@ def add_userunemployed_form_submission(request):
 
 	return render(request, 'CITAT/User_Unemployed.html')	
 
+
+
 @login_required(login_url='loginpage')
 def userselfemployed(request):
 
 	return render(request, 'CITAT/User_SelfEmployed.html')
+
+
+
 
 def add_userselfemployed_form_submission(request):
 	print("Hello, Self-employed form is submitted.") 
@@ -174,15 +185,22 @@ def dashboardpage(request):
 
 	return render(request, 'CITAT/dashboard.html', context)
 
+
+	
+
 @login_required(login_url='loginpage')
 @allowed_users(allowed_roles=['admin'])
 def alumnipage(request, pk):
 	alumni = Alumni.objects.get(id=pk)
 
-	events = alumni.joinevent_set.all()
+	employed = alumni.useremployed_set.all()
 
-	context = {'alumni':alumni, 'events':events}
+	context = {'alumni':alumni,'employed':employed}
 	return render(request, 'CITAT/Alumniprofile.html', context)
+
+
+
+
 
 @login_required(login_url='loginpage')
 @allowed_users(allowed_roles=['admin'])
