@@ -89,14 +89,19 @@ class UserEmployed(models.Model):
 					('Selection', 'Selection'),
 					('Retention', 'Retention'),
 					('Promotion', 'Promotion'),
-				)
-	employed=models.CharField(max_length=50, null=True) 			
+			)
+	alumni = models.ForeignKey(Alumni, null=True, on_delete=models.SET_NULL)
+	employed=models.CharField(max_length=200, null=True) 			
 	organization = models.CharField(max_length=200, null=True, choices=ORGANIZATION)
 	selections = models.CharField(max_length=200, null=True, choices=SELECTIONS)
 	income = models.CharField(max_length=200, null=True)
 	#skill_yes=models.BooleanField("Yes", default=False)
 	#skill_no=models.BooleanField("No", default=False)
 	skills=models.CharField(max_length=50, null=True)
+
+	def __str__(self):
+		return self.organization
+
 
 class UserUnemployed(models.Model):
 	#user = models.OneToOneField(User, null =True,blank=True, on_delete=models.CASCADE)
@@ -126,6 +131,7 @@ class UserUnemployed(models.Model):
 				('Entered as domestic helper', 'Entered as domestic helper'),
 				('Others', 'Others'),
 				)
+
 	reasons = models.CharField(max_length=200, null=True, choices=REASON)
 	#job_yes = models.BooleanField("Yes", default=False)
 	#job_no = models.BooleanField("NO", default=False) 
@@ -137,6 +143,8 @@ class UserUnemployed(models.Model):
 	#desire_no = models.BooleanField("No", default=False)
 	desire = models.CharField(max_length=50, null=True)
 	consider= models.CharField(max_length=50, null=True)
+
+
 
 
 class UserSelfemployed(models.Model):
@@ -152,6 +160,7 @@ class UserSelfemployed(models.Model):
 				('Trading', 'Trading'),
 				('Others', 'Others'),
 				)
+
 	business = models.CharField(max_length=200, null=True, choices=BUSINESS)
 	#related_yes = models.BooleanField("Yes", default=False)
 	#related_no = models.BooleanField("No", default=False)
@@ -169,6 +178,8 @@ class UserSelfemployed(models.Model):
 	reason = models.CharField(max_length=200, null=True, choices=REASON)
 	numberofemployee = models.CharField(max_length=200, null=True)
 	skills = models.CharField(max_length=200, null=True)
+
+
 
 
 
