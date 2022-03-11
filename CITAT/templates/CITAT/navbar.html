@@ -20,6 +20,7 @@
       color:  #fff;
       margin-right: 20px;
     }
+
     footer{
       background: gold;
       color: maroon;
@@ -52,18 +53,24 @@
         <li><a href="{% url 'contact' %}">CONTACT US</a></li>
         {% else %}
 
-        <li class="home"><a href="{% url 'userPage' %}">HOME</a></li>
-        <li class="dropdown">
+        <li><a href="{% url 'userPage' %}">HOME</a></li>          
+         <li class="dropdown">
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">WORK STATUS <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{% url 'useremployed' %}">Employed</a></li>
             <li><a href="{% url 'userunemployed' %}">Unemployed</a></li>
             <li><a href="{% url 'userselfemployed' %}">Self-Employed</a></li>
           </ul>
-      </li>
+        </li>
         <li><a href="{% url 'account' %}">PROFILE</a></li>
         <li><a href="{% url 'about' %}">ABOUT US</a></li>
         <li><a href="{% url 'contact' %}">CONTACT US</a></li>
+
+
+
+
+        
+
         {% endif %}
        
         <span class="hello-msg">Hello, {{request.user.first_name}}</span>

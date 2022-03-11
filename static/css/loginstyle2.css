@@ -1,0 +1,97 @@
+html{
+	zoom: 90%;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.wave{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	z-index: -1;
+}
+
+.login{
+	margin-left: 190px;
+	color: maroon;
+}
+
+input[type=text], input[type=password] {
+  width: 500px;
+  padding: 12px 20px;
+  display: block;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 20px;
+}
+
+::placeholder {
+  color: gray;
+  font-size: 22px;
+  font-weight: bold;
+  opacity: 50%;
+}
+
+.btn{
+  width: 200px;
+  height: 60px;
+  padding: 15px 20px;
+  margin-left: 140px;
+  display: grid;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background-color: maroon;
+  color: gold;
+  font-size: 25px;
+  position: center;
+}
+
+button:hover{
+	opacity: 0.8;
+}
+
+.login-box{
+/*	margin-left: 800px;
+	margin-top: 250px;*/
+	margin-left: 50%;
+	margin-top: 13%;
+	color: maroon;
+	font-weight: bold;
+	font-size: 22px;
+	text-shadow: 1px 1px #ffffff;
+	/*position: static;*/
+
+}
+
+.login-bg{
+	margin-left: 740px;
+	margin-top: -125px;
+	position: fixed;
+	height: 70%;
+	z-index: -1;
+	opacity: 65%;
+}
+
+.cit-bg{
+	z-index: -5;
+	position: absolute;
+	opacity: 50%;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	margin-left: 50px;
+	width: 105%;
+	display: flex;
+}	
+
+.para-2{
+	margin-left: 0px;
+
+
+}
