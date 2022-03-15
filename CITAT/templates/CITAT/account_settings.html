@@ -138,6 +138,11 @@
 									<td>Course: </td>
 									<td class="tble2"> {{request.user.alumni.Course}} </td>
 								</tr>
+								<tr>
+									<td>Work Status </td>
+									<td class="tble2"> {{request.user.alumni.employed}} </td>
+								</tr>
+
 							</tbody>
 						</table>
 						<!-- <p>ID No.: {{request.user.alumni.user}}</p> 
@@ -168,7 +173,7 @@
 							<button type="submit" href="{% url 'account' %}" >Update</button>
 
 							</form>
-							<a href="{% url 'account' %}" class="modalclose">&times;</a>
+							<a href="{% url 'account' %}" class="modalclose">close;</a>
 						</div>
 					</div>
 

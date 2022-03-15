@@ -13,16 +13,43 @@ class Contact(models.Model):
 		return self.firstname
 
 class Alumni(models.Model):
+	STATUS = (
+			 ('Employed', 'Employed'),
+			 ('Unemployed', 'Unemployed'),
+			)
+	CIVIL = (
+			('Single','Single'),
+			('Married', 'Married'),
+			('Widowed', 'Widowed'),
+			)
 	user = models.OneToOneField(User, null =True,blank=True, on_delete=models.CASCADE)
 	firstname = models.CharField(max_length=200, null=True)
 	lastname = models.CharField(max_length=200, null=True)
 	Gender = models.CharField(max_length=200, null=True)
+	Civil = models.CharField(max_length=200, null=True, choices=CIVIL)
 	email=models.EmailField()
+	Telephone = models.CharField(max_length=200, null=True)
 	phone = models.CharField(max_length=200, null=True)
 	address = models.CharField(max_length=200, null=True)
 	zipcode = models.CharField(max_length=200, null=True)
-	Course = models.CharField(max_length=200, null=True)
+	Religion = models.CharField(max_length=200, null=True)
+	Citizenship = models.CharField(max_length=200, null=True)
+	Date_of_Birth = models.CharField(max_length=200, null=True)
+	Place_of_Birth = models.CharField(max_length=200, null=True)
+	Course = models.CharField(max_length=200, null=True,)
+	incaseofemergency = models.CharField(max_length=200, null=True, editable=False)
+	nameofemergency = models.CharField(max_length=200, null=True,)
+	relation = models.CharField(max_length=200, null=True,)
+	contactnumber = models.CharField(max_length=200, null=True,)
+	address2 = models.CharField(max_length=200, null=True,)
+
+	employed=models.CharField(max_length=200, null=True, choices=STATUS) 			
+	
+
+
 	profile_pic = models.ImageField(default="default.png", null=True, blank=True ) 
+
+
 
 	date_created = models.DateTimeField(auto_now_add=True, null=True)
 	def __str__(self):
@@ -90,7 +117,7 @@ class UserEmployed(models.Model):
 					('Retention', 'Retention'),
 					('Promotion', 'Promotion'),
 			)
-	alumni = models.ForeignKey(Alumni, null=True, on_delete=models.SET_NULL)
+	user = models.OneToOneField(User, null =True,blank=True, on_delete=models.CASCADE)
 	employed=models.CharField(max_length=200, null=True) 			
 	organization = models.CharField(max_length=200, null=True, choices=ORGANIZATION)
 	selections = models.CharField(max_length=200, null=True, choices=SELECTIONS)

@@ -89,6 +89,7 @@ def useremployed(request):
 
 
 def add_useremployed_form_submission(request):
+
 	print("Hello, Employed form is submitted.")
 	employed = request.POST["employed"]
 	organization = request.POST["organization"]
@@ -110,7 +111,10 @@ def userunemployed(request):
 
 
 
-def add_userunemployed_form_submission(request):
+def add_userunemployed_form_submission(request, pk):
+	alumni = Alumni.objects.get(id=pk)
+
+
 	print("Hello, Unemployed form is submitted.")
 	reasons = request.POST["reasons"]
 	seek = request.POST["seek"]
@@ -122,7 +126,9 @@ def add_userunemployed_form_submission(request):
 	user_unemployed = UserUnemployed(reasons=reasons,seek=seek,aftergrad=aftergrad,finance=finance,desire=desire,consider=consider)
 	user_unemployed.save()
 
-	return render(request, 'CITAT/User_Unemployed.html')	
+	context = {'alumni':alumni}
+
+	return render(request, 'CITAT/User_Unemployed.html', context)	
 
 
 
@@ -193,9 +199,8 @@ def dashboardpage(request):
 def alumnipage(request, pk):
 	alumni = Alumni.objects.get(id=pk)
 
-	employed = alumni.useremployed_set.all()
-
-	context = {'alumni':alumni,'employed':employed}
+	
+	context = {'alumni':alumni}
 	return render(request, 'CITAT/Alumniprofile.html', context)
 
 

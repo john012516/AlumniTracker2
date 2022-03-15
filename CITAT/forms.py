@@ -7,10 +7,26 @@ from django import forms
 from .models import *
 
 class AlumniForm(ModelForm):
+	# EMPLOYED = (
+	# 	        ('Yes','Yes'),('No','No'),
+	# 		   )
+	# employed = forms.ChoiceField(choices=EMPLOYED, widget=forms.RadioSelect)
+
 	class Meta:
 		model = Alumni
 		fields = '__all__'
 		exclude = ['user']
+		widgets={
+		 	'incaseofemergency': forms.TextInput(attrs={'class':'form-control','placeholder':'Incase of Emergency'}),
+		# 	'firstname' : forms.TextInput(attrs={'class':'form-control'}),
+		# 	'lastname' : forms.TextInput(attrs={'class':'form-control'}),
+		# 	'Gender' : forms.TextInput(attrs={'class':'form-control'}),
+		# 	'email' : forms.TextInput(attrs={'class':'form-control'}),
+		# 	'phone' : forms.TextInput(attrs={'class':'form-control'}),
+		# 	'address' : forms.TextInput(attrs={'class':'form-control'}),
+		# 	'zipcode' : forms.TextInput(attrs={'class':'form-control'}),
+		# 	'Course' : forms.TextInput(attrs={'class':'form-control'}),
+		 }
 
 class JobsForm(ModelForm):
 	class Meta:
