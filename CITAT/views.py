@@ -81,28 +81,6 @@ def aboutpage(request):
 	#return HttpResponse("Aboutus");
 	return render(request, 'CITAT/about.html')
 
-@login_required(login_url='loginpage')
-def useremployed(request):
-
-	return render(request, 'CITAT/User_Employed.html')
-
-
-
-def add_useremployed_form_submission(request):
-
-	print("Hello, Employed form is submitted.")
-	employed = request.POST["employed"]
-	organization = request.POST["organization"]
-	selections = request.POST["selections"]
-	income = request.POST["income"]
-	skills = request.POST["skills"]
-
-	user_employed = UserEmployed(employed=employed,organization=organization,selections=selections,income=income,skills=skills)
-	user_employed.save()
-
-	return render(request, 'CITAT/User_Employed.html')
-
-
 
 @login_required(login_url='loginpage')
 def userunemployed(request):
@@ -111,8 +89,8 @@ def userunemployed(request):
 
 
 
-def add_userunemployed_form_submission(request, pk):
-	alumni = Alumni.objects.get(id=pk)
+def add_userunemployed_form_submission(request):
+	
 
 
 	print("Hello, Unemployed form is submitted.")
@@ -199,8 +177,9 @@ def dashboardpage(request):
 def alumnipage(request, pk):
 	alumni = Alumni.objects.get(id=pk)
 
+	useremplyoed = alumni.useremployed_set.all() 
 	
-	context = {'alumni':alumni}
+	context = {'alumni': alumni, 'useremplyoed': useremplyoed}
 	return render(request, 'CITAT/Alumniprofile.html', context)
 
 
@@ -327,9 +306,77 @@ def accountSettings(request):
 	context = {'form':form}
 	return render(request, 'CITAT/account_settings.html', context)
 
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['alumni'])
+def employed(request):
+	alumni = request.user.alumni
+	form = EmployedForm()
+
+	if request.method == "POST":
+		form = EmployedForm(request.POST)
+		if form.is_valid():
+			form.save()
+			
+
+
+	context={'form': form}
+	return render(request, 'CITAT/EmployedUser.html', context)
+
+
 def updateprofile(request):
 
 	context={}
 
 	return render (request,'CITAT/updateprofile.html')
 
+
+
+
+
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['alumni'])
+def useremployed(request):
+	alumni = request.user.alumni
+	form = UserEmployed()
+
+	if request.method == "POST":
+		# form = UserEmployed(request.POST)
+		# if form.is_valid():
+		# 	form.save
+
+		employed = request.POST["employed"]
+		organization = request.POST["organization"]
+		selections = request.POST["selections"]
+		income = request.POST["income"]
+		skills = request.POST["skills"]
+
+		user_employed = UserEmployed(employed=employed,organization=organization,selections=selections,income=income,skills=skills)
+		user_employed.save()
+			
+
+
+	context={'form' : form}
+	return render(request, 'CITAT/User_Employed.html', context)
+
+
+
+
+def navbar(request):
+	alumni = Alumni.objects.all()
+
+
+	context={'alumni': alumni}
+	return render(request, 'CITAT/navbar.html', context)
+# def add_useremployed_form_submission(request):
+
+# 	print("Hello, Employed form is submitted.")
+# 	employed = request.POST["employed"]
+# 	organization = request.POST["organization"]
+# 	selections = request.POST["selections"]
+# 	income = request.POST["income"]
+# 	skills = request.POST["skills"]
+
+# 	user_employed = UserEmployed(employed=employed,organization=organization,selections=selections,income=income,skills=skills)
+# 	user_employed.save()
+
+# 	return render(request, 'CITAT/User_Employed.html')

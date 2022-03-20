@@ -41,6 +41,11 @@ class EventForm(ModelForm):
 #class UserEmployedForm(ModelForm):
 		#models = UserEmployed
 		#fields = '__all__'
+class EmployedForm(ModelForm):
+	class Meta:
+		model = Employed
+		fields = '__all__'
+
 class UserEmployed(forms.ModelForm):
 	EMPLOYED = (
 		        ('Yes','Yes'), 

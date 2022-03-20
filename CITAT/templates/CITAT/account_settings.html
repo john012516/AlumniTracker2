@@ -140,8 +140,9 @@
 								</tr>
 								<tr>
 									<td>Work Status </td>
-									<td class="tble2"> {{request.user.alumni.employed}} </td>
+									<td class="tble2"> {{request.user.alumni.alumni_employed}} </td>
 								</tr>
+
 
 							</tbody>
 						</table>
@@ -160,6 +161,12 @@
 						<a href="#modalbox">Edit</a>
 					</div>
 
+					<div class="wrapper">
+						<a href="{% url 'employed' %}">Click here if you are Employed</a>
+					</div>
+
+
+
 
 					<div id="modalbox" class="modal">
 						<div class="modalcontent">
@@ -168,7 +175,30 @@
 							<br>
 							<form method="POST" action="" enctype="multipart/form-data"> 
 								{% csrf_token %}
-								{{form.as_p}}
+								{{form.firstname}}
+								{{form.lastname}}
+								{{form.Gender}}
+								{{form.Civil}}
+								{{form.email}}
+								{{form.Telephone}}
+								{{form.phone}}
+								{{form.address}}
+								{{form.zipcode}}
+								{{form.Religion}}
+								{{form.Citizenship}}
+								{{form.Date_of_Birth}}
+								{{form.Place_of_Birth}}
+								{{form.Course}}
+								{{form.incaseofemergency}}
+								{{form.nameofemergency}}
+								{{form.relation}}
+								{{form.contactnumber}}
+								{{form.address2}}
+								{{form.alumni_employed}}
+
+
+
+
 
 							<button type="submit" href="{% url 'account' %}" >Update</button>
 
@@ -176,6 +206,8 @@
 							<a href="{% url 'account' %}" class="modalclose">close;</a>
 						</div>
 					</div>
+				
+
 
 				</div>
 			</div>

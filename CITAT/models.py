@@ -43,7 +43,7 @@ class Alumni(models.Model):
 	contactnumber = models.CharField(max_length=200, null=True,)
 	address2 = models.CharField(max_length=200, null=True,)
 
-	employed=models.CharField(max_length=200, null=True, choices=STATUS) 			
+	alumni_employed=models.CharField(max_length=200, null=True, choices=STATUS) 			
 	
 
 
@@ -117,7 +117,8 @@ class UserEmployed(models.Model):
 					('Retention', 'Retention'),
 					('Promotion', 'Promotion'),
 			)
-	user = models.OneToOneField(User, null =True,blank=True, on_delete=models.CASCADE)
+
+	alumni = models.ForeignKey(Alumni, null=True, on_delete=models.SET_NULL)
 	employed=models.CharField(max_length=200, null=True) 			
 	organization = models.CharField(max_length=200, null=True, choices=ORGANIZATION)
 	selections = models.CharField(max_length=200, null=True, choices=SELECTIONS)
@@ -205,6 +206,36 @@ class UserSelfemployed(models.Model):
 	reason = models.CharField(max_length=200, null=True, choices=REASON)
 	numberofemployee = models.CharField(max_length=200, null=True)
 	skills = models.CharField(max_length=200, null=True)
+
+
+class Employed(models.Model):
+	ORGANIZATION = (
+					('--Select--', '--Select--'),
+					('Government Organization (GO)', 'Government Organization (GO)'),
+					('Business Organization (BO)', 'Business Organization (BO)'),
+					('Private Organization', 'Private Organization'),
+					('Cooperative', 'Cooperative'),
+					('Non Government Organization', 'Non Government Organization'),
+					('Peoples Organization', 'Peoples Organization'),
+					)
+	EMPLOYED = (
+				('Yes', 'Yes'),
+				('No', 'No'),
+				)
+	INCOME = (
+			('10,000 - 20,000', '10,000 - 20,000'),
+			('20,000 - 30,000', '20,000 - 30,000'),
+			('30,000 - 40,000', '30,000 - 40,000'),
+			('40,000 - 50,000', '40,000 - 50,000'),
+			)
+	alumni = models.ForeignKey(Alumni, null=True, on_delete=models.SET_NULL)
+	are_you_employed=models.CharField(max_length=200, null=True, choices=EMPLOYED) 	
+	organization = models.CharField(max_length=200, null=True, choices=ORGANIZATION)
+	income = models.CharField(max_length=200, null=True, choices=INCOME)
+
+	def __str__(self):
+		return self.are_you_employed
+
 
 
 

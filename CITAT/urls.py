@@ -14,6 +14,7 @@ urlpatterns = [
     path('register', views.registerpage, name='registerpage'),
 
     path('', views.homepage, name='home'),
+    path('navbar', views.navbar, name='navbar'),
     path('user', views.userPage, name='userPage'),
     path('updateprofile', views.updateprofile, name='updateprofile'),
     path('aboutus/', views.aboutpage, name='about'),
@@ -25,7 +26,9 @@ urlpatterns = [
     path('account/', views.accountSettings, name='account'),
 
     path('useremployed/', views.useremployed, name="useremployed"),
-    path('add_useremployed_form_submission/', views.add_useremployed_form_submission, name="add_useremployed_form_submission"),
+
+    path('employed/', views.employed, name="employed"),
+    # path('add_useremployed_form_submission/', views.add_useremployed_form_submission, name="add_useremployed_form_submission"),
     path('userunemployed/', views.userunemployed, name="userunemployed"),
     path('add_userunemployed_form_submission/', views.add_userunemployed_form_submission, name="add_userunemployed_form_submission"),
     path('userselfemployed/', views.userselfemployed, name="userselfemployed"),

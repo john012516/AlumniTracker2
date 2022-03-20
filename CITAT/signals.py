@@ -20,3 +20,5 @@ def alumni_profile(sender, instance, created, **kwargs):
 
 
 post_save.connect(alumni_profile, sender=User)
+
+
