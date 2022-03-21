@@ -297,7 +297,6 @@ def deleteJob(request, pk):
 def accountSettings(request):
 	alumni = request.user.alumni
 	form = AlumniForm(instance=alumni)
-
 	if request.method == "POST":
 		form = AlumniForm(request.POST, request.FILES, instance=alumni)
 		if form.is_valid():

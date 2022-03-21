@@ -16,11 +16,18 @@ class Alumni(models.Model):
 	STATUS = (
 			 ('Employed', 'Employed'),
 			 ('Unemployed', 'Unemployed'),
+			 ('Self-employed', 'Self-employed'),
 			)
 	CIVIL = (
 			('Single','Single'),
 			('Married', 'Married'),
 			('Widowed', 'Widowed'),
+			)
+	INCOME = (
+			('10,000-25,000','10,000-25,000'),
+			('30,000-40,000', '30,000-40,000'),
+			('50,000-70,000', '50,000-70,000'),
+			('More than the choices', 'More than the choices'),
 			)
 	user = models.OneToOneField(User, null =True,blank=True, on_delete=models.CASCADE)
 	firstname = models.CharField(max_length=200, null=True)
@@ -37,14 +44,25 @@ class Alumni(models.Model):
 	Date_of_Birth = models.CharField(max_length=200, null=True)
 	Place_of_Birth = models.CharField(max_length=200, null=True)
 	Course = models.CharField(max_length=200, null=True,)
+
 	incaseofemergency = models.CharField(max_length=200, null=True, editable=False)
 	nameofemergency = models.CharField(max_length=200, null=True,)
 	relation = models.CharField(max_length=200, null=True,)
 	contactnumber = models.CharField(max_length=200, null=True,)
 	address2 = models.CharField(max_length=200, null=True,)
 
-	alumni_employed=models.CharField(max_length=200, null=True, choices=STATUS) 			
-	
+	alumni_employed=models.CharField(max_length=200, null=True, choices=STATUS)
+
+
+	Company_name = models.CharField(max_length=200, null=True)
+	Company_address = models.CharField(max_length=200, null=True)
+	Company_zipcode = models.CharField(max_length=200, null=True)
+	Company_contact = models.CharField(max_length=200, null=True)
+	Company_email = models.CharField(max_length=200, null=True)
+	Position = models.CharField(max_length=200, null=True)
+	Income = models.CharField(max_length=200, null=True, choices=INCOME)
+	Years_of_experience = models.CharField(max_length=200, null=True)
+
 
 
 	profile_pic = models.ImageField(default="default.png", null=True, blank=True ) 
@@ -54,6 +72,7 @@ class Alumni(models.Model):
 	date_created = models.DateTimeField(auto_now_add=True, null=True)
 	def __str__(self):
 		return self.firstname
+
 
 class Event(models.Model):
 	EVENT = (

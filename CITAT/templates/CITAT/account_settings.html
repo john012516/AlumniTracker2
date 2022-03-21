@@ -158,44 +158,57 @@
 					</form>
 					<!-- <button class="btn btn-primary" href="{% url 'updateprofile'%}" name="Update Information">Edit</button> -->
 					<div class="wrapper">
-						<a href="#modalbox">Edit</a>
+						<a href="#Profile-Edit">Edit</a>
 					</div>
 
-					<div class="wrapper">
+					<!-- <div class="wrapper">
 						<a href="{% url 'employed' %}">Click here if you are Employed</a>
-					</div>
+					</div> -->
+
+<!-- 					<div class="wrapper">
+						<a href="#Employed-Edit">Click here if you are Employed</a>
+					</div> -->
 
 
 
 
-					<div id="modalbox" class="modal">
+					<div id="Profile-Edit" class="modal">
 						<div class="modalcontent">
 							<br>
 							<h3 style="color:#800000; text-shadow: 1px 0px #D4AF37; text-align:center;"><b>Update Profile</b></h3>
 							<br>
 							<form method="POST" action="" enctype="multipart/form-data"> 
 								{% csrf_token %}
-								{{form.firstname}}
-								{{form.lastname}}
-								{{form.Gender}}
-								{{form.Civil}}
-								{{form.email}}
-								{{form.Telephone}}
-								{{form.phone}}
-								{{form.address}}
-								{{form.zipcode}}
-								{{form.Religion}}
-								{{form.Citizenship}}
-								{{form.Date_of_Birth}}
-								{{form.Place_of_Birth}}
-								{{form.Course}}
-								{{form.incaseofemergency}}
-								{{form.nameofemergency}}
-								{{form.relation}}
-								{{form.contactnumber}}
-								{{form.address2}}
-								{{form.alumni_employed}}
-
+								<p>First name: {{form.firstname}} </p>
+								<p>Last name: {{form.lastname}}</p>
+								<p>Gender: {{form.Gender}}</p>
+								<p>Civil status: {{form.Civil}}</p>
+								<p>Email: {{form.email}}</p>
+								<p>Telephone: {{form.Telephone}}</p>
+								<p>Phone number: {{form.phone}}</p>
+								<p>Address: {{form.address}}</p>
+								<p>Zipcode: {{form.zipcode}}</p>
+								<p>Religion: {{form.Religion}}</p>
+								<p>Citizenship: {{form.Citizenship}}</p>
+								<p>Date of birth: {{form.Date_of_Birth}}</p>
+								<p>Place of birth: {{form.Place_of_Birth}}</p>
+								<p>Course: {{form.Course}}</p>
+								<p>Incase of emergency:{{form.incaseofemergency}}</p>
+								<p>Name of emergency: {{form.nameofemergency}}</p>
+								<p>Relation: {{form.relation}}</p>
+								<p>Contact number: {{form.contactnumber}}</p>
+								<p>Address: {{form.address2}}</p>
+								<p>Work status: {{form.alumni_employed}}</p>
+								<p>If you are Employed/Self-Employed kindly fill up the following, if not please type "None"</p>
+								<p>Name of company: {{form.Company_name}}</p>
+								<p>Address: {{form.Company_address}}</p>
+								<p>Zipcode: {{form.Company_zipcode}}</p>
+								<p>Company's email: {{form.Company_email}}</p>
+								<p>Postion: {{form.Position}}</p>
+								<p>Monthly income: {{form.Income}}</p>
+								<p>Years of experience: {{form.Years_of_experience}}</p>
+								<p>Company's contact number: {{form.Company_contact}}</p>
+							
 
 
 
@@ -203,11 +216,9 @@
 							<button type="submit" href="{% url 'account' %}" >Update</button>
 
 							</form>
-							<a href="{% url 'account' %}" class="modalclose">close;</a>
+							<a href="{% url 'account' %}" class="modalclose">Close</a>
 						</div>
 					</div>
-				
-
 
 				</div>
 			</div>

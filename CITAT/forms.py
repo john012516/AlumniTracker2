@@ -41,7 +41,7 @@ class EventForm(ModelForm):
 #class UserEmployedForm(ModelForm):
 		#models = UserEmployed
 		#fields = '__all__'
-class EmployedForm(ModelForm):
+class EmployedModal(ModelForm):
 	class Meta:
 		model = Employed
 		fields = '__all__'
