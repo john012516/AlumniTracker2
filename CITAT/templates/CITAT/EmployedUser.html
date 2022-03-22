@@ -17,10 +17,14 @@
 	        <div class="card card-body">
 	          <form action="" method="POST" enctype="multipart/form-data">
 	            {% csrf_token %}
-	          	{{form.alumni}}
-	          	{{form.are_you_employed}}
-	          	{{form.organization}}
-	          	{{form.income}}
+	          		<p>Name of company: {{form.Company_name}}</p>
+					<p>Address: {{form.Company_address}}</p>
+					<p>Zipcode: {{form.Company_zipcode}}</p>
+					<p>Company's email: {{form.Company_email}}</p>
+					<p>Postion: {{form.Position}}</p>
+					<p>Monthly income: {{form.Income}}</p>
+					<p>Year started: {{form.Year_started}}</p>
+					<p>Company's contact number: {{form.Company_contact}}</p>
 	            <br>
 	            <br>
 	            <input class="btn btn-primary" type="submit" name="submit">

@@ -45,6 +45,7 @@ class EmployedModal(ModelForm):
 	class Meta:
 		model = Employed
 		fields = '__all__'
+		exclude = ['alumni']
 
 class UserEmployed(forms.ModelForm):
 	EMPLOYED = (

@@ -62,18 +62,6 @@
 				</div>
 			</div>
 	
-		<div class="col-md">
-				<div class="card card-body">
-					<h5>User Company Details</h5>
-					<hr>
-					<p>Employed: {{alumni.employed}}</p>
-					<p>Lastname: {{user.useremployed.employed}}</p>
-					<p>Gender: {{alumni.Gender }}</p>
-					<p>Zipcode: {{alumni.zipcode }}</p>
-					<p>Course: {{alumni.Course }}</p>
-				</div>
-			</div>
-		</div>
 		
 		<br>
 
@@ -82,22 +70,29 @@
 				<div class="card card-body">
 					<table class="table table-sm">
 						<tr>
-							<th>User Employed</th>
-							<th>Type of Organization</th>
-							<th>Qualifications</th>
+							<th>Company Name</th>
+							<th>Company Address</th>
+							<th>Company Zipcode</th>
+							<th>Company Contact Number</th>
+							<th>Company Email</th>
+							<th>Position</th>
 							<th>Income</th>
-							<th>Able to use the Skills acquired from your degree</th>
+							<th>Year Started</th>
+
 
 						</tr>
 				
-						{% for useremployed in useremplyoed %}
+						{% for Employed in employed %}
 					
 						<tr>
-							<td>{{useremployed.employed}}</td>
-							<td>{{useremployed.organization}}</td>
-							<td>{{useremployed.selections}}</td>
-							<td>{{useremployed.income}}</td>
-							<td>{{useremployed.skills}}</td>
+							<td>{{Employed.Company_name}}</td>
+							<td>{{Employed.Company_address}}</td>
+							<td>{{Employed.Company_zipcode}}</td>
+							<td>{{Employed.Company_contact}}</td>
+							<td>{{Employed.Company_email}}</td>
+							<td>{{Employed.Position}}</td>
+							<td>{{Employed.Income}}</td>
+							<td>{{Employed.Year_started}}</td>
 
 						</tr>
 						{% endfor %}

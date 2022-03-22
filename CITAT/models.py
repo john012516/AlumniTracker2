@@ -54,17 +54,6 @@ class Alumni(models.Model):
 	alumni_employed=models.CharField(max_length=200, null=True, choices=STATUS)
 
 
-	Company_name = models.CharField(max_length=200, null=True)
-	Company_address = models.CharField(max_length=200, null=True)
-	Company_zipcode = models.CharField(max_length=200, null=True)
-	Company_contact = models.CharField(max_length=200, null=True)
-	Company_email = models.CharField(max_length=200, null=True)
-	Position = models.CharField(max_length=200, null=True)
-	Income = models.CharField(max_length=200, null=True, choices=INCOME)
-	Years_of_experience = models.CharField(max_length=200, null=True)
-
-
-
 	profile_pic = models.ImageField(default="default.png", null=True, blank=True ) 
 
 
@@ -228,32 +217,26 @@ class UserSelfemployed(models.Model):
 
 
 class Employed(models.Model):
-	ORGANIZATION = (
-					('--Select--', '--Select--'),
-					('Government Organization (GO)', 'Government Organization (GO)'),
-					('Business Organization (BO)', 'Business Organization (BO)'),
-					('Private Organization', 'Private Organization'),
-					('Cooperative', 'Cooperative'),
-					('Non Government Organization', 'Non Government Organization'),
-					('Peoples Organization', 'Peoples Organization'),
-					)
-	EMPLOYED = (
-				('Yes', 'Yes'),
-				('No', 'No'),
-				)
+
 	INCOME = (
-			('10,000 - 20,000', '10,000 - 20,000'),
-			('20,000 - 30,000', '20,000 - 30,000'),
-			('30,000 - 40,000', '30,000 - 40,000'),
-			('40,000 - 50,000', '40,000 - 50,000'),
+			('10,000-25,000','10,000-25,000'),
+			('30,000-40,000', '30,000-40,000'),
+			('50,000-70,000', '50,000-70,000'),
+			('More than the choices', 'More than the choices'),
 			)
+			
 	alumni = models.ForeignKey(Alumni, null=True, on_delete=models.SET_NULL)
-	are_you_employed=models.CharField(max_length=200, null=True, choices=EMPLOYED) 	
-	organization = models.CharField(max_length=200, null=True, choices=ORGANIZATION)
-	income = models.CharField(max_length=200, null=True, choices=INCOME)
+	Company_name = models.CharField(max_length=200, null=True)
+	Company_address = models.CharField(max_length=200, null=True)
+	Company_zipcode = models.CharField(max_length=200, null=True)
+	Company_contact = models.CharField(max_length=200, null=True)
+	Company_email = models.CharField(max_length=200, null=True)
+	Position = models.CharField(max_length=200, null=True)
+	Income = models.CharField(max_length=200, null=True, choices=INCOME)
+	Year_started = models.CharField(max_length=200, null=True)
 
 	def __str__(self):
-		return self.are_you_employed
+		return self.Company_name
 
 
 

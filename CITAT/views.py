@@ -177,9 +177,9 @@ def dashboardpage(request):
 def alumnipage(request, pk):
 	alumni = Alumni.objects.get(id=pk)
 
-	useremplyoed = alumni.useremployed_set.all() 
+	employed = alumni.employed_set.all() 
 	
-	context = {'alumni': alumni, 'useremplyoed': useremplyoed}
+	context = {'alumni': alumni, 'employed': employed}
 	return render(request, 'CITAT/Alumniprofile.html', context)
 
 
@@ -309,12 +309,16 @@ def accountSettings(request):
 @allowed_users(allowed_roles=['alumni'])
 def employed(request):
 	alumni = request.user.alumni
-	form = EmployedForm()
+	form = EmployedModal()
 
 	if request.method == "POST":
-		form = EmployedForm(request.POST)
+		form = EmployedModal(request.POST)
 		if form.is_valid():
-			form.save()
+			instance = form.save(commit = False)
+			instance.alumni = request.user.alumni
+			instance.save()
+			return redirect('account')
+
 			
 
 
