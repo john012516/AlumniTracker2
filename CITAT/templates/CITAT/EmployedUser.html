@@ -3,42 +3,79 @@
 {% load static %}
 {% block content %}
 <html lang="en">
-
 	<head>
 		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
-
+		
+		<link rel="stylesheet" href="{% static 'css/employedUser.css' %}"/>
 	</head>
 	<body>
 		<div class="row">
-	      <div class="col-md-12">
-	        <div class="card card-body">
-	          <form action="" method="POST" enctype="multipart/form-data">
-	            {% csrf_token %}
-	          		<p>Name of company: {{form.Company_name}}</p>
-					<p>Address: {{form.Company_address}}</p>
-					<p>Zipcode: {{form.Company_zipcode}}</p>
-					<p>Company's email: {{form.Company_email}}</p>
-					<p>Postion: {{form.Position}}</p>
-					<p>Monthly income: {{form.Income}}</p>
-					<p>Year started: {{form.Year_started}}</p>
-					<p>Company's contact number: {{form.Company_contact}}</p>
-	            <br>
-	            <br>
-	            <input class="btn btn-primary" type="submit" name="submit">
-	          </form>
-	        </div>
-	      </div>
-	    </div>
+			<div class="col-md-12">
+				<div class="card card-body">
+					<form action="" method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<table>
+							<tbody>
+								<tr>
+									<td class="td1">Name of company: </td>
+									<td class="td2"> {{form.Company_name}} </td>
+								</tr>
+								<tr>
+									<td class="td1">Address: </td>
+									<td class="td2"> {{form.Company_address}} </td>
+								</tr>
+								<tr>
+									<td class="td1">Zipcode: </td>
+									<td class="td2"> {{form.Company_zipcode}} </td>
+								</tr>
+								<tr>
+									<td class="td1">Company's email: </td>
+									<td class="td2"> {{form.Company_email}} </td>
+								</tr>
+								<tr>
+									<td class="td1">Postion: </td>
+									<td class="td2"> {{form.Position}} </td>
+								</tr>
+								<tr>
+									<td class="td1">Monthly income: </td>
+									<td class="td2"> {{form.Income}} </td>
+								</tr>
+								<tr>
+									<td class="td1">Year started: </td>
+									<td class="td2"> {{form.Year_started}} </td>
+								</tr>
+								<tr>
+									<td class="td1">Company's contact number: </td>
+									<td class="td2"> {{form.Company_contact}} </td>
+								</tr>
+							</tbody>
+						</table>
+						 
+						<!-- <p>Name of company: {{form.Company_name}}</p>
+						<p>Address: {{form.Company_address}}</p>
+						<p>Zipcode: {{form.Company_zipcode}}</p>
+						<p>Company's email: {{form.Company_email}}</p>
+						<p>Postion: {{form.Position}}</p>
+						<p>Monthly income: {{form.Income}}</p>
+						<p>Year started: {{form.Year_started}}</p>
+						<p>Company's contact number: {{form.Company_contact}}</p> -->
+						<br>
+						<br>
+						<div class="wrapper">
+							<a href="{% url 'account' %}">back to Profile</a>
+							<input class="btn btn-primary" type="submit" name="submit">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
-
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>		
 	</body>
-
-{% endblock %}
+	{% endblock %}
 </html>

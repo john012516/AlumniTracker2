@@ -30,6 +30,8 @@
 
 			td.tble2{
 				padding-left: 20px;
+				padding-right: 20px;
+				text-align: left;
 			}
 
 			.wrapper a{
@@ -42,7 +44,7 @@
 				color: #585858;
 			}
 
-			.modal{
+			/* .modal{
 				position: absolute;
 				top: 0;
 				bottom: 0;
@@ -64,19 +66,58 @@
 				position:  absolute;
 				background: #fff;
 				margin: 0 auto; 
-				width: 100%;
+				width: 85%;
 				height: 100%;
 				max-width: 200%; 
-				/* padding: 1em 1em;*/
+				/ padding: 1em 1em;/
 				border-radius: px; 
 				text-align: center;
 				
+			} */
+
+			/* The Modal (background) */
+			.modal {
+				display: none; /* Hidden by default */
+				position: fixed; /* Stay in place */
+				z-index: 1; /* Sit on top */
+				padding-top: 100px; /* Location of the box */
+				left: 0;
+				top: 0;
+				width: auto; /* Full width */
+				height: 100%; /* Full height */
+				overflow: auto; /* Enable scroll if needed */
+				background-color: rgb(0,0,0); /* Fallback color */
+				background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+			}
+
+			/* Modal Content */
+			.modal-content {
+				background-color: #fefefe;
+				margin: auto;
+				padding: 20px;
+				border: 1px solid #888;
+				width: 65%;
+			}
+
+			/* The Close Button */
+			.close {
+				color: #aaaaaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+			}
+
+			.close:hover,
+				.close:focus {
+				color: #000;
+				text-decoration: none;
+				cursor: pointer;
 			}
 			a {
 				font-size: 15px;
 				font-weight: 600;
+				cursor: pointer;
 			}
-
 		</style>
 
 	</head>
@@ -142,8 +183,6 @@
 									<td>Work Status </td>
 									<td class="tble2"> {{request.user.alumni.alumni_employed}} </td>
 								</tr>
-
-
 							</tbody>
 						</table>
 						<!-- <p>ID No.: {{request.user.alumni.user}}</p> 
@@ -154,32 +193,116 @@
 						<p>Address.: {{request.user.alumni.address}}</p>
 						<p>Zipcode.: {{request.user.alumni.zipcode}}</p>
 						<p>Course.: {{request.user.alumni.Course}}</p> -->
-										
+						
 					</form>
 					<!-- <button class="btn btn-primary" href="{% url 'updateprofile'%}" name="Update Information">Edit</button> -->
 					<div class="wrapper">
-						<a href="#Profile-Edit">Edit</a>
-					</div>
+						<!-- <a href="#Profile-Edit">Edit</a> -->
+						<a id="myBtn"> Edit</a>
+					</div> 
 
 					<div class="wrapper">
 						<a href="{% url 'employed' %}">Click here if you are Employed</a>
 					</div>
 
-<!-- 					<div class="wrapper">
+					<!-- <div class="wrapper">
 						<a href="#Employed-Edit">Click here if you are Employed</a>
 					</div> -->
 
 
-
-
-					<div id="Profile-Edit" class="modal">
+					<!-- <div id="Profile-Edit" class="modal">
 						<div class="modalcontent">
 							<br>
 							<h3 style="color:#800000; text-shadow: 1px 0px #D4AF37; text-align:center;"><b>Update Profile</b></h3>
 							<br>
 							<form method="POST" action="" enctype="multipart/form-data"> 
 								{% csrf_token %}
-								<p>First name: {{form.firstname}} </p>
+								<table>
+									<tbody>
+										<tr>
+											<td class="tble2">First name: </td>
+											<td class="tble2"> {{form.firstname}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Last name: </td>
+											<td class="tble2"> {{form.lastname}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Gender: </td>
+											<td class="tble2"> {{form.Gender}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Civil Status: </td>
+											<td class="tble2"> {{form.Civil}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Email: </td>
+											<td class="tble2"> {{form.email}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Telephone: </td>
+											<td class="tble2"> {{form.Telelephone}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Phone Number: </td>
+											<td class="tble2"> {{form.phone}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Address: </td>
+											<td class="tble2"> {{form.address}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Zipcode: </td>
+											<td class="tble2"> {{form.zipcode}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Religion: </td>
+											<td class="tble2"> {{form.Religion}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Citizenship: </td>
+											<td class="tble2"> {{form.Citizenship}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Date og Birth: </td>
+											<td class="tble2"> {{form.Date_of_Birth}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Place of Birth: </td>
+											<td class="tble2"> {{form.Place_of_Birth}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Course: </td>
+											<td class="tble2"> {{form.Course}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Incase of emergency: </td>
+											<td class="tble2"> {{form.incaseofemergency}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Name of emergency: </td>
+											<td class="tble2"> {{form.nameofemergency}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Relation: </td>
+											<td class="tble2"> {{form.relation}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Contact number: </td>
+											<td class="tble2"> {{form.contactnumber}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Address: </td>
+											<td class="tble2"> {{form.address2}} </td>
+										</tr>
+										<tr>
+											<td class="tble2">Work status: </td>
+											<td class="tble2"> {{form.alumni_employed}} </td>
+										</tr>
+
+									</tbody>
+								</table>
+								<!-- <p>First name: {{form.firstname}} </p>
 								<p>Last name: {{form.lastname}}</p>
 								<p>Gender: {{form.Gender}}</p>
 								<p>Civil status: {{form.Civil}}</p>
@@ -198,21 +321,148 @@
 								<p>Relation: {{form.relation}}</p>
 								<p>Contact number: {{form.contactnumber}}</p>
 								<p>Address: {{form.address2}}</p>
-								<p>Work status: {{form.alumni_employed}}</p>
-								{{form.profile_pic}}
+								<p>Work status: {{form.alumni_employed}}</p>->
+								{{form.profile_pic}} 
 
+								<button type="submit" href="{% url 'account' %}"> Update </button>
 
-							<button type="submit" href="{% url 'account' %}" >Update</button>
+							</form> 
+							<a href="{% url 'account' %}" class="modalclose"> Close </a>
+						</div>
+					</div> -->
 
-							</form>
-							<a href="{% url 'account' %}" class="modalclose">Close</a>
+					<!-- The Modal -->
+					<div id="myModal" class="modal">
+						<!-- Modal content -->
+						<div class="modal-content">
+							<span class="close">&times;</span>
+							<!-- <p>Some text in the Modal..</p>-->
+							
+							<center>
+								<h3 style="color:#800000; text-shadow: 1px 0px #D4AF37; text-align:center;"><b>Update Profile</b></h3>
+								<br>
+								<form method="POST" action="" enctype="multipart/form-data"> 
+									{% csrf_token %}
+									<table>
+										<tbody>
+											<tr>
+												<td class="tble2">First name: </td>
+												<td class="tble2"> {{form.firstname}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Last name: </td>
+												<td class="tble2"> {{form.lastname}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Gender: </td>
+												<td class="tble2"> {{form.Gender}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Civil Status: </td>
+												<td class="tble2"> {{form.Civil}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Email: </td>
+												<td class="tble2"> {{form.email}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Telephone: </td>
+												<td class="tble2"> {{form.Telelephone}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Phone Number: </td>
+												<td class="tble2"> {{form.phone}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Address: </td>
+												<td class="tble2"> {{form.address}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Zipcode: </td>
+												<td class="tble2"> {{form.zipcode}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Religion: </td>
+												<td class="tble2"> {{form.Religion}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Citizenship: </td>
+												<td class="tble2"> {{form.Citizenship}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Date og Birth: </td>
+												<td class="tble2"> {{form.Date_of_Birth}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Place of Birth: </td>
+												<td class="tble2"> {{form.Place_of_Birth}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Course: </td>
+												<td class="tble2"> {{form.Course}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Incase of emergency: </td>
+												<td class="tble2"> {{form.incaseofemergency}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Name of emergency: </td>
+												<td class="tble2"> {{form.nameofemergency}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Relation: </td>
+												<td class="tble2"> {{form.relation}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Contact number: </td>
+												<td class="tble2"> {{form.contactnumber}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Address: </td>
+												<td class="tble2"> {{form.address2}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Work status: </td>
+												<td class="tble2"> {{form.alumni_employed}} </td>
+											</tr>
+										</tbody>
+									</table>
+									{{form.profile_pic}} 
+				
+									<button type="submit" href="{% url 'account' %}"> Update </button>
+								</form>
+							</center>
 						</div>
 					</div>
-
+					<!--End Modal-->
 				</div>
 			</div>
 		</div>
 
+		<script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            btn.onclick = function() { modal.style.display = "block"; }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() { modal.style.display = "none"; }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+		
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
