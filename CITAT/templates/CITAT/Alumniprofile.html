@@ -47,7 +47,7 @@
 				</div>
 			</div>
 
-<<<<<<< Updated upstream
+
 			<div class="col-md">
 				<div class="card card-body">
 					<h5>Incase of Emergency</h5>
@@ -58,8 +58,7 @@
 				</div>
 			</div>
 
-=======
->>>>>>> Stashed changes
+
 		</div>
 
 		<br>
@@ -85,59 +84,10 @@
 					<p>Place of Birth: {{alumni.Place_of_Birth }}</p>
 				</div>
 			</div>
-		</div>
 
-
-	
-		
-		<br>
-		<br>
-
-		<div class="row">
-			<div class="col-md-16">
+			<div class="col-md">
 				<div class="card card-body">
-					<h5>Company Details</h5>
-					<hr>
-					<table class="table table-sm">
-						<tr>
-							<th>Company Name</th>
-							<th>Company Address</th>
-							<th>Company Zipcode</th>
-							<th>Company Contact Number</th>
-							<th>Company Email</th>
-							<th>Position</th>
-							<th>Income</th>
-							<th>Year Started</th>
-
-
-						</tr>
-				
-						{% for Employed in employed %}
-					
-						<tr>
-							<td>{{Employed.Company_name}}</td>
-							<td>{{Employed.Company_address}}</td>
-							<td>{{Employed.Company_zipcode}}</td>
-							<td>{{Employed.Company_contact}}</td>
-							<td>{{Employed.Company_email}}</td>
-							<td>{{Employed.Position}}</td>
-							<td>{{Employed.Income}}</td>
-							<td>{{Employed.Year_started}}</td>
-
-						</tr>
-						{% endfor %}
-					</table>
-				</div>
-			</div>
-		</div>
-
-		<br>
-		<br>
-
-		<div class="row">
-			<div class="col-md-6">
-				<div class="card card-body">
-					<canvas id="myChart" width="200" height="300"></canvas>
+					<canvas id="myChart" width="300" height="130"></canvas>
 						<script>
 						const ctx = document.getElementById('myChart').getContext('2d');
 						const myChart = new Chart(ctx, {
@@ -178,6 +128,57 @@
 
 				</div>
 			</div>
+		</div>
+
+
+	
+		
+		<br>
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Company Details</h5>
+					<hr>
+					<table class="table table-sm">
+						<tr>
+							<th>Company Name</th>
+							<th>Company Address</th>
+							<th>Company Zipcode</th>
+							<th>Company Contact Number</th>
+							<th>Company Email</th>
+							<th>Position</th>
+							<th>Income</th>
+							<th>Year Started</th>
+
+
+						</tr>
+				
+						{% for Employed in employed %}
+					
+						<tr>
+							<td>{{Employed.Company_name}}</td>
+							<td>{{Employed.Company_address}}</td>
+							<td>{{Employed.Company_zipcode}}</td>
+							<td>{{Employed.Company_contact}}</td>
+							<td>{{Employed.Company_email}}</td>
+							<td>{{Employed.Position}}</td>
+							<td>{{Employed.Income}}</td>
+							<td>{{Employed.Year_started}}</td>
+
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<br>
+
+		<div class="row">
+			
 		</div>
 
 		
