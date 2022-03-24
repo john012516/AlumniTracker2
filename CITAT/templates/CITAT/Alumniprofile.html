@@ -95,7 +95,7 @@
 						    data: {
 						        labels: [{%for Employed in employed%} '{{Employed.Company_name}}', {%endfor%}],
 						        datasets: [{
-						            label: '# of Votes',
+						            label: 'Year Started',
 						            data: [{%for Employed in employed%} '{{Employed.Year_started}}', {%endfor%}],
 						            backgroundColor: [
 						                'rgba(255, 99, 132, 1)',

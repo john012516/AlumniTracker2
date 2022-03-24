@@ -21,6 +21,7 @@ urlpatterns = [
     path('contactus/', views.contactpage, name='contact'),
     path('dashboards/', views.dashboardpage, name='dashboard'),
     path('alumnidashboard/<str:pk>/', views.alumnipage, name="alumni"),
+    path('jobdashboard/', views.jobpage, name='jobpage'),
     path('eventdashboard/', views.eventpage, name='event'),
 
     path('account/', views.accountSettings, name='account'),

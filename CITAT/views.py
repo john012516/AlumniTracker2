@@ -161,16 +161,29 @@ def dashboardpage(request):
 	jobs = Jobs.objects.all()
 	alumni = Alumni.objects.all()
 
-	total_jobs = jobs.count()
-	partnercompany = jobs.filter(status='Partner Company').count()
-	jobseekers = jobs.filter(status='Job Seekers').count()
+	total_alumni = alumni.count()
+	male = alumni.filter(Gender='MALE').count()
+	female = alumni.filter(Gender='FEMALE').count()
 
-	context = {'jobs':jobs, 'alumni':alumni, 'total_jobs':total_jobs, 'partnercompany':partnercompany, 'jobseekers': jobseekers}
+	context = {'jobs':jobs, 'alumni':alumni, 'total_alumni':total_alumni, 'male':male, 'female': female}
 
 	return render(request, 'CITAT/dashboard.html', context)
 
 
-	
+@login_required(login_url='loginpage')
+@admin_only
+def jobpage(request):
+	jobs = Jobs.objects.all()
+
+	total_jobs = jobs.count()
+	partnercompany = jobs.filter(status='Partner Company').count()
+	jobseekers = jobs.filter(status='Job Seekers').count()
+
+	context = {'jobs':jobs, 'total_jobs':total_jobs, 'partnercompany':partnercompany, 'jobseekers': jobseekers}
+
+	return render(request, 'CITAT/adminjob.html', context)
+
+
 
 @login_required(login_url='loginpage')
 @allowed_users(allowed_roles=['admin'])

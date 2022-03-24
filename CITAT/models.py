@@ -29,10 +29,14 @@ class Alumni(models.Model):
 			('50,000-70,000', '50,000-70,000'),
 			('More than the choices', 'More than the choices'),
 			)
+	GENDER = (
+			('MALE', 'MALE'),
+			('FEMALE', 'FEMALE'),
+			)
 	user = models.OneToOneField(User, null =True,blank=True, on_delete=models.CASCADE)
 	firstname = models.CharField(max_length=200, null=True)
 	lastname = models.CharField(max_length=200, null=True)
-	Gender = models.CharField(max_length=200, null=True)
+	Gender = models.CharField(max_length=200, null=True, choices=GENDER)
 	Civil = models.CharField(max_length=200, null=True, choices=CIVIL)
 	email=models.EmailField()
 	Telephone = models.CharField(max_length=200, null=True)
