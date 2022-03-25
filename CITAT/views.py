@@ -45,7 +45,7 @@ def loginpage(request):
 			login(request, user)
 			return redirect('home')
 		else:
-			messages.info(request, 'username OR password is incorrect')
+			messages.info(request, 'Username or Password is Incorrect')
 
 
 		# if request.method == 'POST':  

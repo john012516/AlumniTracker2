@@ -47,10 +47,21 @@
       </form>
     </div>
     
-      {%for message in messages %}
-        <p id="messages">{{message}}</p>
-      {%endfor%}
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      // {%for message in messages %}
+        // swal('{{message}}');
+        // <p id="messages">{{message}}</p>
+        swal({
+  
+          title: '{{message}}',
+          icon: "warning",
+          dangerMode: true,
+        
+        })
+      //{%endfor%}
+    </script> 
+     
     <p class="para-1">
       Do not have an account? <a href="{% url 'registerpage'%}">Sign up here</a>
     </p>
