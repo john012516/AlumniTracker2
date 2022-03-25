@@ -2,7 +2,7 @@
 {% extends 'CITAT/navbar.html' %}
 {% load static %}
 {% block content %}
-{%include 'CITAT/status.html' %}
+
 <html lang="en">
 	<head>
 		<!-- Required meta tags -->
@@ -18,10 +18,73 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 		<link rel="stylesheet" href="{% static 'css/dashboard.css' %}"/>
+
+	<style>
+    	#logo{
+
+    	}
+    	body{
+    		background-color: #ebeff5;
+    	}
+
+    	#job-post{
+    		background-color: #741e1e;
+    	}
+
+    	#partner-company{
+    		background-color: #741e1e;
+    	}
+
+    	#job-seekers{
+    		background-color: #741e1e;
+    	}
+    </style>
 	</head>
 	
 	<body>
+		<div class="row">
+  		<div class="col">
+  			<div class="col-md">
+  				<div class="card text-center text-white mb-3" id="job-post">
+  					<div class="card-header">
+  						<h5 class="card-title">Total Alumni</h5>
+  					</div>
+  					<div class="card-body">
+  						<h3 class="card-title">{{total_alumni}}</h3>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+
+  		<div class="col">
+  			<div class="col-md">
+  				<div class="card text-center text-white mb-3" id="partner-company">
+  					<div class="card-header">
+  						<h5 class="card-title">Male</h5>
+  					</div>
+  					<div class="card-body">
+  						<h3 class="card-title">{{male}}</h3>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+
+  		<div class="col">
+  			<div class="col-md">
+  				<div class="card text-center text-white mb-3" id="job-seekers">
+  					<div class="card-header">
+  						<h5 class="card-title">Female</h5>
+  					</div>
+  					<div class="card-body">
+  						<h3 class="card-title">{{female}}</h3>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		</div>
+
 		<br>
+
 		<div class="row">
 			<div class="col-md">
 				<h5>Alumni</h5>
@@ -51,6 +114,149 @@
 					</table>
 				</div>
 			</div>
+		</div>
+
+		<br>
+		<br>
+		<br>
+
+		<div class="row">
+			<div class="col">
+				<div class="col-md">
+					<div class="card text-center text-white mb-3" id="job-post">
+						<div class="card-header">
+							<h5 class="card-title">BSIT</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{bsit}}</h3>
+						</div>
+					</div>
+				</div>
+		    </div>
+
+			<div class="col">
+				<div class="col-md">
+					<div class="card text-center text-white mb-3" id="partner-company">
+						<div class="card-header">
+							<h5 class="card-title">BSCS</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{bscs}}</h3>
+						</div>
+					</div>
+				</div>
+		    </div>
+		</div>
+
+		<div class="row">
+			<div class="col-md">
+				<h5>Alumni</h5>
+				<hr>
+				<div class="card card-body">
+					<a class="btn btn-danger btn-sm btn-block" href="">Alumni Info</a>
+					<table class="table table-sm">
+						<tr>
+							
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Course</th>
+							<th>Action</th>
+						</tr>
+				
+						{% for Alumni in alumni %}
+						
+						<tr>
+							
+							<td>{{Alumni.firstname}}</td>
+							<td>{{Alumni.lastname}}</td>
+							<td>{{Alumni.Course}}</td>
+							<td><a class = "btn btn-sm btn-danger" href="{% url 'alumni' Alumni.id %}">View</a></td>
+						</tr>
+				
+						{% endfor %}
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<br>
+		<br>
+
+		<div class="row">
+			<div class="col">
+				<div class="col-md">
+					<div class="card text-center text-white mb-3" id="job-seekers">
+						<div class="card-header">
+							<h5 class="card-title">Employed</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{emp}}</h3>
+						</div>
+					</div>
+				</div>
+		    </div>
+
+			<div class="col">
+				<div class="col-md">
+					<div class="card text-center text-white mb-3" id="job-post">
+						<div class="card-header">
+							<h5 class="card-title">Unemployed</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{unemp}}</h3>
+						</div>
+					</div>
+				</div>
+		    </div>
+
+			<div class="col">
+				<div class="col-md">
+					<div class="card text-center text-white mb-3" id="partner-company">
+						<div class="card-header">
+							<h5 class="card-title">Self-Employed</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{selfemp}}</h3>
+						</div>
+					</div>
+				</div>
+		    </div>
+		</div>
+
+		<div class="row">
+			<div class="col-md">
+				<h5>Alumni</h5>
+				<hr>
+				<div class="card card-body">
+					<a class="btn btn-danger btn-sm btn-block" href="">Alumni Info</a>
+					<table class="table table-sm">
+						<tr>
+							
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Job Status</th>
+							<th>Action</th>
+						</tr>
+				
+						{% for Alumni in alumni %}
+						
+						<tr>
+							
+							<td>{{Alumni.firstname}}</td>
+							<td>{{Alumni.lastname}}</td>
+							<td>{{Alumni.alumni_employed}}</td>
+							<td><a class = "btn btn-sm btn-danger" href="{% url 'alumni' Alumni.id %}">View</a></td>
+						</tr>
+				
+						{% endfor %}
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+
 
 	
 			<!-- Optional JavaScript -->
