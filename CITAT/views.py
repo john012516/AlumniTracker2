@@ -164,8 +164,14 @@ def dashboardpage(request):
 	total_alumni = alumni.count()
 	male = alumni.filter(Gender='MALE').count()
 	female = alumni.filter(Gender='FEMALE').count()
-
-	context = {'jobs':jobs, 'alumni':alumni, 'total_alumni':total_alumni, 'male':male, 'female': female}
+	bsit = alumni.filter(Course="BSIT").count()
+	bscs = alumni.filter(Course="BSCS").count()
+	emp = alumni.filter(alumni_employed="Employed").count()
+	unemp = alumni.filter(alumni_employed="Unemployed").count()
+	selfemp = alumni.filter(alumni_employed="Self-employed").count()
+    
+	context = {'jobs':jobs, 'alumni':alumni, 'total_alumni':total_alumni, 'male':male, 'female': female, 
+	'bsit': bsit, 'bscs': bscs, 'emp': emp, 'unemp': unemp, 'selfemp': selfemp}
 
 	return render(request, 'CITAT/dashboard.html', context)
 

@@ -33,6 +33,10 @@ class Alumni(models.Model):
 			('MALE', 'MALE'),
 			('FEMALE', 'FEMALE'),
 			)
+	COURSE = (
+		    ('BSIT', 'BSIT'),
+			('BSCS', 'BSCS')
+	        )		
 	user = models.OneToOneField(User, null =True,blank=True, on_delete=models.CASCADE)
 	firstname = models.CharField(max_length=200, null=True)
 	lastname = models.CharField(max_length=200, null=True)
@@ -47,7 +51,7 @@ class Alumni(models.Model):
 	Citizenship = models.CharField(max_length=200, null=True)
 	Date_of_Birth = models.CharField(max_length=200, null=True)
 	Place_of_Birth = models.CharField(max_length=200, null=True)
-	Course = models.CharField(max_length=200, null=True,)
+	Course = models.CharField(max_length=200, null=True,choices=COURSE)
 
 	incaseofemergency = models.CharField(max_length=200, null=True, editable=False)
 	nameofemergency = models.CharField(max_length=200, null=True,)
