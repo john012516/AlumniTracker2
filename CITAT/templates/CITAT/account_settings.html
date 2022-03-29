@@ -166,13 +166,18 @@
 								</tr>
 
 								<tr>
-									<td>Address: </td>
+									<td>State/City/Region: </td>
 									<td class="tble2"> {{request.user.alumni.address}} </td>
 								</tr>
 
 								<tr>
-									<td>Zipcode </td>
+									<td>Zipcode: </td>
 									<td class="tble2"> {{request.user.alumni.zipcode}} </td>
+								</tr>
+
+								<tr>
+									<td>Country: </td>
+									<td class="tble2"> {{request.user.alumni.Country}} </td>
 								</tr>
 
 								<tr>
@@ -380,6 +385,10 @@
 											<tr>
 												<td class="tble2">Zipcode: </td>
 												<td class="tble2"> {{form.zipcode}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Country: </td>
+												<td class="tble2"> {{form.Country}} </td>
 											</tr>
 											<tr>
 												<td class="tble2">Religion: </td>

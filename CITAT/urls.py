@@ -26,14 +26,15 @@ urlpatterns = [
 
     path('account/', views.accountSettings, name='account'),
 
-    path('useremployed/', views.useremployed, name="useremployed"),
+    # path('useremployed/', views.useremployed, name="useremployed"),
 
     path('employed/', views.employed, name="employed"),
+    path('chatbot/', views.chatbot, name="chatbot"),
     # path('add_useremployed_form_submission/', views.add_useremployed_form_submission, name="add_useremployed_form_submission"),
-    path('userunemployed/', views.userunemployed, name="userunemployed"),
-    path('add_userunemployed_form_submission/', views.add_userunemployed_form_submission, name="add_userunemployed_form_submission"),
-    path('userselfemployed/', views.userselfemployed, name="userselfemployed"),
-    path('add_userselfemployed_form_submission/', views.add_userselfemployed_form_submission, name="add_userselfemployed_form_submission"),
+    # path('userunemployed/', views.userunemployed, name="userunemployed"),
+    # path('add_userunemployed_form_submission/', views.add_userunemployed_form_submission, name="add_userunemployed_form_submission"),
+    # path('userselfemployed/', views.userselfemployed, name="userselfemployed"),
+    # path('add_userselfemployed_form_submission/', views.add_userselfemployed_form_submission, name="add_userselfemployed_form_submission"),
 
     path('create_job/', views.createJob, name='create_job'),
     path('update_job/<str:pk>/', views.updateJob, name='update_job'),

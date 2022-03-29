@@ -89,49 +89,49 @@ def userunemployed(request):
 
 
 
-def add_userunemployed_form_submission(request):
+# def add_userunemployed_form_submission(request):
 	
 
 
-	print("Hello, Unemployed form is submitted.")
-	reasons = request.POST["reasons"]
-	seek = request.POST["seek"]
-	aftergrad = request.POST["aftergrad"]
-	finance = request.POST["finance"]
-	desire =  request.POST["desire"]
-	consider = request.POST["consider"]
+# 	print("Hello, Unemployed form is submitted.")
+# 	reasons = request.POST["reasons"]
+# 	seek = request.POST["seek"]
+# 	aftergrad = request.POST["aftergrad"]
+# 	finance = request.POST["finance"]
+# 	desire =  request.POST["desire"]
+# 	consider = request.POST["consider"]
 
-	user_unemployed = UserUnemployed(reasons=reasons,seek=seek,aftergrad=aftergrad,finance=finance,desire=desire,consider=consider)
-	user_unemployed.save()
+# 	user_unemployed = UserUnemployed(reasons=reasons,seek=seek,aftergrad=aftergrad,finance=finance,desire=desire,consider=consider)
+# 	user_unemployed.save()
 
-	context = {'alumni':alumni}
+# 	context = {'alumni':alumni}
 
-	return render(request, 'CITAT/User_Unemployed.html', context)	
-
-
-
-@login_required(login_url='loginpage')
-def userselfemployed(request):
-
-	return render(request, 'CITAT/User_SelfEmployed.html')
+# 	return render(request, 'CITAT/User_Unemployed.html', context)	
 
 
 
+# @login_required(login_url='loginpage')
+# def userselfemployed(request):
 
-def add_userselfemployed_form_submission(request):
-	print("Hello, Self-employed form is submitted.") 
-	business = request.POST["business"]
-	#related_yes = request.POST["related_yes"]
-	#related_no = request.POST["related_no"]
-	related = request.POST["related"]
-	reason = request.POST["reason"]
-	numberofemployee = request.POST["numberofemployee"]
-	skills = request.POST["skills"]
+# 	return render(request, 'CITAT/User_SelfEmployed.html')
 
-	user_selfemployed = UserSelfemployed(business=business,related=related,reason=reason,numberofemployee=numberofemployee,skills=skills)
-	user_selfemployed.save()
 
-	return render(request, 'CITAT/User_SelfEmployed.html')	
+
+
+# def add_userselfemployed_form_submission(request):
+# 	print("Hello, Self-employed form is submitted.") 
+# 	business = request.POST["business"]
+# 	#related_yes = request.POST["related_yes"]
+# 	#related_no = request.POST["related_no"]
+# 	related = request.POST["related"]
+# 	reason = request.POST["reason"]
+# 	numberofemployee = request.POST["numberofemployee"]
+# 	skills = request.POST["skills"]
+
+# 	user_selfemployed = UserSelfemployed(business=business,related=related,reason=reason,numberofemployee=numberofemployee,skills=skills)
+# 	user_selfemployed.save()
+
+# 	return render(request, 'CITAT/User_SelfEmployed.html')	
 
 
 
@@ -160,6 +160,7 @@ def contactpage(request):
 def dashboardpage(request):
 	jobs = Jobs.objects.all()
 	alumni = Alumni.objects.all()
+	employed = Employed.objects.all()
 
 	total_alumni = alumni.count()
 	male = alumni.filter(Gender='MALE').count()
@@ -171,7 +172,7 @@ def dashboardpage(request):
 	selfemp = alumni.filter(alumni_employed="Self-employed").count()
     
 	context = {'jobs':jobs, 'alumni':alumni, 'total_alumni':total_alumni, 'male':male, 'female': female, 
-	'bsit': bsit, 'bscs': bscs, 'emp': emp, 'unemp': unemp, 'selfemp': selfemp}
+	'bsit': bsit, 'bscs': bscs, 'emp': emp, 'unemp': unemp, 'selfemp': selfemp, 'employed': employed}
 
 	return render(request, 'CITAT/dashboard.html', context)
 
@@ -389,6 +390,13 @@ def navbar(request):
 
 	context={'alumni': alumni}
 	return render(request, 'CITAT/navbar.html', context)
+
+
+def chatbot(request):
+
+	context={}
+	return render(request, 'CITAT/chatbot.html', context)
+
 # def add_useremployed_form_submission(request):
 
 # 	print("Hello, Employed form is submitted.")
