@@ -26,6 +26,14 @@ urlpatterns = [
 
     path('account/', views.accountSettings, name='account'),
 
+    path('genderstatus/', views.genderstatus, name='genderstatus'),
+    path('coursestatus/', views.coursestatus, name='coursestatus'),
+    path('employedstatus/', views.employedstatus, name='employedstatus'),
+    path('countrystatus/', views.countrystatus, name='countrystatus'),
+
+
+
+
     # path('useremployed/', views.useremployed, name="useremployed"),
 
     path('employed/', views.employed, name="employed"),
