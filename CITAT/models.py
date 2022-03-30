@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_save
+from datetime import datetime, date
 #from django.db.models import ChoiceField
 
 # Create your models here.
@@ -48,7 +49,7 @@ class Alumni(models.Model):
 			('Burkina Faso', 'Burkina Faso'), ('Burundi', 'Burundi'),
 			
 			('Cambodia', 'Cambodia'), ('Cameroon', 'Cameroon'), ('Canada', 'Canada'), ('Canary Islands', 'Canary Islands'), ('Cape Verde', 'Cape Verde'), ('Cayman Islands', 'Cayman Islands'),
-			('Central African Republic', 'Central African Republic'), ('Chad', 'Chad'), ('Channel Islands', 'Channel Islands'), ('Chile', 'ChinaChile'),('China', 'China'),('Christmas Island', 'Christmas Island'),
+			('Central African Republic', 'Central African Republic'), ('Chad', 'Chad'), ('Channel Islands', 'Channel Islands'), ('Chile', 'Chile'),('China', 'China'),('Christmas Island', 'Christmas Island'),
 			('Cocos Island', 'Cocos Island'), ('Colombia', 'Colombia'), ('Comoros', 'Comoros'), ('Congo', 'Congo'), ('Cook Islands', 'Cook Islands'), ('Costa Rica', 'Costa Rica'),
 			('Cote DIvoire', 'Cote DIvoire'), ('Croatia', 'Croatia'), ('Cuba', 'Cuba'), ('Curacao', 'Curacao'), ('Cyprus', 'Cyprus'), ('Czech Republic', 'Czech Republic'),
 			
@@ -64,6 +65,7 @@ class Alumni(models.Model):
 			('Gabon', 'Gabon'), ('Gambia', 'Gambia'), ('Georgia', 'Georgia'), ('Germany', 'Germany'), ('Ghana', 'Ghana'), ('Gibraltar', 'Gibraltar'), ('Great Britain', 'Great Britain'), 
 			('Greece', 'Greece'), ('Greenland', 'Greenland'), ('Grenada', 'Grenada'), ('Guadeloupe', 'Guadeloupe'), ('Guam', 'Guam'), ('Guatemala', 'Guatemala'), ('Guinea', 'Guinea'), 
 			('Guyana', 'Guyana'), 
+			
 			('Honduras', 'Honduras'), 
 			('Haiti', 'Haiti'), ('Hawaii', 'Hawaii'), ('Hong Kong', 'Hong Kong'), ('Hungary', 'Hungary'), 	
 			
@@ -136,7 +138,7 @@ class Alumni(models.Model):
 	Country = models.CharField(max_length=200, null=True, choices=COUNTRIES)
 	Religion = models.CharField(max_length=200, null=True)
 	Citizenship = models.CharField(max_length=200, null=True)
-	Date_of_Birth = models.CharField(max_length=200, null=True)
+	Date_of_Birth = models.DateField(auto_now_add=False, auto_now=False, null=True)
 	Place_of_Birth = models.CharField(max_length=200, null=True)
 	Course = models.CharField(max_length=200, null=True,choices=COURSE)
 
