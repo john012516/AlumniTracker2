@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import *
-from .filters import EventFilter
+from .filters import *
 from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth import authenticate, login, logout
@@ -153,6 +153,187 @@ def contactpage(request):
 		contact.save()
 		return HttpResponse("<h1> Thank you for contacting us!</h1>")
 	return render(request, 'CITAT/contact.html')
+
+
+@login_required(login_url='loginpage')
+@admin_only
+def genderstatus(request):
+	alumni = Alumni.objects.all()
+
+	myFilter = GenderFilter(request.GET, queryset=alumni)
+	alumni = myFilter.qs
+
+	total_alumni = alumni.count()
+	male = alumni.filter(Gender='MALE').count()
+	female = alumni.filter(Gender='FEMALE').count()
+
+	context = {'alumni': alumni, 'total_alumni': total_alumni, 'male': male, 'female': female, 'myFilter': myFilter}
+	return render(request, 'CITAT/Gender.html', context)
+
+@login_required(login_url='loginpage')
+@admin_only
+def coursestatus(request):
+	alumni = Alumni.objects.all()
+
+	myFilter = CourseFilter(request.GET, queryset=alumni)
+	alumni = myFilter.qs
+
+
+	bsit = alumni.filter(Course="BSIT").count()
+	bscs = alumni.filter(Course="BSCS").count()
+
+	context = {'alumni': alumni, 'bsit': bsit, 'bscs': bscs,'myFilter': myFilter}
+	return render(request, 'CITAT/Course.html', context)
+
+
+@login_required(login_url='loginpage')
+@admin_only
+def employedstatus(request):
+	alumni = Alumni.objects.all()
+
+	myFilter = EmployedFilter(request.GET, queryset=alumni)
+	alumni = myFilter.qs
+
+	emp = alumni.filter(alumni_employed="Employed").count()
+	unemp = alumni.filter(alumni_employed="Unemployed").count()
+	selfemp = alumni.filter(alumni_employed="Self-employed").count()
+
+	context = {'alumni': alumni, 'emp': emp, 'unemp': unemp, 'selfemp': selfemp, 'myFilter': myFilter}
+	return render(request, 'CITAT/EmployedStatus.html', context)
+
+@login_required(login_url='loginpage')
+@admin_only
+def countrystatus(request):
+	alumni = Alumni.objects.all()
+
+
+
+	Afghanistan = alumni.filter(Country="Afghanistan").count()
+	Albania = alumni.filter(Country="Albania").count()
+	Algeria = alumni.filter(Country="Algeria").count()
+	AmericanSamoa = alumni.filter(Country="American Samoa").count()
+	Andorra = alumni.filter(Country="Andorra").count()
+	Angola = alumni.filter(Country="Angola").count()
+	Anguilla = alumni.filter(Country="Anguilla").count()
+	AntiguaBarbuda = alumni.filter(Country="Antigua & Barbuda").count()
+	Argentina = alumni.filter(Country="Argentina").count()
+	Armenia = alumni.filter(Country="Armenia").count()
+	Aruba = alumni.filter(Country="Aruba").count()
+	Australia = alumni.filter(Country="Australia").count()
+	Austria = alumni.filter(Country="Austria").count()
+	Azerbaijan = alumni.filter(Country="Azerbaijan").count()
+	Bahamas = alumni.filter(Country="Bahamas").count()
+	Bahrain = alumni.filter(Country="Bahrain").count()
+	Bangladesh = alumni.filter(Country="Bangladesh").count()
+	Barbados = alumni.filter(Country="Barbados").count()
+	Belarus = alumni.filter(Country="Belarus").count()
+	Belgium = alumni.filter(Country="Belgium").count()
+	Belize = alumni.filter(Country="Belize").count()
+	Benin = alumni.filter(Country="Benin").count()
+	Bermuda = alumni.filter(Country="Bermuda").count()
+	Bhutan = alumni.filter(Country="Bhutan").count()
+	Bolivia = alumni.filter(Country="Bolivia").count()
+	Bonaire = alumni.filter(Country="Bonaire").count()
+	BosniaHerzegovina = alumni.filter(Country="Bosnia & Herzegovina").count()
+	Botswana = alumni.filter(Country="Botswana").count()
+	Brazil = alumni.filter(Country="Brazil").count()
+	BritishIndianOceanTer = alumni.filter(Country="British Indian Ocean Ter").count()
+	Brunei = alumni.filter(Country="Brunei").count()
+	Bulgaria = alumni.filter(Country="Bulgaria").count()
+	Cambodia = alumni.filter(Country="Cambodia").count()
+	Cameroon = alumni.filter(Country="Cameroon").count()
+	Canada = alumni.filter(Country="Canada").count()
+	CanaryIslands = alumni.filter(Country="Canary Islands").count()
+	CapeVerde = alumni.filter(Country="Cape Verde").count()
+	CaymanIslands = alumni.filter(Country="Cayman Islands").count()
+	CentralAfricanRepublic = alumni.filter(Country="Central African Republic").count()
+	Chad = alumni.filter(Country="Chad").count()
+	ChannelIslands = alumni.filter(Country="Channel Islands").count()
+	Chile = alumni.filter(Country="Chile").count()
+	China = alumni.filter(Country="China").count()
+	ChristmasIsland = alumni.filter(Country="Christmas Island").count()
+	CocosIsland = alumni.filter(Country="Cocos Island").count()
+	Colombia = alumni.filter(Country="Colombia").count()
+	Comoros = alumni.filter(Country="Comoros").count()
+	Congo = alumni.filter(Country="Congo").count()
+	CookIslands = alumni.filter(Country="Cook Islands").count()
+	CostaRica = alumni.filter(Country="Costa Rica").count()
+	CoteDIvoire = alumni.filter(Country="Cote DIvoire").count()
+	Croatia = alumni.filter(Country="Croatia").count()
+	Cuba = alumni.filter(Country="Cuba").count()
+	Curacao = alumni.filter(Country="Curacao").count()
+	Cyprus = alumni.filter(Country="Cyprus").count()
+	CzechRepublic = alumni.filter(Country="Czech Republic").count()
+	Denmark = alumni.filter(Country="Denmark").count()
+	Djibouti = alumni.filter(Country="Djibouti").count()
+	Dominica = alumni.filter(Country="Dominica").count()
+	DominicanRepublic = alumni.filter(Country="Dominican Republic").count()
+	EastTimor = alumni.filter(Country="East Timor").count()
+	Ecuador = alumni.filter(Country="Ecuador").count()
+	Egypt = alumni.filter(Country="Egypt").count()
+	ElSalvador = alumni.filter(Country="El Salvador").count()
+	EquatorialGuinea = alumni.filter(Country="Equatorial Guinea").count()
+	Eritrea = alumni.filter(Country="Eritrea").count()
+	Estonia = alumni.filter(Country="Estonia").count()
+	Ethiopia = alumni.filter(Country="Ethiopia").count()
+	FalklandIslands = alumni.filter(Country="Falkland Islands").count()
+	FaroeIslands = alumni.filter(Country="Faroe Islands").count()
+	Fiji = alumni.filter(Country="Fiji").count()
+	Finland = alumni.filter(Country="Finland").count()
+	France = alumni.filter(Country="France").count()
+	FrenchGuiana = alumni.filter(Country="French Guiana").count()
+	FrenchPolynesia = alumni.filter(Country="French Polynesia").count()
+	FrenchSouthernTer = alumni.filter(Country="French Southern Ter").count()
+	Gabon = alumni.filter(Country="Gabon").count()
+	Gambia = alumni.filter(Country="Gambia").count()
+	Georgia = alumni.filter(Country="Georgia").count()
+	Germany = alumni.filter(Country="Germany").count()
+	Ghana = alumni.filter(Country="Ghana").count()
+	Gibraltar = alumni.filter(Country="Gibraltar").count()
+	GreatBritain = alumni.filter(Country="Great Britain").count()
+	Greece = alumni.filter(Country="Greece").count()
+	Greenland = alumni.filter(Country="Greenland").count()
+	Grenada = alumni.filter(Country="Grenada").count()
+	Guadeloupe = alumni.filter(Country="Guadeloupe").count()
+	Guam = alumni.filter(Country="Guam").count()
+	Guatemala = alumni.filter(Country="Guatemala").count()
+	Guinea = alumni.filter(Country="Guinea").count()
+	Guyana = alumni.filter(Country="Guyana").count()
+
+
+
+
+
+
+
+	context = {'alumni':alumni, 
+
+	'Afghanistan': Afghanistan, 'Albania': Albania,
+	'Algeria': Algeria, 'AmericanSamoa': AmericanSamoa, 'Andorra': Andorra, 'Angola': Angola, 'Anguilla': Anguilla, 'AntiguaBarbuda': AntiguaBarbuda,
+	'Argentina': Argentina, 'Armenia': Armenia, 'Aruba': Aruba, 'Australia': Australia, 'Austria': Austria, 'Azerbaijan': Azerbaijan, 
+
+	'Bahamas': Bahamas, 'Bahrain': Bahrain, 'Bangladesh': Bangladesh, 'Barbados': Barbados, 'Belarus': Belarus, 'Belgium': Belgium, 'Belize': Belize, 'Benin': Benin, 'Bermuda': Bermuda,
+	'Bhutan': Bhutan, 'Bolivia': Bolivia, 'Bonaire': Bonaire, 'BosniaHerzegovina': BosniaHerzegovina, 'Botswana': Botswana, 'Brazil': Brazil, 'BritishIndianOceanTer': BritishIndianOceanTer,
+	'Brunei': Brunei, 'Bulgaria': Bulgaria,
+
+	'Cambodia': Cambodia, 'Cameroon': Cameroon, 'Canada': Canada, 'CanaryIslands': CanaryIslands, 'CapeVerde' :CapeVerde, 'CaymanIslands': CaymanIslands, 'CentralAfricanRepublic': CentralAfricanRepublic,
+	'Chad': Chad, 'ChannelIslands': ChannelIslands, 'Chile': Chile, 'China': China, 'ChristmasIsland': ChristmasIsland, 'CocosIsland': CocosIsland, 'Colombia': Colombia, 'Comoros': Comoros, 
+	'Congo': Congo, 'CookIslands': CookIslands, 'CostaRica': CostaRica, 'CoteDIvoire': CoteDIvoire, 'Croatia': Croatia, 'Cuba': Cuba, 'Curacao': Curacao, 'Cyprus': Cyprus, 'CzechRepublic': CzechRepublic,
+
+	'Denmark': Denmark, 'Djibouti': Djibouti, 'Dominica': Dominica, 'DominicanRepublic': DominicanRepublic, 'Gibraltar': Gibraltar, 
+
+	'EastTimor': EastTimor, 'Ecuador': Ecuador, 'Egypt': Egypt, 'ElSalvador': ElSalvador, 'EquatorialGuinea': EquatorialGuinea, 'Eritrea': Eritrea, 'Estonia': Estonia, 'Ethiopia': Ethiopia,
+
+	'FalklandIslands': FalklandIslands, 'FaroeIslands': FaroeIslands, 'Fiji': Fiji, 'Finland': Finland, 'France': France, 'FrenchGuiana': FrenchGuiana, 'FrenchPolynesia': FrenchPolynesia,
+	'FrenchSouthernTer': FrenchSouthernTer,
+
+	'Gabon': Gabon, 'Gambia': Gambia, 'Georgia': Georgia, 'Germany': Germany, 'Ghana': Ghana, 'GreatBritain': GreatBritain, 'Greece': Greece, 'Greenland': Greenland, 'Grenada': Grenada, 
+	'Guadeloupe': Guadeloupe, 'Guam': Guam, 'Guatemala': Guatemala, 'Guinea': Guinea, 'Guyana': Guyana
+
+	}
+	return render(request, 'CITAT/EmployedStatus.html', context)
+
+
 
 @login_required(login_url='loginpage')
 @admin_only
