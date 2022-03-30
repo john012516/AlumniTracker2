@@ -139,6 +139,8 @@ class Alumni(models.Model):
 	Date_of_Birth = models.CharField(max_length=200, null=True)
 	Place_of_Birth = models.CharField(max_length=200, null=True)
 	Course = models.CharField(max_length=200, null=True,choices=COURSE)
+	Year_graduated = models.CharField(max_length=200, null=True)
+	additional_degree = models.CharField(max_length=200, null=True)
 
 	incaseofemergency = models.CharField(max_length=200, null=True, editable=False)
 	nameofemergency = models.CharField(max_length=200, null=True,)

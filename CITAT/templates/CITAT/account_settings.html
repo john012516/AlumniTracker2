@@ -185,6 +185,14 @@
 									<td class="tble2"> {{request.user.alumni.Course}} </td>
 								</tr>
 								<tr>
+									<td>Year Graduated: </td>
+									<td class="tble2"> {{request.user.alumni.Year_graduated}} </td>
+								</tr>
+								<tr>
+									<td>Masteral/Doctoral Degree: </td>
+									<td class="tble2"> {{request.user.alumni.additional_degree}} </td>
+								</tr>
+								<tr>
 									<td>Work Status </td>
 									<td class="tble2"> {{request.user.alumni.alumni_employed}} </td>
 								</tr>
@@ -307,7 +315,7 @@
 
 									</tbody>
 								</table>
-								<!-- <p>First name: {{form.firstname}} </p>
+								 <p>First name: {{form.firstname}} </p>
 								<p>Last name: {{form.lastname}}</p>
 								<p>Gender: {{form.Gender}}</p>
 								<p>Civil status: {{form.Civil}}</p>
@@ -379,7 +387,7 @@
 												<td class="tble2"> {{form.phone}} </td>
 											</tr>
 											<tr>
-												<td class="tble2">Address: </td>
+												<td class="tble2">State/City/Region: </td>
 												<td class="tble2"> {{form.address}} </td>
 											</tr>
 											<tr>
@@ -399,7 +407,7 @@
 												<td class="tble2"> {{form.Citizenship}} </td>
 											</tr>
 											<tr>
-												<td class="tble2">Date og Birth: </td>
+												<td class="tble2">Date of Birth: </td>
 												<td class="tble2"> {{form.Date_of_Birth}} </td>
 											</tr>
 											<tr>
@@ -409,6 +417,20 @@
 											<tr>
 												<td class="tble2">Course: </td>
 												<td class="tble2"> {{form.Course}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Year Graduated:: </td>
+												<td class="tble2"> {{form.Year_graduated}} </td>
+											</tr>
+
+											<tr>
+												<td class="tble2">Masteral/Doctoral Degree: </td>
+												<td class="tble2"> {{form.additional_degree}} </td>
+												<td class="tble2">(Put "N/A" if not applicable) </td>
+											</tr>
+											<tr>
+												<td class="tble2">Work status: </td>
+												<td class="tble2"> {{form.alumni_employed}} </td>
 											</tr>
 											<tr>
 												<td class="tble2">Incase of emergency: </td>
@@ -430,10 +452,7 @@
 												<td class="tble2">Address: </td>
 												<td class="tble2"> {{form.address2}} </td>
 											</tr>
-											<tr>
-												<td class="tble2">Work status: </td>
-												<td class="tble2"> {{form.alumni_employed}} </td>
-											</tr>
+											
 										</tbody>
 									</table>
 									{{form.profile_pic}} 
