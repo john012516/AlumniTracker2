@@ -131,6 +131,19 @@
                                                 </tr>
                                             </table>
                                         </center>
+                                        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                                        <script>
+                                          // {%for message in messages %}
+                                            // swal('{{message}}');
+                                            // <p id="messages">{{message}}</p>
+                                            swal({
+                                      
+                                              title: '{{message}}',
+                                              dangerMode: true,
+                                            
+                                            })
+                                          //{%endfor%}
+                                        </script> 
                                     </div>
                                     <div class="bottom-outer">
                                         <div class="bottom-inner">

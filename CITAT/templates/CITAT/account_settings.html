@@ -213,6 +213,19 @@
 						<!-- <a href="#Profile-Edit">Edit</a> -->
 						<a id="myBtn"> Edit</a>
 					</div> 
+					<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+					<script>
+					  // {%for message in messages %}
+						// swal('{{message}}');
+						// <p id="messages">{{message}}</p>
+						swal({
+				  
+						  title: '{{message}}',
+						  dangerMode: true,
+						
+						})
+					  //{%endfor%}
+					</script> 
 
 					<div class="wrapper">
 						<a href="{% url 'employed' %}">Click here if you are Employed</a>

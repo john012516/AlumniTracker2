@@ -1017,6 +1017,8 @@ def accountSettings(request):
 		form = AlumniForm(request.POST, request.FILES, instance=alumni)
 		if form.is_valid():
 			form.save()
+		messages.success(request, 'Successfully Submitted')
+		return redirect('account')
 
 	context = {'form':form}
 	return render(request, 'CITAT/account_settings.html', context)
@@ -1033,6 +1035,7 @@ def employed(request):
 			instance = form.save(commit = False)
 			instance.alumni = request.user.alumni
 			instance.save()
+			messages.success(request, 'Successfully Submitted')
 			return redirect('account')
 
 			
