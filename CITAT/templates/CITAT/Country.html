@@ -42,53 +42,15 @@
     </style>
 	</head>
 	<body>
-		<div class="row">
-  		<div class="col">
-  			<div class="col-md">
-  				<div class="card text-center text-white mb-3" id="job-post">
-  					<div class="card-header">
-  						<h5 class="card-title">Total Alumni</h5>
-  					</div>
-  					<div class="card-body">
-  						<h3 class="card-title">{{total_alumni}}</h3>
-  					</div>
-  				</div>
-  			</div>
-  		</div>
+		
 
-  		<div class="col">
-  			<div class="col-md">
-  				<div class="card text-center text-white mb-3" id="partner-company">
-  					<div class="card-header">
-  						<h5 class="card-title">Male</h5>
-  					</div>
-  					<div class="card-body">
-  						<h3 class="card-title">{{male}}</h3>
-  					</div>
-  				</div>
-  			</div>
-  		</div>
-
-  		<div class="col">
-  			<div class="col-md">
-  				<div class="card text-center text-white mb-3" id="job-seekers">
-  					<div class="card-header">
-  						<h5 class="card-title">Female</h5>
-  					</div>
-  					<div class="card-body">
-  						<h3 class="card-title">{{female}}</h3>
-  					</div>
-  				</div>
-  			</div>
-  		</div>
-  		</div>
-
+  		
 		<br>
 		<div class="row">
 			<div class="col">
 				<div class="card card-body">
 					<form method="get">
-						{{myFilter.form}}
+						<!-- {{myFilter.form}} -->
 					<button class="btn btn-danger" type="submit">Search</button>
 					</form>
 				</div>
@@ -107,7 +69,7 @@
 							
 							<th>First Name</th>
 							<th>Last Name</th>
-							<th>Gender</th>
+							<th>Country</th>
 							<th>Action</th>
 						</tr>
 				
@@ -117,7 +79,7 @@
 							
 							<td>{{Alumni.firstname}}</td>
 							<td>{{Alumni.lastname}}</td>
-							<td>{{Alumni.Gender}}</td>
+							<td>{{Alumni.Country}}</td>
 							<td><a class = "btn btn-sm btn-danger" href="{% url 'alumni' Alumni.id %}">View</a></td>
 						</tr>
 				
@@ -126,6 +88,55 @@
 				</div>
 			</div>
 		</div>
+
+		<div class=row>
+					<div class="col-md-4">
+				<div class="card card-body">
+					<canvas id="myChart" width="300" height="130"></canvas>
+						<script>
+						const ctx = document.getElementById('myChart').getContext('2d');
+						const myChart = new Chart(ctx, {
+						    type: 'pie',
+						    data: {
+						        labels: [{% for Alumni in alumni %} '{{Alumni.Country}}', {%endfor%}],
+						        datasets: [{
+						            label: 'Gender',
+						            data: [{{Afghanistan}},{{Albania}} ],
+
+						            backgroundColor: [
+						                'rgba(54, 162, 235, 1)',
+						                'rgba(255, 206, 86, 1)',
+						                'rgba(75, 192, 192, 1)',
+						                'rgba(153, 102, 255, 1)',
+						                'rgba(255, 159, 64, 1)'
+						            ],
+						            borderColor: [
+						                'rgba(255, 99, 132, 1)',
+						                'rgba(54, 162, 235, 1)',
+						                'rgba(255, 206, 86, 1)',
+						                'rgba(75, 192, 192, 1)',
+						                'rgba(153, 102, 255, 1)',
+						                'rgba(255, 159, 64, 1)'
+						            ],
+						            borderWidth: 1
+						        }]
+						    },
+						    options: {
+						        scales: {
+						            y: {
+						                beginAtZero: true
+						            }
+						        }
+						    }
+						});
+						</script>
+
+				</div>
+			</div>
+		</div>
+
+		</div>
+
 
 
 	</body>
