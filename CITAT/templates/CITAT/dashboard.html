@@ -22,54 +22,64 @@
 				<!-- ChartJS  CDN-->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 
-	<style>
-    	#logo{
+		<style>
+			/*#logo{
 
-    	}
-    	body{
-    		background-color: #ebeff5;
-    	}
+			}*/
+			body{
+				background-color: #ebeff5;
+			}
 
-    	#job-post{
-    		background-color: #741e1e;
-    	}
+			#job-post{
+				background-color: #741e1e;
+			}
 
-    	#partner-company{
-    		background-color: #741e1e;
-    	}
+			#partner-company{
+				background-color: #741e1e;
+			}
 
-    	#job-seekers{
-    		background-color: #741e1e;
-    	}
-    </style>
+			#job-seekers{
+				background-color: #741e1e;
+			}
+			a{
+				color: white;
+			}
+		</style>
 	</head>
 	
 	<body>
 
 		<div class="row">
-  		<div class="col">
-  			<div class="col-md">
-  				<div class="card text-center text-white mb-3" id="job-post">
-  					<div class="card-header">
-  						<h5 class="card-title"></h5>
-  					</div>
-  					<div class="card-body">
-  						<h3 class="card-title">Total Alumni & Genders</h3>
-  					</div>
-  				</div>
-  			</div>
-  		</div>
-
-  		<br>
-
-  		<div class="col">
+			<div class="col">
 				<div class="col-md">
 					<div class="card text-center text-white mb-3" id="job-post">
 						<div class="card-header">
 							<h5 class="card-title"></h5>
 						</div>
 						<div class="card-body">
-							<h3 class="card-title">Courses</h3>
+							<h3 class="card-title">
+								<a href="{% url 'coursestatus'%}"> Gender </a>
+							</h3>
+							<br>
+						</div>
+					</div>
+				</div>
+		
+  			</div>
+
+			<br>
+
+			<div class="col">
+				<div class="col-md">
+					<div class="card text-center text-white mb-3" id="job-post">
+						<div class="card-header">
+							<h5 class="card-title"></h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{% url 'coursestatus'%}"> Courses </a>
+							</h3>
+							<br>
 						</div>
 					</div>
 				</div>
@@ -84,7 +94,10 @@
 							<h5 class="card-title"></h5>
 						</div>
 						<div class="card-body">
-							<h3 class="card-title">Alumni Status if employed or unemplyed or selfemployed</h3>
+							<h3 class="card-title">
+								<a href="{% url 'employedstatus'%}"> Work Status </a>
+								<br> <i style="font-size: 15px;"> ( if employed, unemployed or self-employed )</i>
+							</h3>
 						</div>
 					</div>
 				</div>
@@ -97,7 +110,10 @@
 							<h5 class="card-title"></h5>
 						</div>
 						<div class="card-body">
-							<h3 class="card-title">Countries</h3>
+							<h3 class="card-title">
+								<a href="{% url 'countrystatus'%}"> Orientation </a>
+							</h3>
+							<br>
 						</div>
 					</div>
 				</div>

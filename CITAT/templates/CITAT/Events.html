@@ -19,6 +19,13 @@
 		<link rel="stylesheet" href="{% static 'css/events.css' %}"/>
 
 		<title>Events</title>
+		<style>
+			h2{
+				color: maroon;
+				text-shadow: 2px 3px gold;
+				font-weight: bold;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="row">
@@ -42,10 +49,10 @@
 							<th>Event Name</th>
 							<th>Date</th>
 							<th>Time</th>
-							<th>place</th>
-							<th>status</th>
-							<th>update</th>
-							<th>delete</th>
+							<th>Place</th>
+							<th>Status</th>
+							<th>Update</th>
+							<th>Delete</th>
 						</tr>
 
 						{% for i in event %}

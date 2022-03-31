@@ -11,14 +11,11 @@
     />
     <link rel="stylesheet" href="{% static 'css/user_register.css' %}" />
     <style>
-      td.tble1{
-        text-align: left;
-      }
-      td.tble2{
-        padding-left: 25px;
-      }
+      html{ zoom: 75%; }
+      td.tble1{ text-align: left; }
+      td.tble2{ padding-left: 25px; }
       p.p1{
-        padding-left: 105px;
+        padding-left: 60px;
         color:white;
         font-size: 135%;
         font-weight: bold;
@@ -26,6 +23,59 @@
       p.p1 a{
         color: gold;
         text-shadow: 2px 3px maroon;
+      }
+      .signup-box{
+        /*
+        padding-top: 50px;
+        padding-left: 800px;
+        padding-right: 50px;
+        
+        margin-left: 800px;
+        box-sizing: border-box;
+        background: rgba(128,128,128, 0.3);
+        width: 500px;
+        height: 700px;*/
+        border: 1px solid black;
+        margin-top: 90px;
+        /*margin-bottom: 100px;*/
+        margin-right: 150px;
+        margin-left: 550px;
+        width: 60%;
+        background: rgba(128,128,128, 0.3);
+        text-align: center;
+        color: maroon;
+        font-weight: bold;
+        font-size: 20px;
+        text-shadow: 1px 1px #ffffff;		
+      }
+      input{
+        display: block;
+        margin : auto;
+        width: 100%;
+        padding: 12px 20px;
+        margin: 5px 0;
+        box-sizing: border-box;
+      }
+      .btn{
+        border: 0;
+        border-radius: 5px;
+        margin-left: 75px;
+        display: grid;
+        border: none;
+        cursor: pointer;
+        background-color: maroon;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        /*-webkit-transform: property: box-shadow, transform;
+        padding: 10px 25px;
+        margin-top: 20px; */
+        transition-property: box-shadow, transform;
+      } 
+      .btn:hover, .btn:focus, .btn:active{
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
       }
     </style>
   </head>

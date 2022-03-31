@@ -1,0 +1,19 @@
+.btn-print{
+    margin: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: maroon;
+    text-shadow: 2px 3px gold;
+    background-color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+.btn-print:hover{
+    color: gold;
+    text-shadow: 2px 3px black;
+    background: maroon;
+}
+.tble th{
+    font-weight: bold;
+    font-size: 25px;
+}

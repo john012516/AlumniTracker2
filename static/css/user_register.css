@@ -1,6 +1,6 @@
-html{
+/*html{
 	zoom: 90%;
-}
+}*/
 body{
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
@@ -26,29 +26,31 @@ body{
 }	
 
 .signup-box{
-/*	
+	/*
 	padding-top: 50px;
 	padding-left: 800px;
 	padding-right: 50px;
-	margin-top: 25px;
+	
 	margin-left: 800px;
 	box-sizing: border-box;
 	background: rgba(128,128,128, 0.3);
 	width: 500px;
 	height: 700px;*/
-	margin: auto;
+	border: 1px solid black;
+	margin-top: 125px;
+	margin-bottom: 100px;
+	margin-right: 150px;
+	margin-left: 350px;
 	width: 60%;
 	background: rgba(128,128,128, 0.3);
-	
 	text-align: center;
 	color: maroon;
 	font-weight: bold;
 	font-size: 22px;
-	text-shadow: 1px 1px #ffffff;
-	
+	text-shadow: 1px 1px #ffffff;		
 }
 
-input[type="text"] {
+td[type="text"] {
     display: block;
     margin : auto;
     width: 100%;
@@ -58,23 +60,25 @@ input[type="text"] {
 
 }
 
-
 .btn{
-  width: 200px;
-  height: 60px;
-  padding: 15px 20px;
-  margin-top: 20px;
-  margin-left: 450px;
-  display: grid;
-  border-radius: 25px;
-  border: none;
-  cursor: pointer;
-  background-color: maroon;
-  color: gold;
-  font-size: 25px;
-  /*text-align: center;*/
+	border: 0;
+	border-radius: 5px;
+	padding: 10px 25px;
+	margin-top: 20px;
+	margin-left: 75px;
+	display: grid;
+	border: none;
+	cursor: pointer;
+	background-color: maroon;
+	color: white;
+	font-size: 20px;
+	/*-webkit-transform: property: box-shadow, transform;*/
+	transition-property: box-shadow, transform;
+	/*text-align: center;*/
 }
-
-button:hover{
-	opacity: 0.8;
+  
+.btn:hover, .btn:focus, .btn:active{
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
 }
