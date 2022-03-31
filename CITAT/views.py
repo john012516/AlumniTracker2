@@ -550,6 +550,7 @@ def dashboardpage(request):
 	emp = alumni.filter(alumni_employed="Employed").count()
 	unemp = alumni.filter(alumni_employed="Unemployed").count()
 	selfemp = alumni.filter(alumni_employed="Self-employed").count()
+	
 	Afghanistan = alumni.filter(Country="Afghanistan").count()
 	Albania = alumni.filter(Country="Albania").count()
 	Algeria = alumni.filter(Country="Algeria").count()
