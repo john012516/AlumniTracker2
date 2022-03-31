@@ -530,7 +530,7 @@ def countrystatus(request):
 	'Zaire': Zaire,'Zambia': Zambia,'Zimbabwe': Zimbabwe
 
 	}
-	return render(request, 'CITAT/EmployedStatus.html', context)
+	return render(request, 'CITAT/Country.html', context)
 
 
 
