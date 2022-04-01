@@ -26,6 +26,20 @@ body{
 }	
 
 .signup-box{
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+    border: 1px solid black;
+    margin-top: 125px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 350px;
+	width: 60%;
+	background: rgba(128,128,128, 0.3);
+
+=======
+>>>>>>> Stashed changes
 	/*
 	padding-top: 50px;
 	padding-left: 800px;
@@ -43,11 +57,24 @@ body{
 	margin-left: 350px;
 	width: 60%;
 	background: rgba(128,128,128, 0.3);
+<<<<<<< Updated upstream
+=======
+>>>>>>> 56b66413a7342bce63356a31df8df39cb03c635b
+>>>>>>> Stashed changes
 	text-align: center;
 	color: maroon;
 	font-weight: bold;
 	font-size: 22px;
+<<<<<<< Updated upstream
 	text-shadow: 1px 1px #ffffff;		
+=======
+<<<<<<< HEAD
+	text-shadow: 1px 1px #ffffff;
+
+=======
+	text-shadow: 1px 1px #ffffff;		
+>>>>>>> 56b66413a7342bce63356a31df8df39cb03c635b
+>>>>>>> Stashed changes
 }
 
 td[type="text"] {
@@ -61,6 +88,31 @@ td[type="text"] {
 }
 
 .btn{
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 25px;
+  margin-top: 20px;
+  margin-left: 75px;
+  display: grid;
+  border: none;
+  cursor: pointer;
+  background-color: maroon;
+  color: white;
+  font-size: 20px;
+  -webkit-transform: property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+  /*text-align: center;*/
+}
+
+ .btn:hover, .btn:focus, .btn:active{
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+=======
+>>>>>>> Stashed changes
 	border: 0;
 	border-radius: 5px;
 	padding: 10px 25px;
@@ -75,6 +127,10 @@ td[type="text"] {
 	/*-webkit-transform: property: box-shadow, transform;*/
 	transition-property: box-shadow, transform;
 	/*text-align: center;*/
+<<<<<<< Updated upstream
+=======
+>>>>>>> 56b66413a7342bce63356a31df8df39cb03c635b
+>>>>>>> Stashed changes
 }
   
 .btn:hover, .btn:focus, .btn:active{
