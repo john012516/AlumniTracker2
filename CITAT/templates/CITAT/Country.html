@@ -46,11 +46,12 @@
 
   		
 		<br>
+
 		<div class="row">
 			<div class="col">
 				<div class="card card-body">
 					<form method="get">
-						<!-- {{myFilter.form}} -->
+						{{myFilter.form}}
 					<button class="btn btn-danger" type="submit">Search</button>
 					</form>
 				</div>
@@ -101,7 +102,10 @@
 						        labels: [{% for Alumni in alumni %} '{{Alumni.Country}}', {%endfor%}],
 						        datasets: [{
 						            label: 'Country',
-						            data:[{{Philippines}}, {{AmericanSamoa}},],
+
+
+						            data: [{{Philippines}}, {{AmericanSamoa}},],
+
 						            // data: [{{Afghanistan}}, {{Albania}}, {{Algeria}}, {{AmericanSamoa}}, {{Andorra}}, {{Angola}}, {{Anguilla}}, {{AntiguaBarbuda}}, {{Argentina}}, {{Armenia}}, {{Aruba}}, {{Australia}}, {{Austria}}, {{Azerbaijan}}, {{Bahamas}}, {{Bahrain}}, 
 						            // 	{{Bangladesh}}, {{Barbados}}, {{Belarus}}, {{Belgium}}, {{Belize}}, {{Benin}}, {{Bermuda}}, {{Bhutan}}, {{Bolivia}}, {{Bonaire}}, {{BosniaHerzegovina}}, {{Botswana}}, {{Brazil}}, {{BritishIndianOceanTer}}, {{Brunei}}, {{Bulgaria}}, {{Cambodia}}, {{Cameroon}}, {{Canada}}, {{CanaryIslands}}, 
 						           	// 	 {{CapeVerde}}, {{CaymanIslands}}, {{CentralAfricanRepublic}}, {{Chad}}, {{ChannelIslands}}, {{Chile}}, {{China}}, {{ChristmasIsland}}, {{CocosIsland}}, {{Colombia}}, {{Comoros}}, {{Congo}}, {{CookIslands}}, {{CostaRica}}, {{CoteDIvoire}}, {{Croatia}}, {{Cuba}}, {{Curacao}}, {{Cyprus}}, {{CzechRepublic}}, 
@@ -114,7 +118,11 @@
 						            // {{StBarthelemy}}, {{StEustatius}}, {{StHelena}}, {{StKittsNevis}}, {{StLucia}}, {{StMaarten}}, {{StPierreandMiquelon}}, {{StVincentandGrenadines}}, {{Saipan}}, {{Samoa}}, {{SamoaAmerican}}, {{SanMarino}}, {{SaoTomeandPrincipe}}, {{SaudiArabia}}, {{Senegal}}, {{Seychelles}}, {{SierraLeone}}, {{Singapore}}, {{Slovakia}}, {{Slovenia}}, 
 						            // {{SolomonIslands}}, {{Somalia}}, {{SouthAfrica}}, {{Spain}}, {{SriLanka}}, {{Sudan}}, {{Suriname}}, {{Swaziland}}, {{Sweden}}, {{Switzerland}}, {{Syria}}, {{Tahiti}}, {{Taiwan}}, {{Tajikistan}}, {{Tanzania}}, {{Thailand}}, {{Togo}}, {{Tokelau}}, {{Tonga}}, {{TrinidadandTobago}}, 
 						            // {{Tunisia}}, {{Turkey}}, {{Turkmenistan}}, {{TurksandCaicosIs}}, {{Tuvalu}}, {{Uganda}}, {{UnitedKingdom}}, {{Ukraine}}, {{UnitedArabEmirates}}, {{UnitedStatesofAmerica}}, {{Uruguay}}, {{Uzbekistan}}, {{Vanuatu}}, {{VaticanCityState}}, {{Venezuela}}, {{Vietnam}}, {{VirginIslandsBrit}}, {{VirginIslandsUSA}}, {{WakeIsland}}, {{WallisandFutanaIs}}, 
+<<<<<<< Updated upstream
 						            // {{Yemen}}, {{Zaire}}, {{Zambia}}, {{Zimbabwe}} ],
+=======
+						            // {{Yemen}}, {{Zaire}}, {{Zambia}}, {{Zimbabwe}},],
+>>>>>>> Stashed changes
 
 						            backgroundColor: [
 						                'rgba(54, 162, 235, 1)',
@@ -131,6 +139,7 @@
 						                'rgba(75, 192, 192, 1)',
 						                'rgba(153, 102, 255, 1)',
 						                'rgba(255, 159, 64, 1)'
+
 						            ],
 						            borderWidth: 1
 						        }]

@@ -26,3 +26,8 @@ class EmployedFilter(django_filters.FilterSet):
 		model = Alumni
 		fields = ['firstname','lastname', 'alumni_employed']
 
+class CountryFilter(django_filters.FilterSet):
+	class Meta:
+		model = Alumni
+		fields = ['firstname','lastname', 'Country']
+
