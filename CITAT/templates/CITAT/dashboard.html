@@ -48,17 +48,31 @@
 	</head>
 	
 	<body>
+		<div class="row">
+		<div class="col">
+  			<div class="col-md">
+  				<div class="card text-center text-white mb-3" id="job-post">
+  					<div class="card-header">
+  						<h5 class="card-title">Total Alumni</h5>
+  					</div>
+  					<div class="card-body">
+  						<h3 class="card-title" >{{total_alumni}}</h3>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		</div>
 
 		<div class="row">
 			<div class="col">
 				<div class="col-md">
 					<div class="card text-center text-white mb-3" id="job-post">
 						<div class="card-header">
-							<h5 class="card-title"></h5>
+							<h5 class="card-title" href="{% url 'genderstatus'%}">Gender</h5>
 						</div>
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{% url 'genderstatus'%}"> Gender </a>
+								<a> Gender </a>
 							</h3>
 							<br>
 						</div>
@@ -66,9 +80,10 @@
 				</div>
 		
   			</div>
+  		</div>
 
 			<br>
-
+		<div class="row">	
 			<div class="col">
 				<div class="col-md">
 					<div class="card text-center text-white mb-3" id="job-post">
@@ -102,7 +117,9 @@
 					</div>
 				</div>
 			</div>
+		</div>
 
+		<div class="row">
 			<div class="col">
 				<div class="col-md">
 					<div class="card text-center text-white mb-3" id="job-seekers">
