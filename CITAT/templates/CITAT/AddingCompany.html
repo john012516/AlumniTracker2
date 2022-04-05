@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% extends 'CITAT/navbar.html' %}
+{% load static %}
+{% block content %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<title>Add Company</title>
+</head>
+<body>
+	<div class="container ">
+		<div class="row justify-content-center">
+			<div class="col-md-4">
+				<a class="btn btn-danger my-3" href="{% url 'account' %}">Go Back</a>
+				<div class="card">
+
+
+
+
+					<form method='POST' action="" enctype="multipart/form-data">
+						{% csrf_token %}
+
+						<div class="form-group m-3">
+							<label >Firstname</label>
+							<input name="firstname" type="text" placeholder="Enter your Firstname" class="form-control" >
+						</div>
+
+
+						<div class="form-group m-3">
+							<label >Lastname</label>
+							<input name="lastname" type="text" placeholder="Enter your Lastname" class="form-control" >
+						</div>
+
+						<div class="form-group m-3">
+							<label >Select available company in the category if not enter a new company name</label>
+							<Select name="category" class="form-control" >
+								<option value='none'>Select a company....</option>
+
+
+								{% for category in categories%}
+									<option value='{{category.id}}'>{{category.name}}</option>
+								{% endfor %}
+							</Select>
+
+						</div>
+
+						<div class="form-group m-3">
+							<label >Add Company</label>
+							<input name="category_new" type="text" placeholder="Enter your company name" class="form-control" >
+						</div>
+
+						<div class="form-group m-3">
+							<label >Company Address</label>
+							<input required name="address" type="text" placeholder="Enter Company Address" class="form-control" >
+						</div>
+
+						<div class="form-group m-3">
+							<label >Company Zipcode</label>
+							<input required name="zipcode" type="text" placeholder="Enter Company Zipcode" class="form-control" >
+						</div>
+
+						<div class="form-group m-3">
+							<label >Company Contact #</label>
+							<input required name="contact" type="text" placeholder="Enter Company Contact #" class="form-control" >
+						</div>
+
+						<div class="form-group m-3">
+							<label >Company Email</label>
+							<input required name="email" type="text" placeholder="Enter Company Email" class="form-control" >
+						</div>
+
+						<div class="form-group m-3">
+							<label >Position</label>
+							<input required name="position" type="text" placeholder="Position" class="form-control" >
+						</div>
+
+						<div class="form-group m-3">
+							<label >Income</label>
+							<Select name="Income" class="form-control" >
+								<option value='none'>Select income....</option>
+								<option value='10,000-20,000'>10,000-20,000</option>
+								<option value='20,000-30,000'>20,000-30,000</option>
+								<option value='30,000-40,000'>30,000-40,000</option>
+								<option value='50,000-70,000'>50,000-70,000</option>
+								<option value='70,000-80,000'>70,000-80,000</option>
+								<option value='80,000-90,000'>80,000-90,000</option>
+								<option value='90,000-100,000'>90,000-100,000</option>
+							</Select>
+						</div>
+
+						<div class="form-group m-3">
+							<label >Year Started</label>
+							<input required name="yearstarted" type="text" placeholder="Position" class="form-control" >
+						</div>
+
+
+						<div class="form-group m-3">
+							<label >Upload Image</label>
+							<input required name="image" type="file" class="form-control-file" >
+						</div>
+
+						<button type="submit" class="btn btn-danger m-3">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+{% endblock content %}
+</html>
+

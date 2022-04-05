@@ -156,7 +156,67 @@
 
 				</div>
 			</div>
+			<div class="col-md">
+				
+				<hr>
+				<div class="card card-body">
+					<a class="btn btn-danger btn-sm btn-block" href="">ALumni Company Info</a>
+					<table class="table table-sm">
+						<tr>
+							
+							<th>First Name</th>
+							<th>Company Name</th>
+							<th>Company Address</th>
+							
+						</tr>
+				
+						{% for Employed in employed %}
+						
+						<tr>
+							
+							<td>{{Employed.alumni.firstname}}</td>
+							<td>{{Employed.Company_name}}</td>
+							<td>{{Employed.Company_address}}</td>
+						</tr>
+				
+						{% endfor %}
+					</table>
+				</div>
+			</div>
 		</div>
+		<br>
+		<br>
+
+	<div class="row">
+		<div class="col-md">
+				<h5>Alumni</h5>
+				<hr>
+				<div class="card card-body">
+					<a class="btn btn-danger btn-sm btn-block" href="">ALumni Company Info</a>
+					<table class="table table-sm">
+						<tr>
+							
+							<th>First Name</th>
+							<th>Company Name</th>
+							<th>Company Address</th>
+							
+						</tr>
+				
+						{% for Employed in employed %}
+						
+						<tr>
+							
+							<td>{{Employed.alumni.firstname}}</td>
+							<td>{{Employed.Company_name}}</td>
+							<td>{{Employed.Company_address}}</td>
+						</tr>
+				
+						{% endfor %}
+					</table>
+				</div>
+			</div>
+
+	</div>
 
 	
 

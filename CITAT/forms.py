@@ -47,55 +47,7 @@ class EmployedModal(ModelForm):
 		fields = '__all__'
 		exclude = ['alumni']
 
-class UserEmployed(forms.ModelForm):
-	EMPLOYED = (
-		        ('Yes','Yes'), 
-				('No','No'),
-			   )
-	employed = forms.ChoiceField(choices=EMPLOYED, widget=forms.RadioSelect)
 
-	SKILLS = (
-		      ('Yes','Yes'),
-			  ('No', 'No'),
-			 )
-	skills = forms.ChoiceField(choices=SKILLS, widget=forms.RadioSelect)		 
-	class Meta:
-	    models = UserEmployed
-	    fields = '__all__'		
-
-class UserUnEmployedForm(forms.ModelForm):
-	SEEK = (
-		    ('Yes','Yes'),
-			('No','No'),
-	       )
-	seek = forms.ChoiceField(choices=SEEK, widget=forms.RadioSelect)
-
-	DESIRE = (
-		      ('Yes','Yes'),
-			  ('No', 'No'),
-	         )	 
-	desire = forms.ChoiceField(choices=DESIRE, widget=forms.RadioSelect)
-
-	CONSIDER = (
-		        ('Yes','Yes'),
-				('No','No'),
-	           )
-	consider = forms.ChoiceField(choices=CONSIDER, widget=forms.RadioSelect)		   		   
-	
-	class Meta:
-		models = UserUnemployed
-		fields = '__all__'
-
-class UserSelfEmployedForm(forms.ModelForm):
-	RELATED = (
-		       ('Yes','Yes'),
-			   ('No','No'),
-	          )
-	related = forms.ChoiceField(choices=RELATED, widget=forms.RadioSelect)		  
-
-	class Meta:
-		models = UserSelfemployed
-		fields = '__all__'
 		
 
 class CreateUserForm(UserCreationForm):

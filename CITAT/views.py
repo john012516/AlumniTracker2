@@ -10,7 +10,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from .decorators import unauthenticated_user, allowed_users, admin_only
-from .models import  UserEmployed, UserUnemployed, UserSelfemployed
+
 # Create your views here.
 
 
@@ -89,53 +89,6 @@ def userunemployed(request):
 
 
 
-# def add_userunemployed_form_submission(request):
-	
-
-
-# 	print("Hello, Unemployed form is submitted.")
-# 	reasons = request.POST["reasons"]
-# 	seek = request.POST["seek"]
-# 	aftergrad = request.POST["aftergrad"]
-# 	finance = request.POST["finance"]
-# 	desire =  request.POST["desire"]
-# 	consider = request.POST["consider"]
-
-# 	user_unemployed = UserUnemployed(reasons=reasons,seek=seek,aftergrad=aftergrad,finance=finance,desire=desire,consider=consider)
-# 	user_unemployed.save()
-
-# 	context = {'alumni':alumni}
-
-# 	return render(request, 'CITAT/User_Unemployed.html', context)	
-
-
-
-# @login_required(login_url='loginpage')
-# def userselfemployed(request):
-
-# 	return render(request, 'CITAT/User_SelfEmployed.html')
-
-
-
-
-# def add_userselfemployed_form_submission(request):
-# 	print("Hello, Self-employed form is submitted.") 
-# 	business = request.POST["business"]
-# 	#related_yes = request.POST["related_yes"]
-# 	#related_no = request.POST["related_no"]
-# 	related = request.POST["related"]
-# 	reason = request.POST["reason"]
-# 	numberofemployee = request.POST["numberofemployee"]
-# 	skills = request.POST["skills"]
-
-# 	user_selfemployed = UserSelfemployed(business=business,related=related,reason=reason,numberofemployee=numberofemployee,skills=skills)
-# 	user_selfemployed.save()
-
-# 	return render(request, 'CITAT/User_SelfEmployed.html')	
-
-
-
-
 def contactpage(request):
 	#return HttpResponse("contact");
 	if request.method == "POST":
@@ -205,6 +158,7 @@ def employedstatus(request):
 @admin_only
 def countrystatus(request):
 	alumni = Alumni.objects.all()
+	employed = Employed.objects.all()
 
 	myFilter = CountryFilter(request.GET, queryset=alumni)
 	alumni = myFilter.qs
@@ -460,7 +414,7 @@ def countrystatus(request):
 
 
 
-	context = {'alumni':alumni, 'myFilter': myFilter,
+	context = {'alumni':alumni, 'myFilter': myFilter, 'employed': employed,
 
 	'Afghanistan': Afghanistan, 'Albania': Albania,
 	'Algeria': Algeria, 'AmericanSamoa': AmericanSamoa, 'Andorra': Andorra, 'Angola': Angola, 'Anguilla': Anguilla, 'AntiguaBarbuda': AntiguaBarbuda,
@@ -776,12 +730,65 @@ def navbar(request):
 	context={'alumni': alumni}
 	return render(request, 'CITAT/navbar.html', context)
 
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['admin'])
+def companygallery(request):
+	category = request.GET.get('category')
+	if category == None:
+		photos = CompanyPhoto.objects.all()
+	else:
+		photos = CompanyPhoto.objects.filter(category__name__contains=category)
 
-def chatbot(request):
+	categories = Category.objects.all()	
 
-	context={}
-	return render(request, 'CITAT/chatbot.html', context)
+	context={'categories': categories, 'photos': photos}
+	return render(request, 'CITAT/CompanyGallery.html', context)
 
+
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['admin'])
+def viewcompany(request, pk):
+
+	photos = CompanyPhoto.objects.get(id=pk)
+
+	
+	return render(request, 'CITAT/ViewCompany.html', {'photos': photos})
+
+
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['alumni'])
+def addcompany(request):
+	categories = Category.objects.all()
+
+	if request.method == 'POST':
+		data=request.POST
+		image=request.FILES.get('image')
+
+		if data['category'] != 'none':
+			category = Category.objects.get(id=data['category'])
+		elif data['category_new'] != '':
+			category, created = Category.objects.get_or_create(name=data['category_new'])
+		else: 
+			category = None
+
+		photo = CompanyPhoto.objects.create(
+				category=category,
+				firstname=data['firstname'],
+				lastname=data['lastname'],
+				Company_address=data['address'],
+				Company_zipcode=data['zipcode'],
+				Company_contact=data['contact'],
+				Company_email=data['email'],
+				Position=data['position'],
+				Income=data['Income'],
+				Year_started=data['yearstarted'],
+				Company_pic=image,
+			)
+
+		return redirect('account')
+
+	context={'categories': categories}
+	return render(request, 'CITAT/AddingCompany.html', context)
 # def add_useremployed_form_submission(request):
 
 # 	print("Hello, Employed form is submitted.")

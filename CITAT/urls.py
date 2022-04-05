@@ -31,13 +31,15 @@ urlpatterns = [
     path('employedstatus/', views.employedstatus, name='employedstatus'),
     path('countrystatus/', views.countrystatus, name='countrystatus'),
 
+    path('employed/', views.employed, name="employed"),
+
+    path('addcompany/', views.addcompany, name='addcompany'),
+    path('companygallery/', views.companygallery, name='companygallery'),
+    path('viewcompany/<str:pk>/', views.viewcompany, name='viewcompany'),
 
 
 
     # path('useremployed/', views.useremployed, name="useremployed"),
-
-    path('employed/', views.employed, name="employed"),
-    path('chatbot/', views.chatbot, name="chatbot"),
     # path('add_useremployed_form_submission/', views.add_useremployed_form_submission, name="add_useremployed_form_submission"),
     # path('userunemployed/', views.userunemployed, name="userunemployed"),
     # path('add_userunemployed_form_submission/', views.add_userunemployed_form_submission, name="add_userunemployed_form_submission"),
