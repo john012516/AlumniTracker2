@@ -12,26 +12,39 @@
 
 	<style>
 		.image-thumbnail{
-			height: 500px;
-			width: 500px;
+			height: 200px;
+			width: 325px;
+			margin: 0 auto;
+			
 		}
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: poppins;
+			}
+		td.tble2{
+			padding-left: 20px;
+			padding-right: 20px;
+			text-align: left;
+			}
 	</style>
 </head>
 <body>
+	<div class="row">
+		<div class="col-md-3">
+	<!-- <div class="container">
+		<div class="row justify-content-center"> -->
+			<div class="card card-header">
+				<a class="btn btn-danger my-3" href="{% url 'companygallery' %}">Back</a>
 
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col">
-				<a class="btn btn-danger my-3" href="{% url 'companygallery' %}">Go Back</a>
-
-				<div style="height: 90vh;">
+				<div style="height: 50vh;">
 					<img class="image-thumbnail"
 					src="{{photos.Company_pic.url}}">
 				</div>
 			</div>
 		</div>
 
-		<div class="row justify-content-center">
+		<!-- <div class="row justify-content-center">
 			<p>{{photos.firstname}}, {{photos.lastname}}</p>
 			<p>{{photos.Company_address}}</p>
 			<p>{{photos.Company_zipcode}}</p>
@@ -41,9 +54,60 @@
 			<p>{{photos.Position}}</p>
 			<p>{{photos.Year_started}}</p>
 		</div>
-	</div>
+	</div> -->
 
-	
+	<div class="col-md-6">
+		<div class="card card-body">
+
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				<table>
+					<tbody>
+						<tr>
+							<td>Name: </td>
+							<td class="tble2">{{photos.firstname}} {{photos.lastname}}</td>
+						</tr>
+						<tr>
+							<td>Company Address: </td>
+							<td class="tble2"> {{photos.Company_address}} </td>
+						</tr>
+
+						<tr>
+							<td>Company Zipcode: </td>
+							<td class="tble2"> {{photos.Company_zipcode}} </td>
+						</tr>
+
+						<tr>
+							<td>Company Contact No.: </td>
+							<td class="tble2"> {{photos.Company_contact}} </td>
+						</tr>
+
+						<tr>
+							<td>Company Email: </td>
+							<td class="tble2"> {{photos.Company_email}} </td>
+						</tr>
+
+						<tr>
+							<td>Income: </td>
+							<td class="tble2"> {{photos.Income}} </td>
+						</tr>
+
+						<tr>
+							<td>Position: </td>
+							<td class="tble2"> {{photos.Position}} </td>
+						</tr>
+
+						<tr>
+							<td>Year Started: </td>
+							<td class="tble2"> {{photos.Year_started}} </td>
+						</tr>
+
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
 
 
 </body>

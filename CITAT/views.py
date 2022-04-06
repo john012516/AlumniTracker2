@@ -784,7 +784,7 @@ def addcompany(request):
 				Year_started=data['yearstarted'],
 				Company_pic=image,
 			)
-
+		messages.success(request, 'Successfully Submitted')
 		return redirect('account')
 
 	context={'categories': categories}

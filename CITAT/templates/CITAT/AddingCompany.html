@@ -104,6 +104,19 @@
 						</div>
 
 						<button type="submit" class="btn btn-danger m-3">Submit</button>
+						<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                                        <script>
+                                          // {%for message in messages %}
+                                            // swal('{{message}}');
+                                            // <p id="messages">{{message}}</p>
+                                            swal({
+                                      
+                                              title: '{{message}}',
+                                              dangerMode: true,
+                                            
+                                            })
+                                          //{%endfor%}
+                                        </script> 
 					</form>
 				</div>
 			</div>

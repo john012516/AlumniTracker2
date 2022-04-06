@@ -16,8 +16,15 @@
 		.image-thumbnail{
 			height: 200px;
 			width: 250px;
-			object-fit: cover;
+			object-fit: fill;
+			margin: 0 auto;
+			border-radius: 15%;
 		}
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: poppins;
+			}
 	</style>
 </head>
 <body>
@@ -56,15 +63,17 @@
 
 					{% for photo in photos %}
 					<div class="col-md-4">
-						<div class="card my-2">
-							<img class="image-thumbnail" src="{{photo.Company_pic.url}}" class="card-img-top" alt="...">
+						<div class="card" style="width: 18rem;">
+							<img class="image-thumbnail" src="{{photo.Company_pic.url}}" class="card-img-top" alt="Card image cap">
 
 							<div class="card-body">
-							    <small>Category: {{photo.category.name}}</small>
+								<h6 class="card-title">Category: {{photo.category.name}}</h6>
+								<h6 class="card-title">Name: {{photo.firstname}} {{photo.lastname}}</h6>
+							    <!-- <small>Category: {{photo.category.name}}</small>
 							    <br>
-							    <small>name: {{photo.firstname}} {{photo.lastname}}</small>
+							    <small>name: {{photo.firstname}} {{photo.lastname}}</small> -->
 						  	</div>
-						  	<a href="{% url 'viewcompany' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+						  	<a href="{% url 'viewcompany' photo.id %}" class="btn btn-danger">View</a>
 						</div>
 					</div>
 					{% empty %}
