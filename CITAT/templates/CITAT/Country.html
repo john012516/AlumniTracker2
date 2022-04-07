@@ -160,23 +160,23 @@
 				
 				<hr>
 				<div class="card card-body">
-					<a class="btn btn-danger btn-sm btn-block" href="">ALumni Company Info</a>
+					<a class="btn btn-danger btn-sm btn-block" href="{% url 'companygallery' %}">ALumni Company Info</a>
 					<table class="table table-sm">
 						<tr>
 							
 							<th>First Name</th>
+							<th>Last Name</th>
 							<th>Company Name</th>
-							<th>Company Address</th>
+							
 							
 						</tr>
 				
-						{% for Employed in employed %}
+						{% for Photos in photo %}
 						
 						<tr>
-							
-							<td>{{Employed.alumni.firstname}}</td>
-							<td>{{Employed.Company_name}}</td>
-							<td>{{Employed.Company_address}}</td>
+							<td>{{Photos.firstname}}</td>
+							<td>{{Photos.lastname}}</td>
+							<td>{{Photos.category.name}}</td>
 						</tr>
 				
 						{% endfor %}
@@ -187,36 +187,7 @@
 		<br>
 		<br>
 
-	<div class="row">
-		<div class="col-md">
-				<h5>Alumni</h5>
-				<hr>
-				<div class="card card-body">
-					<a class="btn btn-danger btn-sm btn-block" href="">ALumni Company Info</a>
-					<table class="table table-sm">
-						<tr>
-							
-							<th>First Name</th>
-							<th>Company Name</th>
-							<th>Company Address</th>
-							
-						</tr>
-				
-						{% for Employed in employed %}
-						
-						<tr>
-							
-							<td>{{Employed.alumni.firstname}}</td>
-							<td>{{Employed.Company_name}}</td>
-							<td>{{Employed.Company_address}}</td>
-						</tr>
-				
-						{% endfor %}
-					</table>
-				</div>
-			</div>
 
-	</div>
 
 	
 
