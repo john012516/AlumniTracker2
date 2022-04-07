@@ -19,5 +19,5 @@ admin.site.register(CompanyPhoto)
 admin.site.register(Carausel)
 
 
-admin.site.register(Carausel)
+
 
