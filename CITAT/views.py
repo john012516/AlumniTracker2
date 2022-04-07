@@ -11,6 +11,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
+
+
+from .models import  UserEmployed, UserUnemployed, UserSelfemployed
+from .models import Carausel
+
 # Create your views here.
 
 
@@ -724,7 +729,9 @@ def useremployed(request):
 
 
 def navbar(request):
+	
 	alumni = Alumni.objects.all()
+	
 
 
 	context={'alumni': alumni}
@@ -743,6 +750,7 @@ def companygallery(request):
 
 	context={'categories': categories, 'photos': photos}
 	return render(request, 'CITAT/CompanyGallery.html', context)
+
 
 
 @login_required(login_url='loginpage')
@@ -789,6 +797,16 @@ def addcompany(request):
 
 	context={'categories': categories}
 	return render(request, 'CITAT/AddingCompany.html', context)
+
+def Home(request):
+
+	obj = Carausel.objects.all()
+	context = {
+		'obj':obj
+	}
+	return render(request, 'CITAT/Home.html', context)	
+
+
 # def add_useremployed_form_submission(request):
 
 # 	print("Hello, Employed form is submitted.")

@@ -357,6 +357,14 @@ class Employed(models.Model):
 		return self.Company_name
 
 
+class Carausel(models.Model):
+	image = models.ImageField(upload_to='pics/%y/%m/%d/')
+	title = models.CharField(max_length=150)
+	sub_title = models.CharField(max_length=100)
+
+	def __str__(self):
+		return self.title
+
 
 
 

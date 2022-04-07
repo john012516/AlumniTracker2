@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 3rem 0;
+    z-index: 999;
+}
+
+
+
+.content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.text{
+    color: rgb(211, 10, 10);
+    flex: 1;
+}
+
+.text h1{
+    font-size: calc(1rem + 4vw);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.text h1 span{
+    color: rgb(201, 201, 29);
+}
+
+.text h3{
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 8rem 0 4rem 0;
+}
+
+.text p{
+    font-size: 1.7rem;
+    font-weight: bolder;
+    line-height: 1.6;
+    margin-bottom: 2 rem;
+}
+
+.text p span{
+    color: rgb(175, 175, 54);
+}
+
+.css-wrapper{
+    flex: 0 0 45%;
+}
+
+.logo1{
+    height: 500px;
+    width: 500px;
+}
+

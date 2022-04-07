@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
   <style>
     .hello-msg{
       font-size:  16px;
@@ -83,11 +84,13 @@
       border: 1px solid #f1f1f1;
       text-transform: uppercase;
     }
+ 
+    
   </style>
     
   </head>
   <body>
-    <nav style="background: linear-gradient(to right, #ffd700, #800000);">
+   <nav style="background: linear-gradient(to right, #ffd700, #800000);">
       <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
@@ -108,10 +111,12 @@
         <li><a href="{% url 'contact' %}">CONTACT US</a></li>
         {% else %}
 
-        <li><a href="{% url 'userPage' %}">HOME</a></li>          
+        <li><a href="{% url 'Home' %}">HOME</a></li>
+        <li><a href="{% url 'userPage' %}">JOBS</a></li>          
         <li><a href="{% url 'account' %}">PROFILE</a></li>   
         <li><a href="{% url 'about' %}">ABOUT US</a></li>
         <li><a href="{% url 'contact' %}">CONTACT US</a></li>
+
         <span class="hello-msg">Hello, {{request.user.first_name}}</span>
         
         {% endif %}
@@ -120,6 +125,16 @@
 
 
 
+
+        
+        {% endif %}
+
+
+
+        <span class="hello-msg">Hello, {{request.user.first_name}}</span>
+        <span><a class="hello-msg" href="{% url 'logout' %}">LOGOUT</a></span>
+
+         
 
 
 

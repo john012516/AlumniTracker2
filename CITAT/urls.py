@@ -30,6 +30,7 @@ urlpatterns = [
     path('coursestatus/', views.coursestatus, name='coursestatus'),
     path('employedstatus/', views.employedstatus, name='employedstatus'),
     path('countrystatus/', views.countrystatus, name='countrystatus'),
+    path('Home/', views.Home, name='Home'),
 
     path('employed/', views.employed, name="employed"),
 
