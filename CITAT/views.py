@@ -167,6 +167,7 @@ def employedstatus(request):
 def countrystatus(request):
 	alumni = Alumni.objects.all()
 	employed = Employed.objects.all()
+	photo = CompanyPhoto.objects.all()
 
 	myFilter = CountryFilter(request.GET, queryset=alumni)
 	alumni = myFilter.qs
@@ -422,7 +423,7 @@ def countrystatus(request):
 
 
 
-	context = {'alumni':alumni, 'myFilter': myFilter, 'employed': employed,
+	context = {'alumni':alumni, 'myFilter': myFilter, 'employed': employed, 'photo': photo,
 
 	'Afghanistan': Afghanistan, 'Albania': Albania,
 	'Algeria': Algeria, 'AmericanSamoa': AmericanSamoa, 'Andorra': Andorra, 'Angola': Angola, 'Anguilla': Anguilla, 'AntiguaBarbuda': AntiguaBarbuda,
