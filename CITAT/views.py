@@ -16,6 +16,9 @@ from .decorators import unauthenticated_user, allowed_users, admin_only
 from .models import  UserEmployed, UserUnemployed, UserSelfemployed
 from .models import Carausel
 
+
+
+
 # Create your views here.
 
 
@@ -806,6 +809,14 @@ def Home(request):
 	}
 	return render(request, 'CITAT/Home.html', context)	
 
+
+def Home(request):
+
+	obj = Carausel.objects.all()
+	context = {
+		'obj':obj
+	}
+	return render(request, 'CITAT/Home.html', context)	
 
 # def add_useremployed_form_submission(request):
 

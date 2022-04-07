@@ -12,8 +12,12 @@ admin.site.register(JoinEvent)
 admin.site.register(Jobs)
 admin.site.register(Employed)
 
+
 admin.site.register(Category)
 admin.site.register(CompanyPhoto)
+
+admin.site.register(Carausel)
+
 
 admin.site.register(Carausel)
 
