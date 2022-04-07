@@ -666,7 +666,7 @@ def accountSettings(request):
 		form = AlumniForm(request.POST, request.FILES, instance=alumni)
 		if form.is_valid():
 			form.save()
-		messages.success(request, 'Successfully Submitted')
+		messages.success(request, 'Successfully Updated')
 		return redirect('account')
 
 	context = {'form':form}
@@ -684,7 +684,7 @@ def employed(request):
 			instance = form.save(commit = False)
 			instance.alumni = request.user.alumni
 			instance.save()
-			messages.success(request, 'Successfully Submitted')
+			messages.success(request, 'Successfully Updated')
 			return redirect('account')
 
 			
