@@ -1,72 +1,31 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body{
+    background: url("/static/assets/img/citu-background.jpeg") no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+h1{
+    text-align: center;
+    color: maroon;
+    text-shadow: 2px 4px gold;
 }
 
-html{
-    font-size: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+h2{
+    text-align: center;
+    font-size: x-large;
+    color: maroon;
+    text-shadow: 2px 4px gold;
+}
+form{
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgb(38, 38, 38);
+    width: 85%;
+    height: auto; 
 }
 
-header{
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 3rem 0;
-    z-index: 999;
+form.form2{
+    background: rgba(255, 255, 255, 0.79);
 }
-
-
-
-.content{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 10;
+table{
+    text-align: center;
 }
-
-.text{
-    color: rgb(211, 10, 10);
-    flex: 1;
-}
-
-.text h1{
-    font-size: calc(1rem + 4vw);
-    font-weight: 800;
-    text-transform: uppercase;
-    line-height: 1.2;
-}
-
-.text h1 span{
-    color: rgb(201, 201, 29);
-}
-
-.text h3{
-    font-size: 2rem;
-    font-weight: 800;
-    margin: 8rem 0 4rem 0;
-}
-
-.text p{
-    font-size: 1.7rem;
-    font-weight: bolder;
-    line-height: 1.6;
-    margin-bottom: 2 rem;
-}
-
-.text p span{
-    color: rgb(175, 175, 54);
-}
-
-.css-wrapper{
-    flex: 0 0 45%;
-}
-
-.logo1{
-    height: 500px;
-    width: 500px;
-}
-

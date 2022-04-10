@@ -2,94 +2,92 @@
 {% extends 'CITAT/navbar.html' %}
 {% load static %}
 {% block content %}
-
-<html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8"/>
-		<meta name="viewport" 
-		content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
-
-		<title>CIT-U Alumni Tracker | Home</title>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        
+        <title>CIT-U Alumni Tracker System</title>
 	
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-		<!--Ionic icons CDN-->
-		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-		<link rel="stylesheet" href="{% static 'css/homepage.css' %}"/>
-       
-		
+        <link rel="stylesheet" href="{% static 'css/homepage.css' %}"/>
 
-	<style>
-        #logo{
+        <style>
+            #h2size{
+                font-size: 48px;
+                font-weight: bold;
+                color: maroon;
+                text-shadow: 2px 4px gold;
+            }
+			p.p0{
+				font-weight: bold;
+				font-size: 15px;
+				color: maroon;
+				
+			}
+			p.p0 span{
+				font-size: 17px;
+                font-weight: bold;
+                color: maroon;
+                text-shadow: 2px 4px gold;
+			}
+            p.p1{
+				font-size: 17px;
+                font-weight: bold;
+                color: darkgoldenrod;
+               
+                
+            }
+            i.a1{
+                text-decoration: underline;
+            }
+        </style>
+        
+    </head>
 
-    	}
-    	body{
-    		background-color: #ebeff5;
-    	}
+    <body>      
+        <center>
+            <form class="form2">
+                <br>
+                <h1> WELCOME TO </h1>
+                <label class="logo">
+                    <h2>
+                        <img class="bslogo" src="{% static 'assets/img/citu-ccs-logo.png' %}" alt="CCS logo" width="20%" height="15%"/>
+                        College of Computer Studies
+                    </h2>
+                </label>
 
-    	#job-post{
-    		background-color: #741e1e;
-    	}
+                <br>
+                
+                <h2 id="h2size" class="animate__animated animate__heartBeat">ALUMNI TRACKER SYSTEM </h2>
 
-    	#partner-company{
-    		background-color: #741e1e;
-    	}
+                <br>
 
-    	#job-seekers{
-    		background-color: #741e1e;
-		}
-
-		
-
-    </style>
-	</head>
-	
-	<body>
-
-		<div class="container">
-			<div class="content">
-				<div class="text">
-					<h1>Welcome <span>Alumni!</span></h1>
-					<h3>College of Computer Studies</h3>
-					<p><span>Vision</span><br>A leading Center of Excellence in Computing Education<br>
+				<p class="p0"><i><span>Vision</span><br>A leading Center of Excellence in Computing Education<br>
 					<span>Mission</span><br> To provide quality, industry-standard computing education<br>
 					<span>Goal</span><br> To produce values-driven, industry-preferred and competent<br> computing 
 					professionals through: proficient, supportive and<br> highly-trained faculty; appropriate 
 					facilities; programs and<br> pedagogy responsive to the community; as well as a culture<br> that 
-					encourages Creativity, Innovation, and Team-work.</p>
-				</div>
+					encourages Creativity, Innovation, and Team-work.</p></i>
+					
+				<br>
 
-				<div class="css-wrapper">
-					<label class="logo">
-                        <img class="logo1" src="{% static 'assets/img/citlogonew.png' %}" alt="CCS logo"/>
-                </label>
-				</div>
-			</div>
-		</div>
-
-		<!--<div class="overlay">
-			<div class="layer layer1"></div>
-			<div class="layer layer2"></div>
-			<div class="layer layer3"></div>
-		</div>-->
-		
-
-	
-			<!-- Optional JavaScript -->
-			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	
-			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-			<!--Gsap CDN    -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.5/gsap.min.js"></script>	
-		</div>
-	</body>
-	{% endblock content %}
+                <p class="p1">
+                   <i>
+                       Where we keep in touch with our former students, classmates, and fellow Technologians.
+                       <br> <br>
+                       And also to welcome you to be one of our <b>ALUMNI</b> and to be <i class="a1">one with our community.</i>
+                    </i>
+                </p>
+            </form>
+        </center>
+    </body>
+    {% endblock content %}
 </html>
