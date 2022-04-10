@@ -24,6 +24,16 @@
 		<br>
 		<div class="row">
 			<div class="col-md">
+				<div class="row">
+					<div class="col">
+						<div class="card card-body">
+							<form method="get">
+								{{myFilter.form}}
+								<button class="btn btn primary" type="submit"> Search </button>
+							</form>
+						</div>
+					</div>
+				</div>
 				<h5 style="margin-left: 5%;">Job Hunting</h5>
 				<hr>
 				<div class="card card-body">
@@ -31,7 +41,7 @@
 					<table class="table table-sm">
 						<tr>
 							<th>Job Name</th>
-							<th>Description</th>
+							<th>Email</th>
 							<th>Status</th>
 							<th>Update</th>
 							<th>Remove</th>
@@ -41,7 +51,7 @@
 					
 						<tr>
 							<td>{{job.jobname}}</td>
-							<td>{{job.description}}</td>
+							<td>{{job.job_email}}</td>
 							<td>{{job.status}}</td>
 							<td> <a class = "btn btn-sm btn-danger" href="{% url 'update_job' job.id %}">Update</a></td>
 							<td> <a class = "btn btn-sm btn-danger" href="{% url 'delete_job' job.id %}">Delete</a></td>

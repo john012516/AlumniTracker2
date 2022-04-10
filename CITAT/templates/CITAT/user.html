@@ -16,6 +16,17 @@
 	</head>
 	<body>
 
+				<div class="row">
+					<div class="col">
+						<div class="card card-body">
+							<form method="get">
+								{{myFilter.form}}
+								<button class="btn btn primary" type="submit"> Search </button>
+							</form>
+						</div>
+					</div>
+				</div>
+
 			<div class="col-md-12">
 				<h5 style="margin-left: 1%;">Availbale Jobs</h5>
 				<hr>
@@ -23,8 +34,10 @@
 					<table class="table table-sm">
 						<tr>
 							<th>Job Name</th>
-							<th>Description</th>
-							<th>status</th>
+							<th>Email</th>
+							<th>Status</th>
+							<th>Action</th>
+
 
 						</tr>
 				
@@ -32,8 +45,9 @@
 					
 						<tr>
 							<td>{{job.jobname}}</td>
-							<td>{{job.description}}</td>
+							<td>{{job.job_email}}</td>
 							<td>{{job.status}}</td>
+							<td><a class = "btn btn-sm btn-danger" href="{% url 'jobsView' job.id %}">View</a></td>
 						</tr>
 				
 						{% endfor %}

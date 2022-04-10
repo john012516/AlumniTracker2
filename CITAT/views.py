@@ -67,13 +67,16 @@ def logoutUser(request):
 @login_required(login_url='loginpage')
 @allowed_users(allowed_roles=['alumni'])
 def userPage(request):
-	jobs = Jobs.objects.all()
+	jobs = Jobs.objects.all()	
+
+	myFilter = JobFilter(request.GET, queryset=jobs)
+	jobs = myFilter.qs
 
 	total_jobs = jobs.count()
 	partnercompany = jobs.filter(status='Partner Company').count()
 	jobseekers = jobs.filter(status='Job Seekers').count()
 	
-	context = {'jobs':jobs,'total_jobs':total_jobs, 'partnercompany':partnercompany, 'jobseekers': jobseekers}
+	context = {'jobs':jobs,'total_jobs':total_jobs, 'partnercompany':partnercompany, 'jobseekers': jobseekers, 'myFilter': myFilter}
 	return render(request, 'CITAT/user.html', context )
 
 
@@ -527,11 +530,14 @@ def dashboardpage(request):
 def jobpage(request):
 	jobs = Jobs.objects.all()
 
+	myFilter = JobFilter(request.GET, queryset=jobs)
+	jobs = myFilter.qs
+
 	total_jobs = jobs.count()
 	partnercompany = jobs.filter(status='Partner Company').count()
 	jobseekers = jobs.filter(status='Job Seekers').count()
 
-	context = {'jobs':jobs, 'total_jobs':total_jobs, 'partnercompany':partnercompany, 'jobseekers': jobseekers}
+	context = {'jobs':jobs, 'total_jobs':total_jobs, 'partnercompany':partnercompany, 'jobseekers': jobseekers, 'myFilter': myFilter}
 
 	return render(request, 'CITAT/adminjob.html', context)
 
@@ -581,6 +587,32 @@ def createEvent(request):
 	
 	context = {'form': form}
 	return render(request, 'CITAT/CRUDevent.html', context)
+
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['alumni'])
+def eventsAlumni(request):
+	event = Event.objects.all()
+
+	myFilter = EventFilter(request.GET, queryset=event)
+	event = myFilter.qs
+
+	ongoingevent = event.filter(status='On-Going Events').count()
+	upcomingevent = event.filter(status='Upcoming Events').count()
+	completeevent = event.filter(status='Completed Events').count()
+
+	context = {'event':event, 'ongoingevent': ongoingevent, 'upcomingevent': upcomingevent, 'completeevent':completeevent,'myFilter':myFilter} 
+
+	return render(request, 'CITAT/eventsalumni.html', context)
+
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['alumni'])
+def EventView(request, pk):
+
+	event = Event.objects.get(id=pk)
+
+	
+	return render(request, 'CITAT/event_view.html', {'event':event})
+
 
 @login_required(login_url='loginpage')
 @allowed_users(allowed_roles=['admin'])
@@ -655,6 +687,16 @@ def deleteJob(request, pk):
 
 	context={'item':jobs}
 	return render(request, 'CITAT/deletejob.html', context)
+
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['alumni'])
+def jobsView(request, pk):
+
+	jobs = Jobs.objects.get(id=pk)
+
+	
+	return render(request, 'CITAT/jobs_view.html', {'jobs':jobs})
+
 
 
 @login_required(login_url='loginpage')

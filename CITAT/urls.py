@@ -23,6 +23,7 @@ urlpatterns = [
     path('alumnidashboard/<str:pk>/', views.alumnipage, name="alumni"),
     path('jobdashboard/', views.jobpage, name='jobpage'),
     path('eventdashboard/', views.eventpage, name='event'),
+    path('eventsAlumni/', views.eventsAlumni, name='eventsAlumni'),
 
     path('account/', views.accountSettings, name='account'),
 
@@ -37,6 +38,8 @@ urlpatterns = [
     path('addcompany/', views.addcompany, name='addcompany'),
     path('companygallery/', views.companygallery, name='companygallery'),
     path('viewcompany/<str:pk>/', views.viewcompany, name='viewcompany'),
+    path('jobsView/<str:pk>/', views.jobsView, name='jobsView'),
+    path('EventView/<str:pk>/', views.EventView, name='EventView'),
 
 
 
