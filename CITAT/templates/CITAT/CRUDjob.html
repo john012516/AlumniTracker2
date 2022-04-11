@@ -10,21 +10,97 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    
+    <style>
+          .label{
+            text-align: left;
+          }
+
+          
+          
+
+          .card{
+            border: 1px solid black;
+            background: rgba(128,128,128, 0.3);
+            color: maroon;
+            font-weight: bold;
+            font-size: 15px;
+            text-shadow: 1px 1px #ffffff;
+            align-items: center;
+            width: 600px;
+            
+            margin-left: 490px;
+            padding-top: 50px;
+          }
+          .btn{
+          border: 0;
+          border-radius: 5px;
+          padding: 8px 25px;
+          margin-top: 10px;
+          margin-left: 570px;
+          display: grid;
+          border: none;
+          cursor: pointer;
+          background-color: maroon;
+          color: white;
+          font-size: 15px;
+          
+         
+}
+
+      
+         
+
+          
+
+    </style>
+
 
     <title>CRUD JOB</title>
   </head>
   <body style="background: url('/static/assets/img/citu-background.jpeg') no-repeat; background-size: cover;">
     <div class="row">
       <div class="col-md-12">
-        <div class="card card-body">
+        <table class="card">
           <form action="" method="POST">
             {% csrf_token %}
-            {{form}}
-            <br>
-            <br>
+            <tr>
+              <td class="label">Company Name: </td>
+              <td class="field"> {{form.company_name}} </td>
+            </tr>
+            <tr>
+              <td>Job Name: </td>
+              <td> {{form.jobname}} </td>
+            </tr>
+            <tr>
+              <td class="label">Job Email: </td>
+              <td class="field"> {{form.job_email}} </td>
+            </tr>
+            <tr>
+              <td class="label">Job Telephone: </td>
+              <td class="field"> {{form.job_Telephone}} </td>
+            </tr>
+            <tr>
+              <td class="label">Job Phone: </td>
+              <td class="field"> {{form.job_phone}} </td>
+            </tr>
+            <tr>
+              <td class="label">Status: </td>
+              <td class="field"> {{form.status}} </td>
+            </tr>
+            <tr>
+              <td class="label">Job Picture: </td>
+              <td class="field"> {{form.job_pic}} </td>
+            </tr>
+            <tr>
+              <td class="label">Job Description: </td>
+              <td class="field"> {{form.description}} </td>
+            </tr>
             <input class="btn btn-primary" type="submit" name="submit">
           </form>
-        </div>
+        </table>
+        
+        
       </div>
     </div>
 
