@@ -140,6 +140,7 @@ class Alumni(models.Model):
 	Citizenship = models.CharField(max_length=200, null=True)
 	Date_of_Birth = models.DateField(auto_now_add=False, auto_now=False, null=True)
 	Place_of_Birth = models.CharField(max_length=200, null=True)
+	Age = models.CharField(max_length=200, null=True)
 	Course = models.CharField(max_length=200, null=True,choices=COURSE)
 	Year_graduated = models.CharField(max_length=200, null=True)
 	additional_degree = models.CharField(max_length=200, null=True)

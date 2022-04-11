@@ -154,7 +154,10 @@
 									<td>Last Name: </td>
 									<td class="tble2"> {{request.user.alumni.lastname}} </td>
 								</tr>
-
+								<tr>
+									<td>Age </td>
+									<td class="tble2"> {{request.user.alumni.Age}} </td>
+								</tr>
 								<tr>
 									<td>Email: </td>
 									<td class="tble2"> {{request.user.alumni.email}} </td>
@@ -179,7 +182,10 @@
 									<td>Country: </td>
 									<td class="tble2"> {{request.user.alumni.Country}} </td>
 								</tr>
-
+								<tr>
+									<td>Birthday</td>
+									<td class="tble2"> {{request.user.alumni.Date_of_Birth}} </td>
+								</tr>
 								<tr>
 									<td>Course: </td>
 									<td class="tble2"> {{request.user.alumni.Course}} </td>
@@ -422,6 +428,10 @@
 											<tr>
 												<td class="tble2">Date of Birth: </td>
 												<td class="tble2"> {{form.Date_of_Birth}} </td>
+											</tr>
+											<tr>
+												<td class="tble2">Age: </td>
+												<td class="tble2"> {{form.Age}} </td>
 											</tr>
 											<tr>
 												<td class="tble2">Place of Birth: </td>
