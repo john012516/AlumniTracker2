@@ -24,6 +24,7 @@ urlpatterns = [
     path('jobdashboard/', views.jobpage, name='jobpage'),
     path('eventdashboard/', views.eventpage, name='event'),
     path('eventsAlumni/', views.eventsAlumni, name='eventsAlumni'),
+    path('countrylist/', views.countrylist, name='countrylist'),
 
     path('account/', views.accountSettings, name='account'),
 

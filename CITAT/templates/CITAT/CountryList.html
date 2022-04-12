@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+		<title>CIT-U Alumni Tracker | Dashboard</title>
+	
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+				<!-- ChartJS  CDN-->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      /*.chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(255, 26, 104, 1);
+      }*/
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        /*width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(255, 26, 104, 0.2);*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 1100px;
+        height: 6650px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(255, 26, 104, 1);
+        background: white;
+      }
+
+      .margin{
+      	margin-left: 220px;
+      }
+
+      #myBtn {
+		  display: none;
+		  position: fixed;
+		  bottom: 20px;
+		  right: 30px;
+		  z-index: 99;
+		  font-size: 18px;
+		  border: none;
+		  outline: none;
+		  background-color: red;
+		  color: white;
+		  cursor: pointer;
+		  padding: 15px;
+		  border-radius: 4px;
+		}
+
+		#myBtn:hover {
+		  background-color: #555;
+		}
+
+    </style>
+		
+  </head>
+
+  <body>
+
+  	<button onclick="topFunction()" id="myBtn" title="Go to top">Back to the top</button>
+
+
+  	<div class="margin">
+  	<a class="btn btn-danger my-3" href="{% url 'countrystatus' %}">Back</a>
+  	</div>
+ 
+
+   <div class="chartMenu">
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart" width="800" height="5000"></canvas>
+      </div>
+    </div>
+
+    <script>
+
+    // setup 
+    const data = {
+      labels: ['Afghanistan', 'Albania', 'Algeria', 'AmericanSamoa', 'Andorra', 'Angola', 'Anguilla', 'AntiguaBarbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda',
+				'Bhutan', 'Bolivia', 'Bonaire', 'BosniaHerzegovina', 'Botswana', 'Brazil', 'BritishIndianOceanTer',
+				'Brunei', 'Bulgaria',
+
+				'Cambodia', 'Cameroon', 'Canada', 'CanaryIslands', 'CapeVerde' , 'CaymanIslands', 'CentralAfricanRepublic','Chad', 'ChannelIslands', 'Chile', 'China', 'ChristmasIsland', 'CocosIsland', 'Colombia', 'Comoros', 'Congo', 'CookIslands', 'CostaRica', 'CoteDIvoire', 'Croatia', 'Cuba', 'Curacao', 'Cyprus', 'CzechRepublic',
+
+				'Denmark', 'Djibouti', 'Dominica', 'DominicanRepublic', 'Gibraltar', 
+
+				'EastTimor', 'Ecuador', 'Egypt', 'ElSalvador', 'EquatorialGuinea', 'Eritrea', 'Estonia', 'Ethiopia',
+
+				'FalklandIslands', 'FaroeIslands', 'Fiji', 'Finland', 'France', 'FrenchGuiana', 'FrenchPolynesia','FrenchSouthernTer',
+
+				'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'GreatBritain', 'Greece', 'Greenland', 'Grenada', 
+					'Guadeloupe', 'Guam', 'Guatemala', 'Guinea', 'Guyana',
+
+				'Honduras','Haiti','HongKong','Hungary',
+
+				'Iceland','Indonesia','India','Iran','Iraq','Ireland', 'IsleofMan','Israel','Italy',
+
+				'Jamaica','Japan','Jordan',
+
+				'Kazakhstan','Kenya','Kiribati','KoreaNorth', 'KoreaSouth','Kuwait','Kyrgyzstan',
+
+				'Laos','Latvia','Lebanon','Lesotho','Liberia','Liechtenstein','Lithuania', 'Luxembourg',
+
+				'Macau','Macedonia','Madagascar','Malaysia','Malawi','Maldives','Mali','Malta','MarshallIslands', 'Martinique','Mauritania','Mauritius','Mayotte','Mexico','Midway','Moldova','Monaco','Mongolia','Montserrat', 'Morocco','Mozambique','Myanmar',
+
+				'Nambia','Nauru','Nepal','NetherlandAntilles','NetherlandsHollandEurope','Nevis','NewCaledonia','NewZealand','Nicaragua','Niger','Nigeria','Niue','NorfolkIsland','Norway',
+
+				'Oman',
+
+				'Pakistan','PalauIsland', 'Palestine','Panama','PapuaNewGuinea','Paraguay','Peru','Philippines', 'PitcairnIsland','Poland','Portugal','PuertoRico',
+
+				'Qatar',
+
+				'RepublicofMontenegro','RepublicofSerbia','Romania','Russia',
+
+				'StBarthelemy','StEustatius','StHelena','StKittsNevis','StLucia', 'StMaarten', 'StPierreandMiquelon','StVincentandGrenadines','Saipan','Samoa','SamoaAmerican', 'SanMarino','SaoTomeandPrincipe','SaudiArabia','Senegal','Seychelles', 'SierraLeone','Singapore','Slovakia','Slovenia','SolomonIslands','Somalia','SouthAfrica','Spain', 'SriLanka','Sudan','Suriname', 'Swaziland','Sweden','Switzerland','Syria',
+
+				'Tahiti','Taiwan','Tajikistan','Tanzania','Thailand', 'Togo','Tokelau','Tonga','TrinidadandTobago',
+					'Tunisia','Turkey','Turkmenistan','TurksandCaicosIs','Tuvalu',
+
+				'Uganda', 'UnitedKingdom','Ukraine','UnitedArabEmirates','UnitedStatesofAmerica','Uruguay','Uzbekistan',
+				
+				'Vanuatu','VaticanCityState','Venezuela','Vietnam', 'VirginIslandsBrit','VirginIslandsUSA',
+
+				'WakeIsland','WallisandFutanaIs',
+
+				'Yemen',
+
+				'Zaire','Zambia','Zimbabwe',],
+      datasets: [{
+        label: 'Countries Graph',
+        data: [{{Afghanistan}}, {{Albania}}, {{Algeria}} , {{AmericanSamoa}}, 
+				{{Andorra}}, {{Angola}}, {{Anguilla}}, {{AntiguaBarbuda}}, 
+				{{Argentina}}, {{Armenia}}, {{Aruba}}, {{Australia}}, 
+				{{Austria}}, {{Azerbaijan}},
+
+				{{Bahamas}}, {{Bahrain}}, {{Bangladesh}}, {{Barbados}}, 
+				{{Belarus}}, {{Belgium}}, {{Belize}}, {{Benin}}, {{Bermuda}}, 
+				{{Bhutan}}, {{Bolivia}}, {{Bonaire}}, {{BosniaHerzegovina}}, 
+				{{Botswana}}, {{Brazil}}, {{BritishIndianOceanTer}}, {{Brunei}},
+				{{Bulgaria}}, 
+
+				{{Cambodia}}, {{Cameroon}}, {{Canada}}, {{CanaryIslands}}, 
+				{{CapeVerde}}, {{CaymanIslands}}, {{CentralAfricanRepublic}},
+				{{Chad}}, {{ChannelIslands}}, {{Chile}}, {{China}},
+				{{ChristmasIsland}}, {{CocosIsland}}, {{Colombia}}, {{Comoros}},
+				{{Congo}}, {{CookIslands}}, {{CostaRica}}, {{CoteDIvoire}}, 
+				{{Croatia}}, {{Cuba}}, {{Curacao}}, {{Cyprus}}, {{CzechRepublic}},
+				 
+				{{Denmark}}, {{Djibouti}}, {{Dominica}}, {{DominicanRepublic}},
+				 
+				{{EastTimor}}, {{Ecuador}}, {{Egypt}}, {{ElSalvador}},
+				{{EquatorialGuinea}}, {{Eritrea}}, {{Estonia}}, {{Ethiopia}}, 
+
+				{{FalklandIslands}}, {{FaroeIslands}}, {{Fiji}}, {{Finland}}, 
+				{{France}}, {{FrenchGuiana}}, {{FrenchPolynesia}}, 
+				{{FrenchSouthernTer}}, 
+
+				{{Gabon}}, {{Gambia}}, {{Georgia}}, {{Germany}}, {{Ghana}}, 
+				{{Gibraltar}}, {{GreatBritain}}, {{Greece}}, {{Greenland}}, 
+				{{Grenada}}, {{Guadeloupe}}, {{Guam}}, {{Guatemala}}, {{Guinea}}, 
+				{{Guyana}}, 
+
+				{{Honduras}}, {{Haiti}}, {{HongKong}}, {{Hungary}}, 
+
+				{{Iceland}}, {{Indonesia}}, {{India}}, {{Iran}}, {{Iraq}}, 
+				{{Ireland}}, {{IsleofMan}}, {{Israel}}, {{Italy}}, 
+
+				{{Jamaica}}, {{Japan}}, {{Jordan}}, 
+
+				{{Kazakhstan}}, {{Kenya}}, {{Kiribati}}, {{KoreaNorth}}, 
+				{{KoreaSouth}}, {{Kuwait}}, {{Kyrgyzstan}}, 
+
+				{{Laos}}, {{Latvia}}, {{Lebanon}}, {{Lesotho}}, {{Liberia}}, 
+				{{Liechtenstein}}, {{Lithuania}}, {{Luxembourg}}, 
+
+				{{Macau}}, {{Macedonia}}, {{Madagascar}}, {{Malaysia}}, 
+				{{Malawi}}, {{Maldives}}, {{Mali}}, {{Malta}}, 
+				{{MarshallIslands}}, {{Martinique}}, {{Mauritania}}, 
+				{{Mauritius}}, {{Mayotte}}, {{Mexico}}, 
+				{{Midway}}, {{Moldova}}, {{Monaco}}, {{Mongolia}}, 
+				{{Montserrat}}, {{Morocco}}, {{Mozambique}}, {{Myanmar}},
+
+				{{Nambia}}, {{Nauru}}, {{Nepal}}, {{NetherlandAntilles}}, 
+				{{NetherlandsHollandEurope}}, {{Nevis}}, {{NewCaledonia}}, 
+				{{NewZealand}}, {{Nicaragua}}, {{Niger}}, {{Nigeria}}, {{Niue}}, 
+				{{NorfolkIsland}}, {{Norway}}, 
+
+				{{Oman}}, 
+
+				{{Pakistan}}, {{PalauIsland}}, {{Palestine}}, {{Panama}}, 
+				{{PapuaNewGuinea}}, {{Paraguay}}, {{Peru}}, {{Philippines}}, 
+				{{PitcairnIsland}}, {{Poland}}, {{Portugal}}, {{PuertoRico}},
+
+				{{Qatar}}, 
+
+				{{RepublicofMontenegro}}, {{RepublicofSerbia}}, {{Romania}},
+				{{Russia}}, 
+
+				{{StBarthelemy}}, {{StEustatius}}, {{StHelena}}, 
+				{{StKittsNevis}}, {{StLucia}}, {{StMaarten}}, 
+				{{StPierreandMiquelon}}, {{StVincentandGrenadines}}, {{Saipan}},
+				{{Samoa}}, {{SamoaAmerican}}, {{SanMarino}}, 
+				{{SaoTomeandPrincipe}}, {{SaudiArabia}}, {{Senegal}}, 
+				{{Seychelles}}, {{SierraLeone}}, {{Singapore}}, {{Slovakia}}, 
+				{{Slovenia}}, {{SolomonIslands}}, {{Somalia}}, {{SouthAfrica}}, 
+				{{Spain}}, {{SriLanka}}, {{Sudan}}, {{Suriname}}, {{Swaziland}}, 
+				{{Sweden}}, {{Switzerland}}, {{Syria}}, 
+
+				{{Tahiti}}, {{Taiwan}}, {{Tajikistan}}, {{Tanzania}}, 
+				{{Thailand}}, {{Togo}}, {{Tokelau}}, {{Tonga}}, 
+				{{TrinidadandTobago}}, {{Tunisia}}, {{Turkey}}, {{Turkmenistan}}, 
+				{{TurksandCaicosIs}}, {{Tuvalu}}, 
+
+				{{Uganda}}, {{UnitedKingdom}}, {{Ukraine}}, 
+				{{UnitedArabEmirates}}, {{UnitedStatesofAmerica}}, {{Uruguay}}, 
+				{{Uzbekistan}}, 
+
+				{{Vanuatu}}, {{VaticanCityState}}, {{Venezuela}}, {{Vietnam}}, 
+				{{VirginIslandsBrit}}, {{VirginIslandsUSA}}, 
+
+				{{WakeIsland}}, {{WallisandFutanaIs}}, 
+
+				{{Yemen}}, 
+
+				{{Zaire}}, {{Zambia}}, {{Zimbabwe}},],
+
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(0, 0, 0, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(0, 0, 0, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+      	indexAxis:'y',
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+ 
+
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    </script>
+
+    <script>
+	//Get the button
+	var mybutton = document.getElementById("myBtn");
+
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	    mybutton.style.display = "block";
+	  } else {
+	    mybutton.style.display = "none";
+	  }
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+	  document.body.scrollTop = 0;
+	  document.documentElement.scrollTop = 0;
+	}
+	</script>
+
+   
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+	{% endblock content %}
+	</html>
