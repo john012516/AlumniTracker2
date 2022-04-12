@@ -12,16 +12,34 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
 
     <title>Delete JOB</title>
+    <style>
+      .row{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card{
+        font-size: 24px;
+        font-weight: 500;
+        padding: 40px 10px;
+        text-align: center;
+      }
+      .btn{
+        margin: 10px;
+        width: 100px;
+        padding: 10px 10px;
+      }
+    </style>
   </head>
   <body style="background: url('/static/assets/img/citu-background.jpeg') no-repeat; background-size: cover;">
     <div class= "row">
       <div class= "col-md-6">
         <div class = "card card-body">  
-          <p> are you sure you want to delete the "{{item}}"</p>
-          <form action="{%url 'delete_event' item.id %}"method="POST">
+          <p> Are you sure you want to delete the "{{item}}"?</p>
+          <form action="{%url 'delete_job' item.id %}"method="POST">
             {% csrf_token %}
             <a class="btn btn-warning" href = "{% url 'event' %}"> Cancel</a>
-            <input class="btn btn-danger" type="submit" name="Confirm">
+            <input class="btn btn-danger" type="submit" name="Confirm"  value="Confirm">
           </form>
         </div>
       </div>

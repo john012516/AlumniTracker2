@@ -18,6 +18,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 		<link rel="stylesheet" href="{% static 'css/dashboard.css' %}"/>
+		<style>
+			h2{
+				color: maroon;
+				text-shadow: 2px 1px gold;
+				font-weight: bold;
+			}
+		</style>
 	</head>
 	
 	<body>
@@ -29,12 +36,13 @@
 						<div class="card card-body">
 							<form method="get">
 								{{myFilter.form}}
-								<button class="btn btn primary" type="submit"> Search </button>
+								<button class="btn btn-danger" type="submit"> Search </button>
 							</form>
 						</div>
 					</div>
 				</div>
-				<h5 style="margin-left: 5%;">Job Hunting</h5>
+				<!-- <h5 style="margin-left: 5%;">Job Hunting</h5> -->
+				<h2 align="center">Job Hunting</h2>
 				<hr>
 				<div class="card card-body">
 					<a class="btn btn-danger btn-sm btn-block" href="{% url 'create_job' %}">Job Available</a>
