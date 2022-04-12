@@ -16,8 +16,15 @@
             text-align: left;
           }
 
+          .field{
+            padding-left: 15%;
+          }
           
-          
+          body{
+            margin: 0;
+            padding: 0;
+            font-family: poppins;
+          }
 
           .card{
             border: 1px solid black;
@@ -26,33 +33,24 @@
             font-weight: bold;
             font-size: 15px;
             text-shadow: 1px 1px #ffffff;
-            align-items: center;
             width: 600px;
-            
-            margin-left: 490px;
-            padding-top: 50px;
+            padding-top: 25px;
+            padding-bottom: 25px;
           }
           .btn{
           border: 0;
           border-radius: 5px;
-          padding: 8px 25px;
           margin-top: 10px;
-          margin-left: 570px;
           display: grid;
           border: none;
           cursor: pointer;
           background-color: maroon;
           color: white;
-          font-size: 15px;
-          
-         
-}
+          font-size: 13px; 
+          margin-left: 15px;
+         }
 
       
-         
-
-          
-
     </style>
 
 
@@ -61,16 +59,18 @@
   <body style="background: url('/static/assets/img/citu-background.jpeg') no-repeat; background-size: cover;">
     <div class="row">
       <div class="col-md-12">
-        <table class="card">
+        <center>
+        <div class="card">
           <form action="" method="POST">
             {% csrf_token %}
+            <table>
             <tr>
               <td class="label">Company Name: </td>
               <td class="field"> {{form.company_name}} </td>
             </tr>
             <tr>
-              <td>Job Name: </td>
-              <td> {{form.jobname}} </td>
+              <td class="label">Job Name: </td>
+              <td class="field"> {{form.jobname}} </td>
             </tr>
             <tr>
               <td class="label">Job Email: </td>
@@ -89,16 +89,21 @@
               <td class="field"> {{form.status}} </td>
             </tr>
             <tr>
-              <td class="label">Job Picture: </td>
-              <td class="field"> {{form.job_pic}} </td>
-            </tr>
-            <tr>
               <td class="label">Job Description: </td>
               <td class="field"> {{form.description}} </td>
             </tr>
-            <input class="btn btn-primary" type="submit" name="submit">
-          </form>
+            
+            <tr>
+              <td class="label">Job Picture: </td>
+              <td class="field"> {{form.job_pic}} </td>
+            </tr>
+
+
         </table>
+        <input class="btn btn-primary" type="submit" name="submit">
+          </form>
+        </div>
+      </center>
         
         
       </div>
