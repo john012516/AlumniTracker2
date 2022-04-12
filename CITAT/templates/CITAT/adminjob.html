@@ -54,7 +54,7 @@
 				<h2 align="center">Job Hunting</h2>
 				<hr>
 				<div class="card card-body">
-					<a class="btn btn-danger btn-sm btn-block" href="{% url 'create_job' %}">Job Available</a>
+					<a class="btn btn-danger btn-sm btn-block" href="{% url 'jobpage' %}">Job Available</a>
 					<table class="table table-sm">
 						<tr>
 							<th>Job Name</th>
@@ -62,6 +62,8 @@
 							<th>Status</th>
 							<th>Update</th>
 							<th>Remove</th>
+							<th>Action</th>
+
 						</tr>
 				
 						{% for job in jobs %}
@@ -72,6 +74,7 @@
 							<td>{{job.status}}</td>
 							<td> <a class = "btn btn-sm btn-danger" href="{% url 'update_job' job.id %}">Update</a></td>
 							<td> <a class = "btn btn-sm btn-danger" href="{% url 'delete_job' job.id %}">Delete</a></td>
+							<td><a class = "btn btn-sm btn-danger" href="{% url 'AdminjobsView' job.id %}">View</a></td>
 						</tr>
 				
 						{% endfor %}

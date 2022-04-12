@@ -31,16 +31,6 @@
 		.bold{
 			font-weight: bold;
 		}
-		.btn{
-          border: 0;
-          border-radius: 5px;
-          cursor: pointer;
-          background-color: maroon;
-          color: white;
-          font-size: 18px; 
-          
-         }
-
 	</style>
 </head>
 <body>
@@ -49,13 +39,32 @@
 	<!-- <div class="container">
 		<div class="row justify-content-center"> -->
 			<div class="card card-header">
-				<a class="btn btn-danger my-3" href="{% url 'eventsAlumni' %}">Back</a>
+				<a class="btn btn-danger my-3" href="{% url 'jobpage' %}">Back</a>
 
 				<div style="height: 50vh;" class="bold">
 					<img class="image-thumbnail"
-					src="{{event.event_pic.url}}">
+					src="{{jobs.job_pic.url}}">
+
+						<!-- <p >Contact Informations:</p>
+
+						<tr>
+							<td>Company Email: </td>
+							<td class="tble2" > {{jobs.job_email}} </td>
+						</tr>
+
+						<tr>
+							<td  class="bold">Company Telephone No.: </td>
+							<td class="tble2"> {{jobs.job_Telephone}} </td>
+						</tr>
+
+						<tr >
+							<td >Company Phone No.: </td>
+							<td class="tble2" > {{jobs.job_phone}} </td>
+						</tr> -->
 				</div>
-				
+
+
+
 			</div>
 		</div>
 
@@ -68,36 +77,42 @@
 				<table>
 					<tbody>
 						<tr>
-							<td>Event name:</td>
-							<td class="tble2">{{event.Eventname}}</td>
+							<td>Company Name:</td>
+							<td class="tble2">{{jobs.company_name}}</td>
 						</tr>
 						<tr>
-							<td>Date: </td>
-							<td class="tble2">{{event.date}}</td>
+							<td>Position: </td>
+							<td class="tble2">{{jobs.jobname}}</td>
 						</tr>
 						<tr>
-							<td>Start Time: </td>
-							<td class="tble2"> {{event.start_time}} </td>
+							<td>Description: </td>
+							<td class="tble2"> {{jobs.description}} </td>
+						</tr>
+						</tbody>
+					</table>
+					<table>
+						<br>
+						<tr>
+						<p ><b>Contact Informations:<b></p>
 						</tr>
 						<tr>
-							<td>End Time: </td>
-							<td class="tble2"> {{event.end_time}} </td>
-						</tr>
-						<tr>
-							<td>Location: </td>
-							<td class="tble2"> {{event.place}} </td>
-						</tr>
-						<tr>
-							<td>Status: </td>
-							<td class="tble2"> {{event.status}} </td>
+							<td>Company Email: </td>
+							<td class="tble2" > {{jobs.job_email}} </td>
 						</tr>
 
+						<tr>
+							<td>Company Telephone No.: </td>
+							<td class="tble2"> {{jobs.job_Telephone}} </td>
+						</tr>
 
-						
+						<tr >
+							<td >Company Phone No.: </td>
+							<td class="tble2" > {{jobs.job_phone}} </td>
+						</tr>
 
 
 					</tbody>
-				</table>
+					</table>
 			</form>
 		</div>
 	</div>

@@ -613,6 +613,15 @@ def EventView(request, pk):
 	
 	return render(request, 'CITAT/event_view.html', {'event':event})
 
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['admin'])
+def AdminEventView(request, pk):
+
+	event = Event.objects.get(id=pk)
+
+	
+	return render(request, 'CITAT/admin_event_view.html', {'event':event})
+
 
 @login_required(login_url='loginpage')
 @allowed_users(allowed_roles=['admin'])
@@ -696,6 +705,15 @@ def jobsView(request, pk):
 
 	
 	return render(request, 'CITAT/jobs_view.html', {'jobs':jobs})
+
+@login_required(login_url='loginpage')
+@allowed_users(allowed_roles=['admin'])
+def AdminjobsView(request, pk):
+
+	jobs = Jobs.objects.get(id=pk)
+
+	
+	return render(request, 'CITAT/admin_job_view.html', {'jobs':jobs})
 
 
 
