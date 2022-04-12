@@ -60,7 +60,8 @@
 						<tr>
 							<th>Event Name</th>
 							<th>Date</th>
-							<th>Time</th>
+							<th>Start Time</th>
+							<th>End Time</th>
 							<th>Place</th>
 							<th>Status</th>
 							<th>Update</th>
@@ -72,7 +73,8 @@
 						<tr>
 							<td>{{i.Eventname}}</td>
 							<td>{{i.date}}</td>
-							<td>{{i.time}}</td>
+							<td>{{i.start_time}}</td>
+							<td>{{i.end_time}}</td>
 							<td>{{i.place}}</td>
 							<td>{{i.status}}</td>
 							<td> <a class = "btn btn-sm btn-danger" href="{% url 'update_event' i.id %}">Update</a></td>
