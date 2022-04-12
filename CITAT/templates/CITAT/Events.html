@@ -22,9 +22,17 @@
 		<style>
 			h2{
 				color: maroon;
-				text-shadow: 2px 3px gold;
+				text-shadow: 2px 1px gold;
 				font-weight: bold;
 			}
+			button {  
+				position: absolute;
+				top: 20%;
+	            left: 66%;
+				padding: 10px;
+				color: black;    
+				margin: auto;  
+			} 
 		</style>
 	</head>
 	<body>
@@ -34,8 +42,12 @@
 					<div class="col">
 						<div class="card card-body">
 							<form method="get">
-								{{myFilter.form}}
-								<button class="btn btn primary" type="submit"> Search </button>
+								<center>
+								<h6>{{myFilter.form}}</h6>
+								</center>
+
+									<button class="btn btn-danger" type="submit"> Search </button>
+								
 							</form>
 						</div>
 					</div>
