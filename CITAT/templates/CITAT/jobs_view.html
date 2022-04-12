@@ -11,6 +11,16 @@
 	<title>View Company Details</title>
 
 	<style>
+		.btn{
+          border: 0;
+          display: grid;
+          border: none;
+          cursor: pointer;
+          background-color: maroon;
+          color: white;
+          
+          
+         }
 		.image-thumbnail{
 			height: 250px;
 			width: 250px;
@@ -23,14 +33,26 @@
 			padding: 0;
 			font-family: poppins;
 			}
+
 		td.tble2{
-			padding-left: 20px;
-			padding-right: 20px;
+			padding: 20px;
 			text-align: left;
-			}
+		}
+
 		.bold{
 			font-weight: bold;
 		}
+
+		.card-body{
+			width: 1160px;
+			
+		}
+
+		.card-header{
+			margin-left: 5px;
+		}
+
+		
 	</style>
 </head>
 <body>
@@ -45,7 +67,7 @@
 					<img class="image-thumbnail"
 					src="{{jobs.job_pic.url}}">
 
-						<!-- <p >Contact Informations:</p>
+						<p >Contact Informations:</p>
 
 						<tr>
 							<td>Company Email: </td>
@@ -54,13 +76,13 @@
 
 						<tr>
 							<td  class="bold">Company Telephone No.: </td>
-							<td class="tble2"> {{jobs.job_Telephone}} </td>
+							<td class="tble2"> {{jobs.job_Telephone}} </td><br>
 						</tr>
 
 						<tr >
 							<td >Company Phone No.: </td>
 							<td class="tble2" > {{jobs.job_phone}} </td>
-						</tr> -->
+						</tr>
 				</div>
 
 
@@ -77,37 +99,16 @@
 				<table>
 					<tbody>
 						<tr>
-							<td>Company Name:</td>
+							<td class="label">Company Name:</td>
 							<td class="tble2">{{jobs.company_name}}</td>
 						</tr>
 						<tr>
-							<td>Position: </td>
+							<td class="label">Position: </td>
 							<td class="tble2">{{jobs.jobname}}</td>
 						</tr>
 						<tr>
-							<td>Description: </td>
+							<td class="label">Description: </td>
 							<td class="tble2"> {{jobs.description}} </td>
-						</tr>
-						</tbody>
-					</table>
-					<table>
-						<br>
-						<tr>
-						<p ><b>Contact Informations:<b></p>
-						</tr>
-						<tr>
-							<td>Company Email: </td>
-							<td class="tble2" > {{jobs.job_email}} </td>
-						</tr>
-
-						<tr>
-							<td>Company Telephone No.: </td>
-							<td class="tble2"> {{jobs.job_Telephone}} </td>
-						</tr>
-
-						<tr >
-							<td >Company Phone No.: </td>
-							<td class="tble2" > {{jobs.job_phone}} </td>
 						</tr>
 
 

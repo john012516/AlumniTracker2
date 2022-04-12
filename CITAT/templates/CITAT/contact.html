@@ -58,6 +58,19 @@
 				background: rgba(255, 255, 255, 0.75);
 				font-weight: bold;
 			}
+
+			input.btn-primary{
+				border: 0;
+				border-radius: 5px;
+				margin-top: 10px;
+				display: grid;
+				border: none;
+				cursor: pointer;
+				background-color: maroon;
+				color: white;
+				font-size: 13px; 
+				margin-left: 15px;
+         	}
 		</style>
 	</head>
 	<body>
@@ -73,7 +86,7 @@
 				<input type="email" id="email" name="Email" placeholder="Email" required>
 				<label for="subject">Subject</label>
 				<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-				<input type="submit" class="btn btn-success btn-lg mt-1 ml-4" value="Submit">
+				<input class="btn btn-primary" type="submit" name="submit">
 			</form>
 		</div>
 		
